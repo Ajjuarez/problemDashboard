@@ -1,0 +1,50 @@
+/*Create a test table*/
+
+CREATE TABLE testTable (
+    contact_id INTEGER PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    phone TEXT NOT NULL UNIQUE
+);
+
+/*Insert into test table*/
+INSERT INTO testTable(contact_id, first_name, last_name, email, phone)
+VALUES(1, 'Bob','Jones','bj@jones.com','8675309'),
+(2, 'Stephie', 'Leafe', 'sleafe1@wikipedia.org', '621-731-2302'),
+(3, 'Rubina', 'Weed', 'rweed2@nyu.edu', '558-961-7909'),
+(4, 'Nanny', 'Gimert', 'ngimert3@clickbank.net', '819-432-6247'),
+(5, 'Silvio', 'McBain', 'smcbain4@loc.gov', '914-902-7390'),
+(6, 'Joey', 'Manus', 'jmanus5@nyu.edu', '824-608-7824'),
+(7, 'Sullivan', 'Cluatt', 'scluatt6@istockphoto.com', '690-292-5445'),
+(8, 'Des', 'Reckus', 'dreckus7@howstuffworks.com', '847-567-4681'),
+(9, 'Tanitansy', 'Lovitt', 'tlovitt8@dell.com', '676-630-7732'),
+(10, 'Riordan', 'Heinel', 'rheinel9@icio.us', '850-796-6990'),
+(11, 'Merell', 'Gilhouley', 'mgilhouleya@theguardian.com', '998-768-3955'),
+(12, 'Laura', 'Gunther', 'lguntherb@de.vu', '955-848-9279'),
+(13, 'Dorotea', 'Leynton', 'dleyntonc@ezinearticles.com', '797-505-8800'),
+(14, 'Roze', 'Aronson', 'raronsond@google.com', '320-365-1400'),
+(15, 'Phillipe', 'Ewell', 'pewelle@china.com.cn', '214-356-1425'),
+(16, 'Dalis', 'Waller', 'dwallerf@list-manage.com', '860-322-0564'),
+(17, 'Karoly', 'Tresise', 'ktresiseg@amazonaws.com', '758-204-3801'),
+(18, 'Rollin', 'Sollitt', 'rsollitth@washington.edu', '374-255-2259'),
+(19, 'Amabelle', 'Burston', 'aburstoni@marketwatch.com', '720-153-3377'),
+(20, 'Leighton', 'Almak', 'lalmakj@adobe.com', '273-654-0859');
+
+/*Create the Internal Patient Dictionary*/
+
+CREATE TABLE problemPointer (
+	patientID INTEGER PRIMARY KEY,
+	pointer INTEGER NOT NULL
+);
+
+/*Create the Internal Problem list*/
+
+CREATE TABLE problemTable (
+	patientID INTEGER PRIMARY KEY,
+	problemID TEXT NOT NULL,
+	modDate TEXT NOT NULL,
+	userID TEXT NOT NULL UNIQUE,
+	summary TEXT NOT NULL UNIQUE,
+	status TEXT NOT NULL UNIQUE
+);
