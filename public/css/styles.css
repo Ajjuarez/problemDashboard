@@ -112,7 +112,7 @@ border-radius: 5px;
 }
 
 /*Style the buttons that are used to open the tab content left container*/
-.optionBar button, .optionBar .searchContainer {
+.optionBar button, .optionBar .searchContainer{
 background-color: inherit;
 float: left;
 border: none;
@@ -122,10 +122,24 @@ padding: 8px;
 transition: 0.3s;
 min-width: 80px;
 color: grey;
-margin-top: 2px;
+margin:auto 0;
 position: relative;
-}
 
+}
+.optionBar a {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: 0.3s;
+  min-width: 30px;
+  color: grey;
+  margin:auto 0;
+  position: relative;
+  text-align: center;
+  
+  }
 /* options icon, only shown in responsive small menu */
 .optionBar .icon{
   display:none;
@@ -171,6 +185,11 @@ border-top-right-radius: 7px;
 border-top-left-radius: 7px;
 }
 
+.optionBar a:hover{
+  background-color: #F0F0F0;
+  border-radius: 15px;
+  }
+
 /* Create an active/current class*/
 .optionBar button.active, .optionBar .searchContainer.active {
 background-color: white;
@@ -185,8 +204,26 @@ padding-bottom: 12px;
 .optionBar .displayOptions{
   display:flex;
   justify-content: flex-end;
+  /* background-color: green; */
+  width:100%;
 }
 
+.optionBar .displayOptions2{
+  display:flex;
+  justify-content: flex-end;
+  color:black;
+}
+.refresh{
+  float: right;
+  display: block;
+  padding:10px 10px 0;
+}
+.align{
+  display:flex;
+  /* background-color: orange; */
+  justify-content: flex-end;
+
+}
 /* ICD SEARCH bar */
 .searchbox{
   font-size: 11px;
@@ -1386,10 +1423,13 @@ Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 700px) {
   .optionBar button{display: none;}
   .optionBar a.icon {
-    float: right;
+    /* float: right; */
     display: block;
-    padding-top:10px;
-    padding-right:10px;
+    margin:0 auto;
+    /* background-color: red; */
+    text-align: center;
+    /* padding-top:10px;
+    padding-right:8px; */
   }
 }
 
@@ -1398,27 +1438,34 @@ This class makes the topnav look good on small screens (display the links vertic
 @media screen and (max-width: 700px) {
   .optionBar.responsive {
     position: relative; 
-    text-align: right;
-    animation: fadeEffect 1s;
   }
 
-  .optionBar.responsive a.icon {
+  /* .optionBar.responsive a.icon {
     position: absolute;
     right: 0;
     top: 0;
 
-  }
+  } */
   .optionBar.responsive button {
     float: none;
     display: block;
     /* background-color: pink; */
     width:100%;
-    text-align: right;
 
   }
   .optionBar.responsive .displayOptions{
     display:inline-block;
     margin: 30px auto 0;
+    position:fixed;
+    z-index:1;
+    margin-top:15;
+    margin-right:0;
+    width:20%;
+    background-color: white;
+    border: 1px solid grey;
+    -webkit-box-shadow: 11px 11px 4px -9px rgba(0,0,0,0.4);
+    -moz-box-shadow: 11px 11px 4px -9px rgba(0,0,0,0.4);
+    box-shadow: 11px 11px 4px -9px rgba(0,0,0,0.4);
     
   }
   .optionBar button:after{
