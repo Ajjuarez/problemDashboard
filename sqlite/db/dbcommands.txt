@@ -41,10 +41,11 @@ CREATE TABLE problemPointer (
 /*Create the Internal Problem list*/
 
 CREATE TABLE problemTable (
-	patientID INTEGER PRIMARY KEY,
-	problemID TEXT NOT NULL,
+	problemID INTeger PRIMARY KEY,
+	patientID INTEGER NOT NULL,
+	problemCode TEXT NOT NULL, /*ICD 10 code*/
 	modDate TEXT NOT NULL,
-	userID TEXT NOT NULL UNIQUE,
-	summary TEXT NOT NULL UNIQUE,
-	status TEXT NOT NULL UNIQUE
+	userID,
+	summary,
+	status TEXT NOT NULL
 );

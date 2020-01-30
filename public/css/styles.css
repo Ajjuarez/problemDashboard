@@ -1,0 +1,1449 @@
+/* natural box model */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Browser Upgrade Prompt */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* hides an element, but not from screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* no break */
+.nobr {
+  white-space: nowrap;
+}
+
+/* STRUCTURE*/
+body, html {
+background: linear-gradient(0deg, rgba(34,101,170,1) 0%, rgba(35,174,223,1) 100%) fixed;
+font-family: 'Roboto', sans-serif;
+height: 95%;
+}
+
+/* Regenstrief Header */
+header {
+background-color: white;
+}
+
+.logo{
+width:200px;
+}
+
+.logo img {
+width: 200px;
+position: absolute;
+left:1%;
+}
+
+header .container {
+width: 100%;
+height: 50px;
+padding: .5em;
+}
+
+.logo:hover{
+opacity: 0.8;
+}
+
+/*whitespace div - sets the white area surrounding interface*/
+.whitespace{
+width:98%;
+height:100%;
+margin: 12px auto;
+background-color: white;
+border-radius: 5px;
+}
+
+/* This container only exists to constrain apply a width and height to the interface */
+.whitespace .container{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+/* interface that matters, contains the whole problem list */
+.whitespace .interface{
+  /* background-color: turquoise; */
+  overflow-y: scroll;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  margin: 10px;
+  min-width: 350px;
+  width:100%;
+  background-color: white;
+}
+
+/* Styling for the top option bar with search and display options */
+.optionBar {
+  border: 1px solid #ccc;
+  border-left:none;
+  border-bottom: 1px solid #E8E8E8;
+  background-color: #E8E8E8;
+  font-size: 12px;
+  overflow: hidden;
+  /* position: fixed; */
+}
+
+/*display button option icons no show when small*/
+.butIcon{
+  display: none;
+}
+
+/*Style the buttons that are used to open the tab content left container*/
+.optionBar button, .optionBar .searchContainer {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 8px;
+transition: 0.3s;
+min-width: 80px;
+color: grey;
+margin-top: 2px;
+position: relative;
+}
+
+/* options icon, only shown in responsive small menu */
+.optionBar .icon{
+  display:none;
+}
+
+/* Lines between the option buttons */
+.optionBar button:after, .optionBar .searchContainer:after{
+content: "";
+height: 18px;
+position: absolute;
+border:1px solid silver;
+right: 0%;
+top:8px;
+border-top: none;
+border-right: none;
+border-bottom: none;
+z-index: 1;
+transition: 1s;
+}
+
+.optionBar button.active:after,.optionBar .searchContainer.active:after {
+border:none;
+}
+
+.optionBar button.active:before, .optionBar .searchContainer.active:before{
+content: "";
+height: 40px;
+position: absolute;
+border:2px solid #E8E8E8;
+left: -2%;
+bottom: auto;
+border-top: none;
+border-right: none;
+border-bottom: none;
+z-index: 7;
+transition: 1s;
+}
+
+/* Change background color of buttons on hover*/
+.optionBar button:hover, .optionBar .searchContainer:hover{
+background-color: #F0F0F0;
+border-top-right-radius: 7px;
+border-top-left-radius: 7px;
+}
+
+/* Create an active/current class*/
+.optionBar button.active, .optionBar .searchContainer.active {
+background-color: white;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+color:black;
+margin-top: 0px;
+padding-bottom: 12px;
+}
+
+/*buttons display options on right side of optionBar*/
+.optionBar .displayOptions{
+  display:flex;
+  justify-content: flex-end;
+}
+
+/* ICD SEARCH bar */
+.searchbox{
+  font-size: 11px;
+  align-items: center;
+  width:100%;
+  margin: auto;
+  /* min-width: 200px; */
+}
+/* .ansList:focus,.search_field:focus{
+  background-color:#c6eaff
+}
+.ansList.no_match,.search_field.no_match,input[type=text].ansList.no_match{
+  background-color:#d1d1d1;
+}
+input.search_field,textarea.search_field{
+  border-radius: 5px;
+} */
+
+
+
+
+/* Style the tab content left container*/
+.tabcontent {
+padding: 0px;
+border: 1px solid #ccc;
+border-top: none;
+animation: fadeEffect .5s; /* Fading effect takes 1 second */
+/* background-color: orange; */
+padding-top: .02px;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+
+/* Problem list Accordion */
+.accordion {
+color: #444;
+cursor: pointer;
+padding: 8px;
+width: 100%;
+border-bottom: 1px solid #eff0f1;
+border-top: none;
+border-left: none;
+border-right: none;
+text-align: left;
+outline: none;
+font-size: 11px;
+font-family: 'Roboto', sans-serif;
+transition: 0.4s;
+display: flex;
+background-color: white;
+position: relative;
+padding-left: 20px;
+justify-content: space-between;
+}
+
+
+/* Problem list Accordion hover on problems*/
+.accordion.active, .accordion:hover {
+background-color: rgb(234, 248, 240);
+font-size: 11.2px;
+/* animation: fadeEffect 1s; */
+/* border: none; */
+}
+
+/* accordion buttons */
+.accordion:before {
+content: '\276F'; /* Unicode character for pointer */
+font-size: 13px;
+color: grey;
+position: absolute;
+left:0;
+/* top:0; */
+padding-left:10px;
+/* background-color: pink; */
+
+}
+
+/* Pointer turned down on open */
+.tabcontent .active:before {
+content: "\276F"; /* Unicode character for pointer*/
+transform: rotate(90deg);
+animation: fadeEffect 1s;
+position: absolute;
+left:0;
+top:0;
+padding-left:12px;
+}
+
+/* Accordion Panels */
+.panel {
+padding:10px;
+display: none;
+animation: fadeEffect 1s; /* Fading effect takes 1 second */
+font-size: 11px;
+/* min-height: 300px; /*CHANGE THIS*/ 
+/* position: relative; */
+background-position: center;
+border-bottom: 1px solid #eff0f1;
+/* background-color: red; */
+overflow: hidden;
+}
+
+
+
+
+/* contains each textbox and order buttons */
+.panel .panelOne{
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+/* contains the both of the checkboxes at the top of pannel */
+.checkBoxes{
+padding: 2px;
+padding-left: 5%;
+display: flex;
+flex-direction: row;
+margin-top: 2px;
+}
+
+/* Change label when box is checked */
+input[type=checkbox] + label {
+color: black;
+}
+
+input[type=checkbox]:checked + label {
+color: black;
+font-weight: bold;
+}
+
+
+/* contains checkboxes individually */
+.checkBoxContainer {
+text-align: left;
+/* background-color: yellow; */
+cursor: pointer;
+font-size: 11px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+padding-right: 12px;
+}
+
+/* container for textareas and graph area: determines width for all */
+.panelNoteArea1{
+width: 90%;
+/* background-color: brown; */
+margin:auto;
+}
+.panelNoteArea2{
+width: 90%;
+/* background-color: pink; */
+margin:auto;
+}
+.panelNoteArea3{
+width: 30%;
+margin-right: auto;
+margin-left:7.5%
+/* background-color: brown; */
+/* display: flex;
+justify-content: flex-start; */
+}
+
+/* only real textarea at the top of pannel (#1) */
+.notespace2{
+display: block;
+width: 100%;
+/* overflow-y: scroll; */
+resize: none;
+font-size: 12px;
+/* background-color: cyan; */
+margin: auto;
+}
+
+/* area for graphs */
+.panelGraphArea1{
+/* background-color: pink; */
+width: 90%;
+/* outline: 1px solid grey; */
+/* background-color: #e8f4f8; */
+}
+
+/* contains the graphs */
+.graph{
+display: flex;
+/* flex-direction: row; */
+justify-content: space-around;
+/* background-color: yellow; */
+flex-flow: row no wrap;
+}
+
+/* individual graph */
+.graph .RL_graph{
+flex: 0 0 350px;
+margin: 5px;
+}
+
+/* graphspace area*/
+.graph .graphspace{
+max-width: 400px;
+height: 50px;
+position: relative;
+/* overflow: hidden; */
+outline: 1px solid grey;
+/* display: flex;
+flex-direction: row; */
+/* min-width:400px; */
+/* min-width: 410px; */
+
+}
+
+/* Order button dropdown */
+.orderdropdown2{
+  margin: auto;
+  padding-top:4px;
+  /* display: flex;
+  justify-content: flex-end; */
+  position: relative;
+  right:0;
+}
+
+/* fake textareas 2,3,& 4 */
+.textArea2 .textSpace2{
+width: 100%;
+background-color: #F5F5F5;
+resize: none;
+font-size: 11px;
+color: black;
+/* background-color: tan; */
+display: flex;
+justify-content: space-between;
+animation: fadeEffect 1s;
+}
+
+.docNotes{
+padding: 4px;
+line-height: 1.4em;
+/* animation: fadeEffect 1s; */
+}
+.docNote{
+padding: 4px;
+line-height: 1.3em;
+/* animation: fadeEffect 1s; */
+}
+.textArea2{
+position: relative;
+}
+/* expand fake textareas */
+#more1 {display: none;
+  animation: fadeEffect .5s;
+}
+#more2 {display: none;
+  animation: fadeEffect .5s;
+}
+
+/* read more/less button */
+.readMore {
+background-color: #ededed;
+margin: 2px;
+text-align: left;
+text-decoration: none;
+font-size: 10px;
+cursor: pointer;
+outline: none;
+/* padding: 0px;
+margin:0;
+line-height: 0px;
+position: absolute; */
+border: none;
+color: gray;
+/* max-width:45px; */
+/* background-color: #DCDCDC; */
+
+}
+
+.readMore:hover{
+color: black;
+background-color: #e8f4f8;
+}
+
+
+
+
+/* 1st image view tooltip */
+/* Tooltip container */
+.tooltip {
+/* position: absolute; */
+/* bottom:-22px; */
+padding-bottom: 0px;
+color:#3498DB;
+font-size: 11px;
+position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+visibility: hidden;
+width: auto;
+background-color: rgba(0,0,0,0.4);
+color: #fff;
+text-align: center;
+padding: 5px;
+border-radius: 6px;
+/* Position the tooltip text */
+position: absolute;
+z-index: 1;
+bottom:20px;
+left:-50px;
+/* Fade in tooltip */
+opacity: 0;
+transition: opacity 0.3s;
+padding-top: 4px;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+content: "";
+position: absolute;
+bottom:-10px;
+left: 4%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: rgba(0,0,0,0.4) transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+visibility: visible;
+opacity: 1;
+
+}
+
+
+/* 2nd image view tooltip */
+.tooltip2 {
+/* border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+background-color: pink;
+/* position: absolute; */
+/* bottom:-22px; */
+padding-bottom: 0px;
+color:#3498DB;
+font-size: 14px;
+position: relative;
+}
+
+/* Tooltip text */
+.tooltip2 .tooltiptext2 {
+visibility: hidden;
+width: auto;
+background-color: rgba(0,0,0,0.4);
+color: #fff;
+text-align: center;
+padding: 5px;
+border-radius: 6px;
+/* Position the tooltip text */
+position: absolute;
+z-index: 1;
+bottom:20px;
+left:-50px;
+/* Fade in tooltip */
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip2 .tooltiptext2::after {
+content: "";
+position: absolute;
+bottom:-10px;
+left: 4%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: rgba(0,0,0,0.4) transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip2:hover .tooltiptext2 {
+visibility: visible;
+opacity: 1;
+}
+
+/* container for labels above each textarea */
+.panel .noteLabels{
+/* background-color: red; */
+width: 100%;
+/* display: block; */
+display: flex;
+justify-content: center;
+padding-top: 0px;
+padding-bottom: 0px;
+/* height: 34px; */
+}
+.panel .noteLabels2{
+padding-top: 15px;
+}
+
+/* Two graphs */
+.panel .noteLabels3{
+/* background-color: red; */
+/* display: block; */
+display: flex;
+flex-direction: row;
+flex: 0 0 410px;
+padding-top: 0px;
+padding-bottom: 0px;
+margin: auto;
+/* height: 34px; */
+}
+.sideByside{
+/* display: flex;
+flex-direction: row;
+justify-content: space-around; */
+/* background-color: pink; */
+}
+.noteLabels3 .noteLabel3{
+color:grey;
+font-size: 15px;
+/* background-color: orange; */
+display: flex;
+position: relative;
+height: 24px;
+/* justify-content: space-between; */
+/* uncomment ^^If you want the buttons on the end^^^ */
+}
+
+
+
+
+.dates{
+/* float: right; */
+font-size: 11px;
+color: gray;
+margin-left: 10px;
+}
+.dates .indivDate{
+border: 1px solid #d3d3d3;
+border-bottom: none;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+padding: 4px;
+padding-bottom: 10px;
+margin:.2px;
+
+/* position: absolute; */
+position: relative;
+top:4px;
+}
+
+/* OPEN DATE */
+.open{
+background-color: #F5F5F5;
+padding: 3px;
+border: 1px solid #F5F5F5;
+border-bottom: none;
+color:black;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+}
+
+/* actual words on textarea labels */
+.noteLabels .noteLabel{
+color:grey;
+width: 90%;
+font-size: 14px;
+/* background-color: orange; */
+display: flex;
+flex-direction: row;
+position: relative;
+height: 24px;
+/* justify-content: space-between; */
+/* uncomment ^^If you want the buttons on the end^^^ */
+}
+.noteLabels .note{
+background-color: white;
+}
+.noteLabels .fix{
+/* background-color: yellow; */
+}
+
+.noteLabel button{
+/* background-color: #e8e8e8; */
+background-color: white;
+font-size: 11px;
+border: 1px solid #d4d4d4;
+border-bottom: none;
+color: grey;
+padding: 5px 5px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+margin-left:1px;
+border-top-left-radius: 5px;
+border-top-right-radius:5px;
+outline:none;
+position:relative;
+top:-12px;
+left:10px;
+transition: 0.3s;
+/* background: linear-gradient(to top, #ECECEC 50%, #D1D1D1 100%);
+box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+text-shadow: 0 1px #FFF; */
+}
+
+/* Button when selected and on hover! */
+.noteLabel button:hover{
+background-color: #f5f5f5;
+border: 1px solid #ddd;
+border-bottom: none;
+color: black;
+margin-bottom: 0px;
+transition: 0.3s;
+}
+.noteLabel button:after{
+content: "";
+width:5px;
+height: 5px;
+position: absolute;
+border:1px solid #d4d4d4;
+right:-9%;
+bottom:-1px;
+border-bottom-left-radius: 5px;
+border-top: none;
+border-right: none;
+box-shadow: -2px 2px 0 white;
+/* transition: 0.3s; */
+}
+.noteLabel button:hover::after{
+/* transition: 0.3s; */
+border: 1px solid #ddd;
+border-bottom-left-radius: 5px;
+border-top: none;
+border-right: none;
+box-shadow: -2px 2px 0 2px #f5f5f5;
+z-index: 3;
+/* transition: 0.3s; */
+}
+.noteLabel button:before{
+/* background-color: pink; */
+content: "";
+width:5px;
+height: 5px;
+position: absolute;
+left:-9%;
+bottom:-1px;
+border: 1px solid #d4d4d4;
+border-bottom-right-radius: 5px;
+/* border-width: 0 1px 1px 0; */
+border-top: none;
+border-left: none;
+box-shadow: 2px 2px 0 white;
+/* transition: 0.3s; */
+}
+.noteLabel button:hover::before{
+/* transition: 0.3s; */
+border: 1px solid #ddd;
+border-bottom-right-radius: 5px;
+/* border-width: 0 1px 1px 0; */
+border-top: none;
+border-left: none;
+box-shadow: 2px 2px 0px 1px #f5f5f5;
+z-index: 3;
+/* transition: 0.3s; */
+}
+
+.labelActual{
+/* background-color: pink; */
+padding: 0px;
+margin: 0px;
+padding-bottom: 4px;
+
+}
+
+
+/* ORDERBUTTON 1 */
+/* postion order buttons */
+.orderdropdown{
+  /* display: flex;
+  justify-content: flex-end; */
+  /* position: absolute;
+  top:0; */
+
+  /* background-color: pink; */
+  width: 90%;
+  margin: auto;
+  padding-top:4px;
+  display: flex;
+  justify-content: flex-end;
+}
+.orderdropdown2{
+
+  /* display: flex;
+  justify-content: flex-end; */
+  /* position: absolute;
+  top:0; */
+
+  /* background-color: pink; */
+  width: 100%;
+  margin: auto;
+  padding-top:6px;
+  display: flex;
+  justify-content: flex-end;
+}
+/* buttons */
+
+.ENCbtn, .orderbtn{
+position: relative;
+/* position: absolute; */
+top:0px;
+bottom:4px;
+background-color: #3498DB;
+color: white;
+padding: 5px;
+font-size: 12px;
+border: 1px solid white;
+cursor: pointer;
+border-radius: 5px;
+width: 70px;
+
+}
+.ENCbtn:disabled, .orderbtn:disabled{
+background-color: #3498DB;
+opacity: 0.5;
+color: white;
+border: 1px solid #3498DB;
+
+}
+button[disabled]:hover {
+background-color: #3498DB;
+opacity: 0.5;
+color: white;
+border: 1px solid #3498DB;
+cursor: text;
+}
+
+
+/*Responsiveness  */
+.ENCbtn:active, .orderbtn:active {
+transform: translateY(1px);
+/* filter: saturate(150%); */
+}
+
+.ENCbtn:hover, .orderbtn:hover{
+color: #3498DB;
+border: 1px solid #3498DB;
+background-color: white;
+}
+.ENCbtn:focus, .orderbtn:focus {
+outline: none;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+visibility: hidden;
+width: 110px;
+background-color: #555;
+color: #fff;
+text-align: center;
+border-radius: 6px;
+padding: 8px 0;
+position: absolute;
+z-index: 1;
+bottom: 125%;
+left: 50%;
+margin-left: -55px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+content: "";
+position: absolute;
+top: 100%;
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+visibility: visible;
+-webkit-animation: fadeIn 1s;
+animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity:1 ;}
+}
+
+/* effect on ordertab */
+.addedOrders.shown{
+color:red;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+margin-top: 0px;
+padding-bottom: 13px;
+background-color: #F0F0F0;
+animation: pulse 1s;
+}
+
+.addedOrders.shown2{
+color:red;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+margin-top: 0px;
+padding-bottom: 13px;
+background-color: #F0F0F0;
+animation: pulse 1s;
+}
+@-webkit-keyframes pulse {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes pulse {
+from {opacity: 0;}
+to {opacity:1 ;}
+}
+
+
+
+
+
+/* Right container note area */
+.notespace{
+min-width: 100%;
+height: 100%;
+font-size: 12px;
+/* overflow-y: scroll; */
+margin: auto;
+resize: none;
+/* background-color: pink; */
+}
+
+/* Right container note sign and save buttons */
+.tabcontent2 .button1{
+position: relative;
+left:0;
+background-color: #3498DB;
+color: white;
+padding: 10px;
+font-size: 11px;
+border: 1px solid white;
+cursor: pointer;
+border-radius: 5px;
+/* width: 90px; */
+}
+
+/* responsive sign and save buttons */
+.button1:active {
+transform: translateY(1px);
+/* filter: saturate(150%); */
+}
+
+/* sign and save buttons on hover */
+.button1:hover{
+color: #3498DB;
+border: 1px solid #3498DB;
+background-color: white;
+}
+
+.button1:focus {
+outline: none;
+}
+
+/* postion sign and save buttons */
+.tabcontent2 .noteButtons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tabcontent2 .button1{
+margin: 10px 0px 0px 10px;
+}
+
+
+/* SIGN AND SAVE MODAL */
+/* The Modal (background) */
+.signmodal{
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1000000; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.signmodal-content{
+background-color: white;
+margin: 20% auto;
+/* padding: 20px; */
+/* border: 1px solid #888; */
+border-radius: 5px;
+width: 400px;
+height: 180px;
+position: relative;
+}
+
+/* The Close Button */
+.signclose{
+color: #aaa;
+right:20px;
+top:20px;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+position: absolute;
+/* background-color: pink; */
+line-height: .7;
+/* border: 1.5px solid silver; */
+/* padding:1px;
+border-radius: 2px; */
+/* background-color: f2efef; */
+}
+
+.signmodal-content .title{
+position: absolute;
+top:25px;
+left:20px;
+/* background-color: pink; */
+
+}
+
+
+.signclose:hover,
+.signclose:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+/* Sign and save modal form */
+input[type=text] {
+width: 360px;
+padding: 12px 20px;
+box-sizing: border-box;
+border: none;
+border-radius: 5px;
+background-color: #e8ebed;
+color: black;
+position:absolute;
+top:65px;
+left:20px;
+right:20px;
+}
+
+input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+color: black;
+opacity: .3; /* Firefox */
+}
+
+input[type=text]:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: silver;
+}
+
+input[type=text]::-ms-input-placeholder { /* Microsoft Edge */
+color: silver;
+}
+.signmodal-content .button1{
+position: relative;
+left:0;
+background-color: #3498DB;
+color: white;
+padding: 10px;
+font-size: 14px;
+border: 1px solid white;
+cursor: pointer;
+border-radius: 5px;
+width: 90px;
+top:115px;
+left:20px;
+right:20px;
+}
+
+
+/* .underline{
+  text-decoration:underline;
+} */
+
+/* bottom of pannel, contains the "more" link */
+.panel .bottom{
+  /* border-bottom: 1px solid #eff0f1; */
+  /* background-color: orange; */
+  padding: 0px;
+  margin: 0px;
+  padding-top: 20px;
+}
+
+/* More link at bottom of pannel */
+.additionalInfo{
+font-size: 14px;
+padding: 10px;
+/* background-color: pink; */
+display: flex;
+justify-content: center;
+/* font-weight: bold;
+letter-spacing: 1px; */
+
+}
+
+
+/* Image Modal */
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+#myImg2 {
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 100000000; /* Sit on top */
+padding-top: 100px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 800px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 700px;
+text-align: center;
+color: #ccc;
+padding: 10px 0;
+height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+animation-name: zoom;
+animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+from {transform:scale(0)}
+to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+position: absolute;
+top: 15px;
+right: 35px;
+color: #f1f1f1;
+font-size: 40px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+color: #bbb;
+text-decoration: none;
+cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+.modal-content {
+  width: 100%;
+}
+}
+
+
+/* Order Tab */
+
+#OrderTable, #OrderTable2 {
+border-collapse: collapse;
+width: 95%;
+margin: 20px auto 0px;
+}
+#OrderTable2{
+margin-bottom: 20px;
+}
+
+#OrderTable td, #OrderTable th, #OrderTable2 td, #OrderTable2 th {
+border: 1px solid #ddd;
+padding: 4px;
+}
+
+#OrderTable tr:nth-child(odd),#OrderTable2 tr:nth-child(odd){background-color: #f5f5f5;}
+
+#OrderTable tr:hover, #OrderTable2 tr:hover  {background-color: #e8f4f8;}
+
+#OrderTable th, #OrderTable2 th {
+padding-top: 8px;
+padding-bottom: 8px;
+text-align: left;
+background-color: #3498db;
+color: white;
+font-weight: normal;
+
+}
+#OrderTable th, #OrderTable2 th{
+font-size: 12px;
+}
+
+#OrderTable td, #OrderTable2 td{
+font-size: 11px;
+}
+
+/* Delete and edit order buttons */
+#OrderTable .deleteEdit{
+/* text-align: right; */
+margin-right:15px;
+float:right;
+background:none;
+color:inherit;
+border:none;
+padding:0;
+font: inherit;
+cursor: pointer;
+outline:none;
+font-size: 15px;
+
+}
+
+.raise:hover,
+.raise:focus {
+box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+transform: translateY(-0.1em);
+}
+
+
+/* order verify button */
+.verifyButton .signAllButton{
+position: relative;
+left:0;
+background-color: #3498DB;
+color: white;
+padding: 10px;
+font-size: 11px;
+border: 1px solid white;
+cursor: pointer;
+border-radius: 5px;
+
+}
+
+/* responsive sign and save buttons */
+.signAllButton:active {
+transform: translateY(1px);
+/* filter: saturate(150%); */
+}
+
+/* sign and save buttons on hover */
+.signAllButton:hover{
+color: #3498DB;
+border: 1px solid #3498DB;
+background-color: white;
+}
+
+.signAllButton:focus {
+outline: none;
+}
+
+/* postion sign and save buttons */
+.verifyButton{
+  display: flex;
+  justify-content: flex-end;
+  /* background-color: pink; */
+  width:95%;
+  margin: 10px auto 20px;
+
+}
+
+
+
+
+
+
+/* IHIE tab */
+
+
+/* OTHER PAGES */
+.popupImage{
+width: 500px;
+height: auto;
+}
+
+.popup2{
+width: 200px;
+padding:0;
+margin:auto;
+}
+
+/*
+  IMAGES
+*/
+img {
+  width: 100%;
+  display: block;
+}
+
+/* Links */
+a{
+color:gray;
+}
+
+a:hover{
+/* color: #2980B9; */
+color: gray;
+}
+
+a:active{
+/* color:#3498DB; */
+color: gray;
+}
+a:visited{
+/* color:#3498DB; */
+color: gray;
+}
+/* clearfix - in case you decide to float elements */
+.group::after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* MEDIA QUERIES */
+/* X-Small devices (portait phones, less than 576px) */
+/* All styles up to this point in the stylesheet are for X-Small */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  /* body { background-color: orange; } */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /* body { background-color: green; } */
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .butIcon{
+    display: inline;
+  }
+  .optionBar button {
+    min-width: 60px;
+    }
+  /* body { background-color: blue; } */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* body { background-color: purple; } */
+}
+
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). 
+Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 700px) {
+  .optionBar button{display: none;}
+  .optionBar a.icon {
+    float: right;
+    display: block;
+    padding-top:10px;
+    padding-right:10px;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. 
+This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 700px) {
+  .optionBar.responsive {
+    position: relative; 
+    text-align: right;
+    animation: fadeEffect 1s;
+  }
+
+  .optionBar.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+  }
+  .optionBar.responsive button {
+    float: none;
+    display: block;
+    /* background-color: pink; */
+    width:100%;
+    text-align: right;
+
+  }
+  .optionBar.responsive .displayOptions{
+    display:inline-block;
+    margin: 30px auto 0;
+    
+  }
+  .optionBar button:after{
+   border: none;
+    }
+
+
+  .optionBar button:hover {
+    background-color: #F0F0F0;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    color:black;
+    border:black;
+    width:100%;
+    }
+    
+    /* Create an active/current tablink class left container */
+    .optionBar button.active {
+    background-color: white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color:black;
+    width:100%;
+    margin-top: 0px;
+    padding-bottom: 12px;
+    }
+
+}
