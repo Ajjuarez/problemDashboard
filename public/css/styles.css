@@ -124,8 +124,8 @@ min-width: 80px;
 color: grey;
 margin:auto 0;
 position: relative;
-
 }
+
 .optionBar a {
   background-color: inherit;
   border: none;
@@ -181,8 +181,7 @@ transition: 1s;
 /* Change background color of buttons on hover*/
 .optionBar button:hover, .optionBar .searchContainer:hover{
 background-color: #F0F0F0;
-border-top-right-radius: 7px;
-border-top-left-radius: 7px;
+border-radius: 19px;
 }
 
 .optionBar a:hover{
@@ -222,29 +221,26 @@ padding-bottom: 12px;
   display:flex;
   /* background-color: orange; */
   justify-content: flex-end;
+  margin-top: 2px;
 
 }
 /* ICD SEARCH bar */
 .searchbox{
   font-size: 11px;
   align-items: center;
-  width:100%;
+  /* width:100%; */
   margin: auto;
   /* min-width: 200px; */
+  display:flex;
+  width:100%;
 }
-/* .ansList:focus,.search_field:focus{
-  background-color:#c6eaff
+/* Search bar form styles */
+.searchForm{
+  width:100%;
 }
-.ansList.no_match,.search_field.no_match,input[type=text].ansList.no_match{
-  background-color:#d1d1d1;
+.searchContainer{
+  width:60%;
 }
-input.search_field,textarea.search_field{
-  border-radius: 5px;
-} */
-
-
-
-
 /* Style the tab content left container*/
 .tabcontent {
 padding: 0px;
@@ -1386,6 +1382,21 @@ display: table;
 clear: both;
 }
 
+
+/* REMOVE AFTER DEVEL */
+.SIZE{
+  width:20px;
+  height: 20px;
+  position: fixed;
+  left:0;
+  top:0;
+  background-color: red;
+}
+.SIZE:after {
+  content:"XS";
+  color:#000;
+}
+
 /* MEDIA QUERIES */
 /* X-Small devices (portait phones, less than 576px) */
 /* All styles up to this point in the stylesheet are for X-Small */
@@ -1393,12 +1404,46 @@ clear: both;
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   /* body { background-color: orange; } */
+  .searchContainer{
+    width:50%;
+  }
+  
+/* REMOVE AFTER DEVEL */
+.SIZE{
+  width:25px;
+  height: 20px;
+  position: fixed;
+  left:0;
+  top:0;
+  background-color: blue;
+}
+.SIZE:after {
+  content:"SM";
+  color:#000;
+}
+
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   /* body { background-color: green; } */
-
+  .searchContainer{
+    width:40%;
+  }
+  
+/* REMOVE AFTER DEVEL */
+.SIZE{
+  width:34px;
+  height: 20px;
+  position: fixed;
+  left:0;
+  top:0;
+  background-color: green;
+}
+.SIZE:after {
+  content:"MED";
+  color:#000;
+}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -1410,48 +1455,57 @@ clear: both;
     min-width: 60px;
     }
   /* body { background-color: blue; } */
+
+  .SIZE{
+    width:20px;
+    height: 20px;
+    position: fixed;
+    left:0;
+    top:0;
+    background-color: yellow;
+  }
+  .SIZE:after {
+    content:"LG";
+    color:#000;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   /* body { background-color: purple; } */
+
+  .SIZE{
+    width:20px;
+    height: 20px;
+    position: fixed;
+    left:0;
+    top:0;
+    background-color: pink;
+  }
+  .SIZE:after {
+    content:"XL";
+    color:#000;
+  }
 }
 
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). 
 Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
+   /* .optionBar.responsive {
+    position: relative; 
+  } */
   .optionBar button{display: none;}
+
   .optionBar a.icon {
-    /* float: right; */
     display: block;
     margin:0 auto;
-    /* background-color: red; */
     text-align: center;
-    /* padding-top:10px;
-    padding-right:8px; */
   }
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. 
-This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 700px) {
-  .optionBar.responsive {
-    position: relative; 
-  }
-
-  /* .optionBar.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-
-  } */
   .optionBar.responsive button {
     float: none;
     display: block;
-    /* background-color: pink; */
     width:100%;
-
   }
   .optionBar.responsive .displayOptions{
     display:inline-block;
@@ -1466,17 +1520,14 @@ This class makes the topnav look good on small screens (display the links vertic
     -webkit-box-shadow: 11px 11px 4px -9px rgba(0,0,0,0.4);
     -moz-box-shadow: 11px 11px 4px -9px rgba(0,0,0,0.4);
     box-shadow: 11px 11px 4px -9px rgba(0,0,0,0.4);
-    
   }
   .optionBar button:after{
    border: none;
     }
 
-
   .optionBar button:hover {
     background-color: #F0F0F0;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
+    border-radius: 0px;
     color:black;
     border:black;
     width:100%;
@@ -1492,5 +1543,4 @@ This class makes the topnav look good on small screens (display the links vertic
     margin-top: 0px;
     padding-bottom: 12px;
     }
-
 }

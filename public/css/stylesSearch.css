@@ -6,6 +6,8 @@
 }
 input.search_field,textarea.search_field{
   border-radius: 5px;
+  width:100%;
+
 }
 
 /* #searchResults {
