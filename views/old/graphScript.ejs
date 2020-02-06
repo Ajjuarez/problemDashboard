@@ -1,0 +1,1508 @@
+<!-- CHARTS Graphs-->
+<!-- Bloodpressure LINE GRAPH -->
+		<script>
+		var ctx = document.getElementById('myBPChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/7/2018', '2/11/2019', '4/3/2019','5/11/2019','7/18/2019'],
+				datasets: [{
+					label: 'Systolic',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [117, 135, 90, 100,106,110]
+				},
+						{
+					label: 'Diastolic',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'blue',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [65, 74, 61, 74,65,62]
+				},
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+						suggestedMin: 50,
+						stepValue: 50,
+						suggestedMax: 150
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+  'mmHg'+ ' ' + data.labels[tooltipItem.index];
+						}
+					},
+				},
+				}
+		});
+		</script>
+
+<!-- Weight LINE GRAPH-->
+		<script>
+		var ctx = document.getElementById('myWeightChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/07/2018', '2/11/2019', '4/03/2019', '05/11/2019','07/18/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [120, 120, 120, 120, 124, 132]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [125, 125, 125, 125, 125,125]
+				},
+						{     label: '',
+									backgroundColor: 'rgba(0, 0, 0, 0)',
+									borderColor: 'rgba(149, 165, 166, 1)',
+									borderDash: [2,2],
+									pointBackgroundColor: 'black',
+									pointRadius: '0',
+									pointHoverRadius: '0',
+									pointHoverBackgroundColor: 'black',
+									borderWidth: '1',
+									data: [100, 100, 100, 100, 100, 100]
+						}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+									min:99,
+									max:133
+						// suggestedMin: 70,
+						// stepValue:,
+						// suggestedMax: 200
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==100){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'lbs';
+										}
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==125){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'lbs';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'lbs'+ ' ' + data.labels[tooltipItem.index];
+						}
+					},
+				},
+				}
+		});
+		</script>
+
+<!-- INR LINE GRAPH -->
+		<script>
+		var ctx = document.getElementById('myINRChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/07/2018', '2/11/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [1.23, 1.3, 1.3]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [1.1, 1.1, 1.1]
+				}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+						// suggestedMin: 50,
+						// stepValue: 100,
+						suggestedMax: 1.5
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==1.1){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+  '  ' + data.labels[tooltipItem.index];
+						}
+					},
+
+				},
+				}
+		});
+		</script>
+
+<!-- LDL LINE GRAPH -->
+		<script>
+		var ctx = document.getElementById('myLDLChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['11/07/2018', '2/11/2019', '04/03/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [220, 170, 168]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [100, 100, 100]
+				}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+						// suggestedMin: 50,
+						// stepValue: 100,
+						// suggestedMax: 400
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==100){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL'+ ' ' + data.labels[tooltipItem.index];
+						}
+					},
+				},
+				}
+		});
+		</script>
+
+<!-- HDL LINE GRAPH -->
+		<script>
+		var ctx = document.getElementById('myHDLChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['11/07/2018', '2/11/2019', '04/03/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [35, 36, 32]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [50, 50, 50]
+				}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+						// suggestedMin: 50,
+						// stepValue: 100,
+						// suggestedMax: 400
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==50){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL'+ ' ' + data.labels[tooltipItem.index];
+						}
+					},
+				},
+				}
+		});
+		</script>
+
+<!-- NT PRO BNP LINE GRAPH-->
+		<script>
+		var ctx = document.getElementById('myBNPChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/07/2018', '02/11/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [753, 450, 441]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [300, 300, 300]
+				}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+						suggestedMin: 50,
+						stepValue: 100,
+						suggestedMax: 400
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==300){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'ml/pl';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'ml/pL'+ ' ' + data.labels[tooltipItem.index];
+						}
+					},
+				},
+				}
+		});
+		</script>
+
+<!-- Creatinine LINE GRAPH-->
+		<script>
+		var ctx = document.getElementById('myCretinineChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/07/2018', '04/03/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [1.4, 1.3, 1.3]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [1.1, 1.1, 1.1]
+				}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+
+						// suggestedMin: 0,
+						// // stepValue: ,
+						// suggestedMax: 3,
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==1.1){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + ' mg/dL';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL'+'  ' + data.labels[tooltipItem.index];
+						}
+					},
+
+				},
+				}
+		});
+		</script>
+
+<!-- Hemoglobin LINE GRAPH-->
+		<script>
+		var ctx = document.getElementById('myHemoglobinChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/7/2018','07/18/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [9.7, 8.3,6.5]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [6.5, 6.5,6.5]
+				}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+											//
+						// suggestedMin: 5,
+						// stepValue: 4,
+						// suggestedMax: 10,
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==6.5){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] +'%';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ '%'+ '  ' + data.labels[tooltipItem.index];
+						}
+					},
+
+				},
+				}
+		});
+		</script>
+
+<!-- GFR LINE GRAPH -->
+		<script>
+		var ctx = document.getElementById('myGFRChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/07/2018', '04/03/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [41, 44, 43]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [65, 65, 65]
+				}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+											//
+						// suggestedMin: 5,
+						// stepValue: 4,
+						// suggestedMax: 10,
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==65){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] +'m';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'm'+ '  ' + data.labels[tooltipItem.index];
+						}
+					},
+
+				},
+				}
+		});
+		</script>
+
+<!-- GLUCOSE LINE GRAPH -->
+		<script>
+		var ctx = document.getElementById('myGlocoseChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018','09/14/2018', '11/7/2018','02/11/2019','03/24/2019','04/03/2019','05/11/2019','06/17/2019','07/18/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [214, 121,135,90,88,79,85,75,72]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [79, 79,79,79,79,79,79,79,79]
+				},
+						{     label: '',
+									backgroundColor: 'rgba(0, 0, 0, 0)',
+									borderColor: 'rgba(149, 165, 166, 1)',
+									borderDash: [2,2],
+									pointBackgroundColor: 'black',
+									pointRadius: '0',
+									pointHoverRadius: '0',
+									pointHoverBackgroundColor: 'black',
+									borderWidth: '1',
+									data: [160, 160,160,160,160,160,160,160,160]
+						}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false,
+									min: 71,
+									max: 215
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==160){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL';
+										}
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==79){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mg/dL'+ ' ' + data.labels[tooltipItem.index];
+						}
+					},
+				},
+				}
+		});
+		</script>
+
+<!-- Potassium LINE GRAPH -->
+		<script>
+		var ctx = document.getElementById('myPotassiumChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['7/31/2018', '11/07/2018', '04/03/2019'],
+				datasets: [{
+					label: 'ml/PL',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,1)',
+								pointBackgroundColor: 'grey',
+								pointRadius: '3',
+								pointHoverRadius: '3',
+								pointHoverBackgroundColor: 'white',
+								borderWidth: '1',
+					data: [3.7, 3.8, 3.9]
+				},
+				{     label: '',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(149, 165, 166, 1)',
+					borderDash: [2,2],
+								pointBackgroundColor: 'black',
+								pointRadius: '0',
+								pointHoverRadius: '0',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [3.5, 3.5, 3.5]
+				},
+						{     label: '',
+									backgroundColor: 'rgba(0, 0, 0, 0)',
+									borderColor: 'rgba(149, 165, 166, 1)',
+									borderDash: [2,2],
+									pointBackgroundColor: 'black',
+									pointRadius: '0',
+									pointHoverRadius: '0',
+									pointHoverBackgroundColor: 'black',
+									borderWidth: '1',
+									data: [5, 5, 5]
+						}
+			]
+
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false,
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{
+											display:false,
+											// min: 3.4,
+								// max: 5.1,
+						}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+					displayColors: false,
+						caretSize: 5,
+						bodyFontSize: 11,
+						callbacks: {
+					title: function() {},
+									//changes here!
+							label: function(tooltipItem, data) {
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==3.5){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mEq/L';
+										}
+										if(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]==5){
+											return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mEq/L';
+										}
+							return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]+ 'mEq/L'+ ' ' + data.labels[tooltipItem.index];
+						}
+					},
+				},
+				}
+		});
+		</script>
+
+
+<!-- MEDICATION CHARTS BELOW -->
+<!-- ANTIHYPERTENSIVE Medication graph -->
+		<script>
+		var ctx = document.getElementById('myAntiHypertensiveChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['07/2018', '08/2018', '09/2018', '10/2019', '11/2019', '01/2019', '02/2019', '03/2019', '04/2019', '05/2019', '06/2019', '07/2019', '08/2019', '09/2019' ],
+						dataForMetro:["25","25","25","25"],
+						dataForCar:[ , , , , "25", "25", "25", "12.5", "12.5", "12.5", "12.5", "12.5", "12.5"],
+						dataForLis:[, , , , , , , "2.5", "2.5", "2.5", "2.5", "2.5", "2.5", "2.5", "2.5"],
+						dataForAm:["10", "10", "10", "10", "10", "10", "10", "10", "10"],
+						dataForVera:[, , , , , , , , ,"180", "180", "180", "180", "180"],
+				datasets: [{
+					label: 'Metoprolol',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+								// pointBorderWidth: '1',
+					borderColor: 'rgba(0,0,0,0)',
+								pointBackgroundColor: 'black',
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [10,10,10,10,,,,,,,,,,,],
+								pointStyle: 'rectRot',
+				},
+				{
+					label: 'Carvedilol',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,0)',
+					pointBorderColor: "black",
+					pointBorderWidth: '1',
+					pointBackgroundColor: "black",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [,,,,10,10,10,1,1,1,1,1,1,1,1],
+					pointStyle: 'rect',
+				},
+				{
+					label: 'Lisinopril',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,0)',
+					pointBorderColor: "#23AEDF",
+					// pointBorderWidth: '1',
+					pointBackgroundColor: "#23AEDF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [,,,,,,,50,50,50,50,50,50,50,50],
+					// pointStyle: 'rectRounded',
+					pointHoverBorderWidth: '2',
+								pointStyle: 'rectRot',
+				},
+						{
+								label: 'Amlodipine',
+								backgroundColor: 'rgba(0, 0, 0, 0)',
+								borderColor: 'rgba(0,0,0,0)',
+								pointBorderColor: "#2350DF",
+								// pointBorderWidth: '1',
+								pointBackgroundColor: "#2350DF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+								data: [30,30,30,30,30,30,30,30,30,,,,,,],
+								pointHoverBorderWidth: '2',
+								pointStyle: 'rectRot',
+						},
+						{
+								label: 'Verapamil',
+								backgroundColor: 'rgba(0, 0, 0, 0)',
+								borderColor: 'rgba(0,0,0,0)',
+								pointBorderColor: "#2350DF",
+								// pointBorderWidth: '1',
+								pointBackgroundColor: "#2350DF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+								data: [,,,,,,,,,30,30,30,30,30,30],
+								pointStyle: 'rect',
+								pointHoverBorderWidth: '2',
+						}
+			]
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+				displayColors: false,
+					caretSize: 5,
+					bodyFontSize: 11,
+					callbacks: {
+				title: function() {},
+						//Changes here!
+						label: function(tooltipItem, data) {
+								if(data.labels[tooltipItem.index]=="N/A"){
+									return "Period Not Covered";
+								}
+								if(data.datasets[tooltipItem.datasetIndex].pointBackgroundColor=="#23AEDF"){
+						return data.datasets[2].label+ " " + data.dataForLis[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+					}
+								if(data.datasets[tooltipItem.datasetIndex].pointBackgroundColor=="black") {
+								if( data.datasets[tooltipItem.datasetIndex].pointStyle=="rectRot"){
+									return data.datasets[0].label+ " " + data.dataForMetro[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+								}
+								if(data.datasets[tooltipItem.datasetIndex].pointStyle=="rect"){
+									return data.datasets[1].label+ " " + data.dataForCar[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+								}
+								}
+								if(data.datasets[tooltipItem.datasetIndex].pointBorderColor=="#2350DF"){
+									if(data.datasets[tooltipItem.datasetIndex].pointStyle=="rectRot"){
+										return data.datasets[3].label+ " " + data.dataForAm[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+									}
+									return data.datasets[4].label+ " " + data.dataForVera[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+							}
+			},
+				},
+			} }
+		});
+		//data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+		</script>
+
+<!-- Diuretics Medication graph-->
+		<script>
+		var ctx = document.getElementById('myDiureticsChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['07/2018', '08/2018', '09/2018', '10/2019', '11/2019', '01/2019', '02/2019', '03/2019', '04/2019', '05/2019', '06/2019', '07/2019', '08/2019', '09/2019' ],
+						dataAcutal:["25","25","25","25", "25", "25", "25", "25", "40", "40", "40", "40", "40", "40", "40"],
+				datasets: [
+					{
+								label: 'Hydrochlorothiazide',
+								backgroundColor: 'rgba(0, 0, 0, 0)',
+								borderColor: 'rgba(0,0,0,0)',
+								pointBorderColor: "#23AEDF",
+								// pointBorderWidth: '1',
+								pointBackgroundColor: "#23AEDF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+								data: [30,30,30,30,30,30,30,30,30,,,,,,],
+								pointHoverBorderWidth: '2',
+								pointStyle: 'rectRot',
+						},
+						{
+								label: 'Furosemide',
+								backgroundColor: 'rgba(0, 0, 0, 0)',
+								borderColor: 'rgba(0,0,0,0)',
+								pointBorderColor: "#23AEDF",
+								// pointBorderWidth: '1',
+								pointBackgroundColor: "#23AEDF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+								data: [,,,,,,,,,30,30,30,30,30,30],
+								pointStyle: 'rect',
+								pointHoverBorderWidth: '2',
+						}
+			]
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+				displayColors: false,
+					caretSize: 5,
+					bodyFontSize: 11,
+					callbacks: {
+				title: function() {},
+						//Changes here!
+						label: function(tooltipItem, data) {
+								if(data.labels[tooltipItem.index]=="N/A"){
+									return "Period Not Covered";
+								}
+
+									if(data.datasets[tooltipItem.datasetIndex].pointStyle=="rectRot"){
+
+										return data.datasets[0].label + " " + 'mg'+ ', '+ 'Once Daily' + ', ' + 'Anticipated' + ' '+  data.labels[tooltipItem.index];
+									}
+									if(data.datasets[tooltipItem.datasetIndex].pointStyle=="rect"){
+									return data.datasets[1].label+ " " + 'mg'+ ', '+ 'Once Daily' + ', ' + 'Anticipated' + ' '+  data.labels[tooltipItem.index];
+								}
+							},
+						}    },
+			}  }
+
+		);
+		//data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+		</script>
+
+<!-- ANTI-Thrombotic Medication graph -->
+		<script>
+		var ctx = document.getElementById('myAntiThromboticChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['07/2018', '08/2018', '09/2018', '10/2019', '11/2019', '01/2019', '02/2019', '03/2019', '04/2019', '05/2019', '06/2019', '07/2019', '08/2019', '09/2019'],
+						dataAcutal:["12.5","12.5","12.5","12.5", "12.5", "25", "25", "25", "300", "300", "200", "200", "200", "100", "100", "100", "100"],
+				datasets: [{
+					label: 'Pravastatin',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+								// pointBorderWidth: '1',
+					borderColor: 'rgba(0,0,0,0)',
+								pointBackgroundColor: 'black',
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [10,10,10,10,1,1,1,1,1,1,1,1,1,1,1],
+					pointStyle: 'rectRot',
+				},
+				{
+					label: 'Clopidogrel',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,0)',
+					pointBorderColor: "#23AEDF",
+					pointBorderWidth: '1',
+					pointBackgroundColor: "#23AEDF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [,50,50,50,50,50,50,50,50,50,50,50,50,50,50],
+					pointStyle: 'rectRot',
+
+				},
+				{
+					label: 'Aspirin',
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					borderColor: 'rgba(0,0,0,0)',
+					pointBorderColor: "#2350DF",
+					// pointBorderWidth: '1',
+					pointBackgroundColor: "#2350DF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+					data: [,30,30,30,30,30,30,30,30,30,30,30,30,30,30],
+					// pointStyle: 'rectRounded',
+					pointHoverBorderWidth: '2',
+					pointStyle: 'rectRot',
+				},
+
+			]
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+				displayColors: false,
+					caretSize: 5,
+					bodyFontSize: 11,
+					callbacks: {
+				title: function() {},
+						//Changes here!
+						label: function(tooltipItem, data) {
+								if(data.datasets[tooltipItem.datasetIndex].pointBackgroundColor=="#230DF"){
+									return data.datasets[2].label+ " " + data.dataAcutal[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+								}
+								if(data.datasets[tooltipItem.datasetIndex].pointBorderColor=="gray"){
+									return data.datasets[3].label+ " " + data.dataAcutal[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Anticipated' + ' '+  data.labels[tooltipItem.index];
+							}
+			},
+				},
+			} }
+		});
+		//data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+		</script>
+
+<!-- ANTIDIABETIC Medication graph -->
+		<script>
+		var ctx = document.getElementById('myAntiDiabeticChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['07/2018', '08/2018', '09/2018', '10/2019', '11/2019', '01/2019', '02/2019', '03/2019', '04/2019', '05/2019', '06/2019', '07/2019', '08/2019', '09/2019', ],
+						dataAcutal:["25","25","25","25", "25", "25", "25", "25", "40", "40", "40", "40", "40", "40", "40"],
+				datasets: [{
+								label: 'Metformin',
+								backgroundColor: 'rgba(0, 0, 0, 0)',
+								borderColor: 'rgba(0,0,0,0)',
+								pointBorderColor: "#2350DF",
+								// pointBorderWidth: '1',
+								pointBackgroundColor: "#2350DF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+								data: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+								pointHoverBorderWidth: '2',
+								pointStyle: 'rectRot',
+						},
+						{
+								label: 'Glipizide',
+								backgroundColor: 'rgba(0, 0, 0, 0)',
+								borderColor: 'rgba(0,0,0,0)',
+								pointBorderColor: "#23AEDF",
+								// pointBorderWidth: '1',
+								pointBackgroundColor: "#23AEDF",
+								pointRadius: '4',
+								pointHoverRadius: '5',
+								pointHoverBackgroundColor: 'black',
+								borderWidth: '1',
+								data: [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
+								pointHoverBorderWidth: '2',
+								pointStyle: 'rectRot',
+						}
+			]
+			},
+
+			// Configuration options go here
+			options: {
+					responsive:true,
+				maintainAspectRatio: false,
+					legend: {display: false},
+					scales: {
+				xAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder: false,
+					},
+								ticks:{display:false}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false,
+										drawBorder:false,
+
+					},
+								ticks:{display:false}
+				}]
+			},
+				layout: {
+					padding: {
+						left: 0,
+						right: 10,
+						top: 10,
+						bottom: 0
+					}
+				},
+					tooltips: {
+				displayColors: false,
+					caretSize: 5,
+					bodyFontSize: 11,
+					callbacks: {
+				title: function() {},
+						//Changes here!
+						label: function(tooltipItem, data) {
+								if(data.labels[tooltipItem.index]=="N/A"){
+									return "Period Not Covered";
+								}
+								if(data.datasets[tooltipItem.datasetIndex].pointBackgroundColor=="green"){
+						return data.datasets[0].label+ " " + data.dataAcutal[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+					}
+								if(data.datasets[tooltipItem.datasetIndex].pointBorderColor=="blue"){
+									return data.datasets[2].label+ " " + data.dataAcutal[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Filled' + ' '+  data.labels[tooltipItem.index];
+								}
+								if(data.datasets[tooltipItem.datasetIndex].pointBorderColor=="gray"){
+									return data.datasets[3].label+ " " + data.dataAcutal[tooltipItem.index]+ 'mg'+ ', '+ 'Once Daily' + ', ' + 'Anticipated' + ' '+  data.labels[tooltipItem.index];
+							}
+			},
+				},
+			} }
+		});
+		//data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+		</script>
+

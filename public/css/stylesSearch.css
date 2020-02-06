@@ -1,3 +1,5 @@
+/* the following file contains overrides for the default styling for the search bar */
+
 .ansList:focus,.search_field:focus{
   background-color:#c6eaff
 }

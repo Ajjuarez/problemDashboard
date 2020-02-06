@@ -1,0 +1,126 @@
+/* ======================
+   General Page Structure
+   ====================== */
+
+/* box model */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* browser upgrade prompt */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Hides element used for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* no break */
+.nobr {
+  white-space: nowrap;
+}
+
+/* entire body stylings */
+body,
+html {
+  background: linear-gradient(0deg, rgba(34, 101, 170, 1) 0%, rgba(35, 174, 223, 1) 100%) fixed;
+  font-family: 'Roboto', sans-serif;
+  height: 95%;
+}
+
+
+
+/* ==================
+   Regenstrief Header
+   ================== */
+header {
+  background-color: white;
+}
+
+.logo {
+  width: 200px;
+}
+
+.logo img {
+  width: 200px;
+  position: absolute;
+  left: 1%;
+}
+
+header .container {
+  width: 100%;
+  height: 50px;
+  padding: .5em;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+
+
+
+/* ==========================================
+   Whitespace container surrounding interface
+       Style purposes only, no real use
+   ========================================== */
+
+.whitespace {
+  width: 98%;
+  height: 100%;
+  margin: 12px auto;
+  background-color: white;
+  border-radius: 5px;
+}
+
+
+/* ====================================================
+This container below only exists to constrain the 
+interface. Applies a width and height to the interface.
+This means in implimentation, a container to constrain
+the application is needed with the following features. 
+Width and height can be adjusted to suit the needs of the 
+surrounding software.
+======================================================= */
+.whitespace .container {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+
+
+/* ====================
+   Interface container
+   ==================== */
+
+.whitespace .interface {
+  border: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  margin: 10px;
+  min-width: 350px;
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+

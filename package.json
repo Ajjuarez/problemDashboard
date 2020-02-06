@@ -1,6 +1,12 @@
 {
   "name": "problemdashboard",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A patient overview data display application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ajjuarez/problemDashboard"
+  },
+  "author": "Alexandria Juarez",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -8,13 +14,15 @@
     "serverstart": "DEBUG=problemDashboard:* npm run devstart"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^3.0.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11",
+    "readmore-js": "^2.2.1",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
