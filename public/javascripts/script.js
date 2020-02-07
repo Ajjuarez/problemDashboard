@@ -9,8 +9,6 @@
 	}
 	}
 
-	
-
 // Searchbar
 //autofill searchbar
 	new Def.Autocompleter.Search('icd10', 'https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&df=code,name',
@@ -18,13 +16,19 @@
 	//console.log(Autocompleter[valueCols]);
 
 
-// //readmore.js by https://jedfoster.com/Readmore.js/   
-$('.displayText').readmore({
-			speed: 500,
-			collapsedHeight: 75,
-			moreLink: '<a href="#" class="moreLess">Read More...</a>',
-			lessLink: '<a href="#" class="moreLess">Read Less</a>',
-			heightMargin: 16
-		});
+
+//masonry
+	var elem = document.querySelector('.grid');
+	var msnry = new Masonry( elem, {
+	  // options
+	  itemSelector: '.grid-item',
+	  columnWidth: 200
+	});
+	
+	// element argument can be a selector string
+	//   for an individual element
+	var msnry = new Masonry( '.grid', {
+	  // options
+	});
 
 

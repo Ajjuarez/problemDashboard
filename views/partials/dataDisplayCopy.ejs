@@ -1,0 +1,203 @@
+<!-- views/partials/dataDisplay.ejs  -->		
+<!-- this file contains the modules used in the data display design -->
+            <div class="layout">
+
+                <!-- free text  -->
+                <div id="row">
+                    <!-- Free text note module  -->
+                    <div class="moduleContainer">
+                        <div class="labeledBox">
+                            <!-- label & Tabs -->
+                            <!-- <div class="labelContainer">
+                                <div class="label">Label Here</div>
+                            </div> -->
+                            <!-- Note -->
+                            <div class="editableTextContainer">
+                                <!-- <textarea class="editableText">Patient with long-standing hyperlipidemia and DM2, now with CKD stage III and MI in 2018. Currently on beta-blockers, diuretics</textarea> -->
+                                <textarea class="editableText">Summary</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- notes, procedures, labs, graph -->
+                <div id="row">
+                    <div id="column">
+                        <!-- Uneditable Note module-->
+                        <div class="moduleContainer">
+                            <div class="labeledBox">
+                                <!-- label & Tabs -->
+                                <div class="labelContainer">
+                                    <div class="label">Label Here</div>
+                                </div>
+                                <!-- Note -->
+                                <div class="displayTextContainer">
+                                    Interpretation
+                                    <!-- NEXT STEP IS TO LEARN HOW TO READ IN DATA  -->
+                                    <!-- <article class="displayText">
+                                    Patient Name: Betty Franks
+                                    <br>
+                                    Medical Record Number: 999999999
+                                    <br>
+                                    Admission Date: 7/26/2018
+                                    <br>
+                                    Discharge Date: 7/31/2018
+                                    <br/>
+                                    Attending Physician: Dr. Somgai
+                                    <br/>
+                                    Primary Care Physician: Dr. Mitchell
+                                    <br/>
+                                    Consulting Physicians: Dr. Goodman, Nephrology, Dr. Halakis, Cardiology
+                                    <br/>
+                                    Condition on discharge: stable
+                                    <br/>
+                                    Final Diagnosis: Atherosclerotic Heart Disease with Acute Ischemia of the Left Anterior Coronary Artery
+                                    <br/>
+                                    Procedure: Left coronary catheterization with drug eluting stent placement
+                                    <br/>
+                                    Hospital Course:
+                                    71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR  less than 65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
+                                    <br/>
+                                    Discharge Instructions:
+                                    Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.
+                                    </article> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- lists modules-->
+                        <div class="moduleContainer">
+                            <div class="labeledBox">
+                                <!-- <div class="labelContainer">
+                                    <div class="label">Label Here</div>
+                                </div> -->
+
+                                <div class="listContainer">
+                                    Procedure List
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- lists modules 2-->
+                        <div class="moduleContainer">
+                            <div class="labeledBox">
+                                <!-- <div class="labelContainer">
+                                    <div class="label">Label Here</div>
+                                </div> -->
+
+                                <div class="listContainer">
+                                    Lab Results
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="column">
+                        <!-- graphs module-->
+                        <div class="moduleContainer">
+                            <!-- Begin panel of 6 graphs  -->
+                            <div class="panelOfGraphs">
+                                <!-- Graph 1 -->
+                                <div class="labeledBox">
+                                    <!-- <div class="labelContainer">
+                                        <div class="label">Label Here</div>
+                                    </div> -->
+
+                                    <div class="graphContainer">
+                                        graphs here
+                                        <!-- <canvas id="myAntiHypertensiveChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 2 -->
+                                <div class="labeledBox">
+                                    <!-- <div class="labelContainer">
+                                        <div class="label">Label Here</div>
+                                    </div> -->
+
+                                    <div class="graphContainer">
+                                        <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 3 -->
+                                <div class="labeledBox">
+                                    <!-- <div class="labelContainer">
+                                        <div class="label">Label Here</div>
+                                    </div> -->
+
+                                    <div class="graphContainer">
+                                        <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 4 -->
+                                <div class="labeledBox">
+                                    <!-- <div class="labelContainer">
+                                        <div class="label">Label Here</div>
+                                    </div> -->
+
+                                    <div class="graphContainer">
+                                        <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 5 -->
+                                <div class="labeledBox">
+                                    <!-- <div class="labelContainer">
+                                        <div class="label">Label Here</div>
+                                    </div> -->
+
+                                    <div class="graphContainer">
+                                        <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 6 -->
+                                <div class="labeledBox">
+                                    <!-- <div class="labelContainer">
+                                        <div class="label">Label Here</div>
+                                    </div> -->
+
+                                    <div class="graphContainer">
+                                        <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- meds and social -->
+                <div id="row">
+                    <!-- lists modules 3-->
+                    <div class="moduleContainer">
+                        <div class="labeledBox">
+                            <!-- <div class="labelContainer">
+                                <div class="label">Label Here</div>
+                            </div> -->
+
+                            <div class="listContainer">
+                                Medication list
+                            </div>
+                        </div>
+                    </div>
+                                    
+                    <!-- lists modules 4-->
+                    <div class="moduleContainer">
+                        <div class="labeledBox">
+                            <!-- <div class="labelContainer">
+                                <div class="label">Label Here</div>
+                            </div> -->
+
+                            <div class="listContainer">
+                                Social Determinants of Health
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+             </div>
+                
+               
+
+

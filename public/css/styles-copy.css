@@ -391,11 +391,10 @@ screen width is narrow*/
   flex-flow: column wrap; 
   /* background-color: lime; */
   /* height:100%;*/
-  background-color: yellow;
 } 
 
 .panelOfGraphs .labeledBox:not(:first-child){
-  margin-top: 2px;
+  margin-top: 10px;
 }
 
 .graphContainer {
@@ -447,37 +446,20 @@ screen width is narrow*/
     display: inline;
   }
 
-  .layout{
-    flex-flow: row wrap;
-    /* height:200px; */
-    /* display:block; */
-    }
-
-   .moduleContainer{
-      width:50%;
-    }
-
-  #text{
-    width:100%;
+  #row{
+    display:flex;
+    flex-direction: row;
+    flex-basis:100%;
   }
 
-  .bottom{
-    width:100%;
+  #column{
+    display:flex;
+    flex-direction:column;
+    flex-basis:100%;
+    flex:1;
   }
 
-  .layout :nth-child(1) { order: 1; } /*Text*/
-  .layout :nth-child(2) { order: 2;  } /*Note*/
-  .layout :nth-child(3) { order: 3; } /*procedure*/
-  .layout :nth-child(4) { order: 4; } /*lab*/
-  .layout :nth-child(5) { order: 5;} /*graph*/
-  .layout :nth-child(6) { order: 6;  } /*social*/
-  .layout :nth-child(7) { order: 7; } /*meds*/
 
-
-    
-    /* .moduleContainer{
-      width: 50%;
-    } */
 
 /* ======================
    Colored box displaying 

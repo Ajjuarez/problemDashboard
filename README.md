@@ -1,10 +1,10 @@
 # Problem Dashboard
 
-The Problem Dashboard is intended to function as an  organized list of patient conditions taken from multiple problem 
-list types and display a masterproblem list. The Dashboard will offer an organized summary of relevant labs, notes and diagnostics 
-associated with each problem. The  objectiveof  the Problem Dashboard is  twofold:
-1. To  increase  clinician  well-being  and efficiency by  rendering  all  relevant  information  concisely  in  one  place
-2. To  improve  patient outcomes by increasing clinician efficacy
+The Problem Dashboard is intended to function as an organized list of patient conditions taken from multiple problem 
+list types and display a master problem list. The Dashboard will offer an organized summary of relevant labs, notes and diagnostics 
+associated with each problem. The objective of the Problem Dashboard is two-fold:
+1. To increase clinician  well-being and efficiency by  rendering all relevant information concisely in one place
+2. To improve patient outcomes by increasing clinician efficacy
 
 ## Getting Started
 
@@ -55,7 +55,6 @@ The application should be now be running on http://localhost:3000/#
 
 To view the application in a demo view frame navigate to
 file:///C:/Users/your/file/path/problemDashboard/views/demo/frame.html
-
 
 
 ## Built With

@@ -20,8 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//link to use readmore.js
-app.use('/scripts', express.static(path.join(__dirname, '/node_modules/readmore-js')));
+//link to use masonry
+app.use('/scripts', express.static(path.join(__dirname, '/node_modules/masonry-layout/dist')));
 
 
 
