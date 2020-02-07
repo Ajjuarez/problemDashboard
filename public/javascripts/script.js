@@ -26,3 +26,5 @@ $('.displayText').readmore({
 			lessLink: '<a href="#" class="moreLess">Read Less</a>',
 			heightMargin: 16
 		});
+
+

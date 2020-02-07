@@ -1,0 +1,57 @@
+		<!-- views/partials/menu.ejs  -->
+        <!-- Search and display options at the top of the interface-->
+        
+        
+        <div class="optionBar" id="butOptions">
+			<!-- Search bar -->
+			<div class="searchContainer" id="defaultOpen">
+				<div class="searchbox">
+					<!-- ICD-10 Search Bar - https://clinicaltables.nlm.nih.gov/apidoc/icd10cm/v3/doc.html -->
+					<link
+						href='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.css'
+						rel="stylesheet">
+					<!-- link to stylesheet to override some of the clinical tables styles -->
+					<link rel="stylesheet" href="css/stylesSearch.css">
+					<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+					<script
+						src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'>
+					</script>
+
+
+					<!-- Make this a form at some point- discuss with eric -->
+					<form action="addCondition.cgi" method="post" class="searchForm">
+						<input type="search" id="icd10" class="search" placeholder="Find Condition"
+							name="form-addCondition">
+					</form>
+				</div>
+			</div>
+			<div class="align">
+				<!-- options for screen display -->
+				<div class="displayOptions">
+					<!-- group by system -->
+					<button onclick="">
+						<span class="butIcon">
+							<i class="fas fa-columns"></i>
+						</span>Group by System
+					</button>
+
+					<!-- display as lists-->
+					<button onclick="">
+						<span class="butIcon">
+							<i class="fas fa-th-list"></i>
+						</span>Display Data as Lists
+					</button>
+				</div>
+				<!--refresh and elipsis container-->
+				<div class="displayOptions2">
+					<!-- refresh icon -->
+					<a href="#" class="refresh">
+						<i class="fa fa-redo"></i>
+					</a>
+					<!-- elipsis menu for small screens-->
+					<a href="javascript:void(0);" class="icon" onclick="menuSmall()">
+						<i class="fas fa-ellipsis-v"></i>
+					</a>
+				</div>
+			</div>
+		</div>
