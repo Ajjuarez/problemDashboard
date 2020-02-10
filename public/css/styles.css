@@ -267,7 +267,6 @@ screen width is narrow*/
 
 
 
-
 /* ======================
    Main Display Container
    ====================== */
@@ -277,28 +276,53 @@ screen width is narrow*/
   display: block;
   width:100%;
   height:100%;
-  margin: 35px auto 0px;
+  margin: 40px auto 0px;
   /* Might need to change the 40px padding when putting into an accordion */
   /* padding: 5px; */
 }
 
 /* ==========
-    Grid
+    layout in XS
    ========== */
 
   .layout{
   display:flex;
   flex-direction: column;
+  width:100%;
+
   }
+
 
 /* ================
    Module Container
    ================*/
   .moduleContainer{
-  width: 100%;
-  /* background-color: pink; */
-  /* margin: 10px auto; */
-}
+
+  }
+
+
+  
+  /* TOGGLES for containers */
+  .toggleText{
+    display:none;
+  }
+
+  .toggleGraphs{
+    display:none;
+  }
+  .toggleLabs{
+    grid-column:2;
+    grid-row:2;
+  }
+  .toggleSocial{
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .toggleMeds{
+    grid-column: 1 / 3;
+    grid-row:5;
+  }
+
 
 
 /* =============
@@ -438,7 +462,7 @@ screen width is narrow*/
 /* All styles up to this point in the stylesheet are for X-Small */
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (min-width: 450px) {
   .searchContainer {
     width: 50%;
   }
@@ -447,37 +471,49 @@ screen width is narrow*/
     display: inline;
   }
 
+  /* =================
+     responsive layout
+    ================== */
   .layout{
-    flex-flow: row wrap;
-    /* height:200px; */
-    /* display:block; */
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    /* grid-gap:10px; */
+    /* grid-auto-rows:minmax(100px,auto); */
     }
 
-   .moduleContainer{
-      width:50%;
+    #text {
+      grid-column: 1 / 3;
+      grid-row: 1;
     }
-
-  #text{
-    width:100%;
-  }
-
-  .bottom{
-    width:100%;
-  }
-
-  .layout :nth-child(1) { order: 1; } /*Text*/
-  .layout :nth-child(2) { order: 2;  } /*Note*/
-  .layout :nth-child(3) { order: 3; } /*procedure*/
-  .layout :nth-child(4) { order: 4; } /*lab*/
-  .layout :nth-child(5) { order: 5;} /*graph*/
-  .layout :nth-child(6) { order: 6;  } /*social*/
-  .layout :nth-child(7) { order: 7; } /*meds*/
-
-
-    
-    /* .moduleContainer{
-      width: 50%;
+    #note { 
+      grid-column: 1;
+      grid-row: 2;
+    }
+    #procedure {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    #lab {
+      grid-column: 1;
+      grid-row: 4;
+    }
+    /* #social {
+      grid-column: 1;
+      grid-row: 5;
     } */
+    /* #meds {
+      grid-column: 2;
+      grid-row: 5;
+    } */
+
+    #graphs{
+      grid-column: 2;
+      grid-row: 2/5;
+    }
+
+
+
+
 
 /* ======================
    Colored box displaying 

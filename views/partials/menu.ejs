@@ -25,9 +25,9 @@
 					</form>
 				</div>
 			</div>
-			<div class="align">
+			<div id="containerSelector" class="align">
 				<!-- options for screen display -->
-				<div class="displayOptions">
+				<div id="elementSelector" class="displayOptions">
 					<!-- group by system -->
 					<button onclick="">
 						<span class="butIcon">
@@ -35,11 +35,11 @@
 						</span>Group by System
 					</button>
 
-					<!-- display as lists-->
-					<button onclick="">
+					<!-- hide graphs-->
+					<button onclick="toggleGraphsFunction()">
 						<span class="butIcon">
 							<i class="fas fa-chart-line"></i>
-						</span>Show Graphs
+						</span><span id="butName">Hide Graphs</span>
 					</button>
 				</div>
 				<!--refresh and elipsis container-->
