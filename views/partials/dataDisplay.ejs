@@ -1,7 +1,6 @@
 <!-- views/partials/dataDisplay.ejs  -->		
 <!-- this file contains the modules used in the data display design -->
 
- 
 
                 <div class="layout">
                     <!-- Text module  -->
@@ -13,9 +12,8 @@
                             </div> -->
                             <!-- Note -->
                             <div class="editableTextContainer">
-                                <!-- <textarea class="editableText">Patient with long-standing hyperlipidemia and DM2, now with CKD stage III and MI in 2018. Currently on beta-blockers, diuretics</textarea> -->
+                                <textarea class="editableText">Patient with long-standing hyperlipidemia and DM2, now with CKD stage III and MI in 2018. Currently on beta-blockers, diuretics</textarea>
                                 <!-- <textarea class="editableText">Summary</textarea> -->
-                                Summary
                             </div>
                         </div>
                     </div>   
@@ -24,40 +22,43 @@
                     <div id ="note" class="moduleContainer">
                         <div class="labeledBox">
                             <!-- label & Tabs -->
-                            <!-- <div class="labelContainer">
-                                <div class="label">Label Here</div>
-                            </div> -->
+                            <div class="labelContainer">
+                                <div class="label">{Note Type}</div>
+                                <ul class="tabrow">
+                                    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">{date}</a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">{date}</a></li>
+                                </ul>
+                            </div>
                             <!-- Note -->
                             <div class="displayTextContainer">
-                                Interpretation
-                                <!-- NEXT STEP IS TO LEARN HOW TO READ IN DATA  -->
-                                <!-- <article class="displayText">
-                                Patient Name: Betty Franks
-                                <br>
-                                Medical Record Number: 999999999
-                                <br>
-                                Admission Date: 7/26/2018
-                                <br>
-                                Discharge Date: 7/31/2018
-                                <br/>
-                                Attending Physician: Dr. Somgai
-                                <br/>
-                                Primary Care Physician: Dr. Mitchell
-                                <br/>
-                                Consulting Physicians: Dr. Goodman, Nephrology, Dr. Halakis, Cardiology
-                                <br/>
-                                Condition on discharge: stable
-                                <br/>
-                                Final Diagnosis: Atherosclerotic Heart Disease with Acute Ischemia of the Left Anterior Coronary Artery
-                                <br/>
-                                Procedure: Left coronary catheterization with drug eluting stent placement
-                                <br/>
-                                Hospital Course:
-                                71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR  less than 65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
-                                <br/>
-                                Discharge Instructions:
-                                Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.
-                                </article> -->
+                                <!-- NEXT STEP IS TO LEARN HOW TO READ IN DATA 
+                                and figure out how to call on each individual content, while 
+                                remaining dynamic-->
+                                <div id="content_1" class="tabcontent"> 
+                                    <article class="displayText content">
+                                        Final Diagnosis: Atherosclerotic Heart Disease with Acute Ischemia of the Left Anterior Coronary Artery
+                                        <br/>
+                                        Procedure: Left coronary catheterization with drug eluting stent placement
+                                        <br/>
+                                        Hospital Course:
+                                        71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR  less than 65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
+                                        <br/>
+                                        Discharge Instructions:
+                                        Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.
+                                    </article>
+                                </div> 
+                                <div id="content_2" class="tabcontent" style="display:none;">
+                                    <article class="displayText content">
+                                        Procedure: Left coronary catheterization with drug eluting stent placement
+                                        <br/>
+                                        Hospital Course:
+                                        71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR  less than 65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
+                                        <br/>
+                                        Discharge Instructions:
+                                        Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.
+                                    </article>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -119,73 +120,73 @@
                         <!-- Begin panel of 6 graphs  -->
                         <div class="panelOfGraphs">
                             <!-- Graph 1 -->
-                            <div class="labeledBox">
-                                <!-- <div class="labelContainer">
-                                    <div class="label">Label Here</div>
-                                </div> -->
+                            <div class="labeledBoxGraphs">
+                                <div class="labelContainerGraphs">
+                                    <div class="labelGraphs">Stat Line 1</div>
+                                </div>
 
                                 <div class="graphContainer">
-                                    Graph
+            
                                     <!-- <canvas id="myAntiHypertensiveChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
                                 </div>
                             </div>
 
                             <!-- Graph 2 -->
-                            <div class="labeledBox">
-                                <!-- <div class="labelContainer">
-                                    <div class="label">Label Here</div>
-                                </div> -->
+                            <div class="labeledBoxGraphs">
+                                <div class="labelContainerGraphs">
+                                    <div class="labelGraphs">Stat Line 2</div>
+                                </div>
 
                                 <div class="graphContainer">
-                                    Graph
+                                    
                                     <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
                                 </div>
                             </div>
 
                             <!-- Graph 3 -->
-                            <div class="labeledBox">
-                                <!-- <div class="labelContainer">
-                                    <div class="label">Label Here</div>
-                                </div> -->
+                            <div class="labeledBoxGraphs">
+                                <div class="labelContainerGraphs">
+                                    <div class="labelGraphs">Stat Line 3</div>
+                                </div>
 
                                 <div class="graphContainer">
-                                    Graph
+                                    
                                     <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
                                 </div>
                             </div>
 
                             <!-- Graph 4 -->
-                            <div class="labeledBox">
-                                <!-- <div class="labelContainer">
-                                    <div class="label">Label Here</div>
-                                </div> -->
+                            <div class="labeledBoxGraphs">
+                                <div class="labelContainerGraphs">
+                                    <div class="labelGraphs">Stat Line 4</div>
+                                </div>
 
                                 <div class="graphContainer">
-                                    Graph
+                                   
                                     <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
                                 </div>
                             </div>
 
                             <!-- Graph 5 -->
-                            <div class="labeledBox">
-                                <!-- <div class="labelContainer">
-                                    <div class="label">Label Here</div>
-                                </div> -->
+                            <div class="labeledBoxGraphs">
+                                <div class="labelContainerGraphs">
+                                    <div class="labelGraphs">Stat Line 5</div>
+                                </div>
 
                                 <div class="graphContainer">
-                                    Graph
+                                    
                                     <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
                                 </div>
                             </div>
 
                             <!-- Graph 6 -->
-                            <div class="labeledBox">
-                                <!-- <div class="labelContainer">
-                                    <div class="label">Label Here</div>
-                                </div> -->
+                            <div class="labeledBoxGraphs">
+                                <div class="labelContainerGraphs">
+                                    <div class="labelGraphs">Stat Line 6</div>
+                                </div>
 
                                 <div class="graphContainer">
-                                    Graph
+                                    
                                     <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
                                 </div>
                             </div>
