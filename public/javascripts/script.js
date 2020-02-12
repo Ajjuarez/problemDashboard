@@ -106,3 +106,13 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 	});
 
 
+// copy from note
+function copyFunction() {
+	var copyText = document.getElementById("editableText");
+	copyText.select();
+	copyText.setSelectionRange(0, 99999)
+	document.execCommand("copy");
+	
+	var tooltip = document.getElementById("myTooltip");
+  	tooltip.innerHTML = "Copied";
+  }

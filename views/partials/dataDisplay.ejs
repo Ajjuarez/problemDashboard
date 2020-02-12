@@ -5,28 +5,29 @@
                 <div class="layout">
                     <!-- Text module  -->
                     <div id="text" class="moduleContainer">
-                        <div class="labeledBox">
+                        <div class="labeledBox text">
                             <!-- label & Tabs -->
                             <!-- <div class="labelContainer">
                                 <div class="label">Label Here</div>
                             </div> -->
                             <!-- Note -->
                             <div class="editableTextContainer">
-                                <textarea class="editableText">Patient with long-standing hyperlipidemia and DM2, now with CKD stage III and MI in 2018. Currently on beta-blockers, diuretics</textarea>
-                                <!-- <textarea class="editableText">Summary</textarea> -->
+                                <textarea id="editableText" class="editableText">Patient with long-standing hyperlipidemia and DM2, now with CKD stage III and MI in 2018. Currently on beta-blockers, diuretics</textarea>
+                                <button class="copyButton" onclick="copyFunction()"><i class="fas fa-copy"></i></button>
+                                
                             </div>
                         </div>
                     </div>   
 
                     <!-- Note module-->
                     <div id ="note" class="moduleContainer">
-                        <div class="labeledBox">
+                        <div class="labeledBox note">
                             <!-- label & Tabs -->
                             <div class="labelContainer">
-                                <div class="label">{Note Type}</div>
+                                <div class="label">Note Type</div><!--AUTOGEN THIS -->
                                 <ul class="tabrow">
-                                    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">{date}</a></li>
-                                    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">{date}</a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">Date</a></li><!--AUTOGEN THIS -->
+                                    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">Date</a></li><!--AUTOGEN THIS -->
                                 </ul>
                             </div>
                             <!-- Note -->
@@ -116,7 +117,7 @@
                     </div>
 
                     <!-- Graphs module-->
-                    <div id="graphs" class="moduleContainer">
+                    <div id="graphs" class="moduleContainer graphModule">
                         <!-- Begin panel of 6 graphs  -->
                         <div class="panelOfGraphs">
                             <!-- Graph 1 -->
