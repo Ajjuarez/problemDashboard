@@ -41,7 +41,7 @@
 
 
 
-
+//toggle graphs on and off and switch the layout at the same time
 function toggleGraphsFunction(){
 	var graphs = document.getElementById("graphs");
 	var meds = document.getElementById("meds");
@@ -112,7 +112,171 @@ function copyFunction() {
 	copyText.select();
 	copyText.setSelectionRange(0, 99999)
 	document.execCommand("copy");
-	
+
+
+	// alert("Copied the text: " + copyText.value);
 	var tooltip = document.getElementById("myTooltip");
-  	tooltip.innerHTML = "Copied";
+  	tooltip.innerHTML = "Copied!";
   }
+
+  function outFunc() {
+	var tooltip = document.getElementById("myTooltip");
+	tooltip.innerHTML = "Copy to clipboard";
+  }
+
+
+  
+//   graph 
+// Bloodpressure
+var sData = {
+	labels: ['7/31/2018', '11/7/2018', '2/11/2019', '4/3/2019','5/11/2019','7/18/2019', 'extra', 'extra'],
+	datasets: [{
+	  data: [117,70 ,70 ,100 , 106, 110, 100 ,140],
+	  fill: false,
+	  pointBackgroundColor: 'black',
+	  borderColor: "black",
+	  borderWidth:1,
+	  pointHitRadius: 4,
+	  pointRadius:2
+	}],
+   }
+	
+   var data = sData
+	
+   var options = {
+	responsive: false,
+	layout:{
+		padding:{
+			right:8
+		}
+	},
+	legend: {
+	  display: false
+	}, scales: {
+	xAxes: [{
+			  gridLines: {
+				  display: false,
+								   drawBorder: false,
+			  },
+						   ticks:{display:false,
+			  }
+		  }],
+		  yAxes: [{
+			  gridLines: {
+				  display: false,
+				   drawBorder: false,
+				   scaleLabel: {
+							  show: false,
+							  labelString: 'Value'
+						   
+						  },
+	
+			  },
+					   ticks:{
+							beginAtZero: false,
+								  min: 70,
+								   max: 140,
+								   stepSize: 10,
+								   data:[70,90,120,150],
+								   callback: function(label, index, labels) {
+									switch (label) {
+									   case 70:
+										  return "";
+									   case 90:
+										  return '';
+										//   return '90';
+									   case 100:
+										   return '';
+									  case 120:
+										return '';
+
+										// return '120';
+									  case 140:
+										  return '';
+			   }
+			 }
+				   
+				  }
+		  }],
+	  },
+	 bands: {
+	  yValueMin: 90,
+	  yValueMax: 120,
+	   //baseColorGradientColor:'red',
+		//pointBackgroundColor: 'red',
+		  //pointBackgroundColor: 'red',
+		  bandLine: {
+			  stroke:1,
+			  colour:'gainsboro',
+			  type: 'dashed'
+		  },
+		  belowMinThresholdColour: [
+			  'red'
+		  ],
+		  aboveMaxThresholdColour: [
+			  'red'
+		  ],
+	  },
+	
+	
+   }
+	
+   var ctx = document.getElementById('myChart');
+	
+   let chart2 = new Chart(ctx, {
+	type: 'line',
+	data: data,
+	options: options,
+	responsive: true,
+	maintainAspectRatio:false
+	
+   });
+   
+ 
+   
+// Vertical line on graphs 
+// var element = document.getElementById('graphs');
+
+// var drawLines = function(event) {
+//   var x = event.pageX;
+//   var y = event.pageY;
+  
+//   var straightLine = element.querySelector('.straightLine');
+//   var hrLine = element.querySelector('.hrLine');
+  
+//   var slTrans = 'translate(' + x + 'px, 0px)';
+//   var hrTrans = 'translate(0px, ' + y + 'px)';
+//   if(!straightLine) {
+//      straightLine = document.createElement('div');
+//      straightLine.classList.add('straightLine');
+//      straightLine.style.height = "100%";
+//      straightLine.style.width = '2px';
+//      element.appendChild(straightLine);
+//   }
+//   straightLine.style.transform = slTrans;
+  
+//   if(!hrLine) {
+//      hrLine = document.createElement('div');
+//      hrLine.style.height = "2px";
+//      hrLine.classList.add('hrLine');
+//      hrLine.style.width = '100%';
+//      element.appendChild(hrLine);
+//   }
+//   hrLine.style.transform = hrTrans;
+// }
+
+// element.addEventListener('mousemove', function(event) {
+//    drawLines(event);
+// });
+
+// element.addEventListener('mousedown', function(event) {
+//    drawLines(event);   
+// });
+
+// element.addEventListener('mouseup', function(event) {
+//    drawLines(event);
+// });
+
+// element.addEventListener('mouseout', function(event) {
+//    drawLines(event);
+// });

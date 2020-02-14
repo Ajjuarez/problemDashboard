@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //link to use clipboard- https://clipboardjs.com/
-app.use('/scripts', express.static(path.join(__dirname, '/node_modules/clipboard/dist')));
+app.use('/scripts', express.static(path.join(__dirname, '/node_modules/chart.js/dist')));
 
 
 

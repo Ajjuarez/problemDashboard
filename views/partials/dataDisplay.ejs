@@ -6,15 +6,19 @@
                     <!-- Text module  -->
                     <div id="text" class="moduleContainer">
                         <div class="labeledBox text">
-                            <!-- label & Tabs -->
+                            <!-- labels and tabs go here if find you need them, they are already
+                            flexed and styled so they just need to be inserted-->
                             <!-- <div class="labelContainer">
                                 <div class="label">Label Here</div>
                             </div> -->
+
                             <!-- Note -->
                             <div class="editableTextContainer">
+                                <!-- text area for free note  -->
                                 <textarea id="editableText" class="editableText">Patient with long-standing hyperlipidemia and DM2, now with CKD stage III and MI in 2018. Currently on beta-blockers, diuretics</textarea>
-                                <button class="copyButton" onclick="copyFunction()"><i class="fas fa-copy"></i></button>
-                                
+                                <!-- copy textarea button  -->
+                                <button class="copyButton" onclick="copyFunction()" onmouseout="outFunc()">
+                                    <span class="tooltiptext" id="myTooltip">Copy to clipboard</span><i class="fas fa-copy"></i></button>
                             </div>
                         </div>
                     </div>   
@@ -34,7 +38,9 @@
                             <div class="displayTextContainer">
                                 <!-- NEXT STEP IS TO LEARN HOW TO READ IN DATA 
                                 and figure out how to call on each individual content, while 
-                                remaining dynamic-->
+                                remaining dynamic 
+                                Each note needs to have a unique ID that needs to be called by the modal (in body.ejs)
+                                how to do this I am still unsure-->
                                 <div id="content_1" class="tabcontent"> 
                                     <article class="displayText content">
                                         Final Diagnosis: Atherosclerotic Heart Disease with Acute Ischemia of the Left Anterior Coronary Artery
@@ -72,7 +78,7 @@
                             </div> -->
 
                             <div class="listContainer">
-                                Procedure List
+                                <p class="temp">Procedure List</p>
                             </div>
                         </div>
                     </div>
@@ -85,7 +91,7 @@
                             </div> -->
 
                             <div class="listContainer">
-                                Lab Results
+                                <div class="temp">Labs</div>
                             </div>
                         </div>
                     </div>
@@ -98,7 +104,7 @@
                             </div> -->
 
                             <div class="listContainer">
-                                Social Determinants of Health
+                                <p class="temp">Social Determinants of Health</p>
                             </div>
                         </div>
                     </div>
@@ -111,89 +117,95 @@
                             </div> -->
 
                             <div class="listContainer">
-                                Medication list
+                                <p class="temp">Medication List</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Graphs module-->
                     <div id="graphs" class="moduleContainer graphModule">
-                        <!-- Begin panel of 6 graphs  -->
-                        <div class="panelOfGraphs">
-                            <!-- Graph 1 -->
-                            <div class="labeledBoxGraphs">
-                                <div class="labelContainerGraphs">
-                                    <div class="labelGraphs">Stat Line 1</div>
+                            <!-- time scale for graphs  -->
+                            <div class="timeScaleContainer">
+                                <div class="scale">time scale goes here</div>
+                            </div>
+
+                            <!-- Begin panel of 6 graphs  -->
+                            <div class="panelOfGraphs">
+                                <!-- Graph 1 -->
+                                <div class="labeledBoxGraphs">
+                                    <div class="labelContainerGraphs">
+                                        <div class="labelGraphs">Stat Line 1</div>
+                                    </div>
+
+                                    <div class="graphContainer">
+                
+                                        <!-- <canvas id="myBNPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
                                 </div>
 
-                                <div class="graphContainer">
+                                <!-- Graph 2 -->
+                                <div class="labeledBoxGraphs">
+                                    <div class="labelContainerGraphs">
+                                        <div class="labelGraphs">Stat Line 2</div>
+                                    </div>
+
+                                    <div class="graphContainer">
+                                        
+                                        <canvas id="myChart" style= "width:100%; height: 100%;" class="chart"></canvas>
+                                    </div>
+                                </div>
+
+                                <!-- Graph 3 -->
+                                <div class="labeledBoxGraphs">
+                                    <div class="labelContainerGraphs">
+                                        <div class="labelGraphs">Stat Line 3</div>
+                                    </div>
+
+                                    <div class="graphContainer">
+                                        
+                                        <!-- <canvas id="myCretinineChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 4 -->
+                                <div class="labeledBoxGraphs">
+                                    <div class="labelContainerGraphs">
+                                        <div class="labelGraphs">Stat Line 4</div>
+                                    </div>
+
+                                    <div class="graphContainer">
+                                    
+                                        <!-- <canvas id="myHDLChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 5 -->
+                                <div class="labeledBoxGraphs">
+                                    <div class="labelContainerGraphs">
+                                        <div class="labelGraphs">Stat Line 5</div>
+                                    </div>
+
+                                    <div class="graphContainer">
+                                        
+                                        <!-- <canvas id="myINRChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+
+                                <!-- Graph 6 -->
+                                <div class="labeledBoxGraphs">
+                                    <div class="labelContainerGraphs">
+                                        <div class="labelGraphs">Stat Line 6</div>
+                                    </div>
+
+                                    <div class="graphContainer">
+                                        
+                                        <!-- <canvas id="myWeightChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
+                                    </div>
+                                </div>
+                            </div>
+              
+                     </div>
             
-                                    <!-- <canvas id="myAntiHypertensiveChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
-                                </div>
-                            </div>
-
-                            <!-- Graph 2 -->
-                            <div class="labeledBoxGraphs">
-                                <div class="labelContainerGraphs">
-                                    <div class="labelGraphs">Stat Line 2</div>
-                                </div>
-
-                                <div class="graphContainer">
-                                    
-                                    <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
-                                </div>
-                            </div>
-
-                            <!-- Graph 3 -->
-                            <div class="labeledBoxGraphs">
-                                <div class="labelContainerGraphs">
-                                    <div class="labelGraphs">Stat Line 3</div>
-                                </div>
-
-                                <div class="graphContainer">
-                                    
-                                    <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
-                                </div>
-                            </div>
-
-                            <!-- Graph 4 -->
-                            <div class="labeledBoxGraphs">
-                                <div class="labelContainerGraphs">
-                                    <div class="labelGraphs">Stat Line 4</div>
-                                </div>
-
-                                <div class="graphContainer">
-                                   
-                                    <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
-                                </div>
-                            </div>
-
-                            <!-- Graph 5 -->
-                            <div class="labeledBoxGraphs">
-                                <div class="labelContainerGraphs">
-                                    <div class="labelGraphs">Stat Line 5</div>
-                                </div>
-
-                                <div class="graphContainer">
-                                    
-                                    <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
-                                </div>
-                            </div>
-
-                            <!-- Graph 6 -->
-                            <div class="labeledBoxGraphs">
-                                <div class="labelContainerGraphs">
-                                    <div class="labelGraphs">Stat Line 6</div>
-                                </div>
-
-                                <div class="graphContainer">
-                                    
-                                    <!-- <canvas id="myBPChart" style= "width:100%; height: 100%;" class="chart"></canvas> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>                
-                </div>
                 
                
 
