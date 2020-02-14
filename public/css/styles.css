@@ -621,8 +621,8 @@ screen width is narrow*/
 
 
 .panelOfGraphs .labeledBoxGraphs:not(:first-child){
-  margin-top: 10px;
-  /* background-color:pink; */
+  /* margin-top: 10px; */
+  /* spacing between graphs  */
 }
 .panelOfGraphs .labeledBoxGraphs:nth-child(even) {
   background-color: rgb(252, 250, 250);
@@ -633,7 +633,7 @@ screen width is narrow*/
   /* overflow: hidden; */
   border: none;
   /* width:90%;*/
-  height:50px; 
+  height:60px; 
   width:100%;
   /* background-color: white; */
 }
@@ -656,27 +656,16 @@ screen width is narrow*/
 }
 
 /* chart.js graph styling */
-
-
-
-/* vertical lines on graph container  */
-.graphModule {
-  height: 100%;
-  width: 100%;
-  /* background-color: pink; */
-  /* position: relative; */
+.chart{
+  width:100%;
+  height:100%;
 }
-.straightLine{
-  /* position: absolute; */
-  background-color: red;
-  z-index: 1000;
 
-}
-.hrLine{
-  /* position:absolute; */
-  background-color: red;
-  
-}
+/* vertical line on graph container  */
+
+
+
+
 /* ======================
    Colored box displaying 
    the screen size

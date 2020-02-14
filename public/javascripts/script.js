@@ -11,25 +11,7 @@
 
 
 //Clickoutside the menu div and it goes away
-//problems- need to be able to click on the button, right now if you click 
-//outside the dropdown, you have to click twice, also the menu disapears 
-//when you make the screen bigger
-// $(document).mouseup(function (e)
-//                     {
-//   var container = $("#containerSelector"); // YOUR CONTAINER SELECTOR
-//   var element = $("#elementSelector");
-
-
-//   if (!container.is(e.target) // if the target of the click isn't the container...
-//       && container.has(e.target).length === 0) // ... nor a descendant of the container
-//   {
-//     element.hide();
-//   }
-//   else
-//   	element.show();
-
-// });
-
+//code goes here
 
 
 
@@ -59,11 +41,10 @@ function toggleGraphsFunction(){
 	meds.classList.toggle("toggleMeds");
 	labs.classList.toggle("toggleLabs");
 	social.classList.toggle("toggleSocial");
-
 }
 
 
-// Tabs - from https://rudrastyh.com/javascript/tabs.html
+// Tabs for notes- from https://rudrastyh.com/javascript/tabs.html
 function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 	// first of all we get all tab content blocks (I think the best way to get them by class names)
 	var x = document.getElementsByClassName("tabcontent");
@@ -83,13 +64,13 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 }
 
 
-// Insert text into modal 
+// Insert text into modal
 	var content = $('.content').html();
 	var theDiv = $('.insert').html(content);
 	//need to figure out how to do this dynamically
-	
 
-// Readmore- https://stackoverflow.com/questions/38296509/trim-text-using-jquery-with-clickable-more-but-keep-text-format
+
+// Read More button after length- https://stackoverflow.com/questions/38296509/trim-text-using-jquery-with-clickable-more-but-keep-text-format
 	var minimized_elements = $('.content'); 
 
 	minimized_elements.each(function() {
@@ -102,8 +83,8 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 	);
 	// the problem might be here with id='#ex1' - i think it needs to call on a different href 
 	// in order to display a different text in the modal
-
 	});
+
 
 
 // copy from note
@@ -126,157 +107,140 @@ function copyFunction() {
 
 
   
-//   graph 
-// Bloodpressure
+//GRAPHS
+//need to figure out how to draw in data for these:
+var graphName="Example Name"
+var units="mm"
+var rangeMin= 90
+var rangeMax= 120
+var displayMin = rangeMin -20
+var displayMax = rangeMax +20
+var dates =['7/31/2018', '11/7/2018', '2/11/2019', '4/3/2019','5/11/2019','7/18/2019', 'extra', 'extra']
+var data1=[117,70 ,70 ,100 , 106, 110, 100 ,140]
+
+
+//  graph structure -may have to figure out how to work with data that has no upper or lower limit
+var type = 'line'
 var sData = {
-	labels: ['7/31/2018', '11/7/2018', '2/11/2019', '4/3/2019','5/11/2019','7/18/2019', 'extra', 'extra'],
+	labels: dates,
 	datasets: [{
-	  data: [117,70 ,70 ,100 , 106, 110, 100 ,140],
+	  data: data1,
 	  fill: false,
-	  pointBackgroundColor: 'black',
+	//   pointBackgroundColor: 'black',
 	  borderColor: "black",
 	  borderWidth:1,
 	  pointHitRadius: 4,
 	  pointRadius:2
 	}],
-   }
-	
-   var data = sData
-	
-   var options = {
-	responsive: false,
+   }		
+var options = {
+	responsive: true,
+	maintainAspectRatio:false,
 	layout:{
 		padding:{
-			right:8
-		}
+			right:8,
+			bottom:2
+		},
 	},
 	legend: {
 	  display: false
-	}, scales: {
-	xAxes: [{
-			  gridLines: {
+	}, 
+	scales: {
+		xAxes: [{
+			gridLines: {
 				  display: false,
-								   drawBorder: false,
-			  },
-						   ticks:{display:false,
-			  }
+				  drawBorder: false,
+			},
+			ticks:{display:false,
+			}
 		  }],
-		  yAxes: [{
-			  gridLines: {
-				  display: false,
-				   drawBorder: false,
-				   scaleLabel: {
-							  show: false,
-							  labelString: 'Value'
-						   
-						  },
+		yAxes: [{
+			gridLines: {
+				display: false,
+				drawBorder: false,
+				scaleLabel: {
+							show: false,
+							labelString: 'Value'
+							},
 	
 			  },
-					   ticks:{
-							beginAtZero: false,
-								  min: 70,
-								   max: 140,
-								   stepSize: 10,
-								   data:[70,90,120,150],
-								   callback: function(label, index, labels) {
-									switch (label) {
-									   case 70:
-										  return "";
-									   case 90:
-										  return '';
-										//   return '90';
-									   case 100:
-										   return '';
-									  case 120:
-										return '';
-
-										// return '120';
-									  case 140:
-										  return '';
+			ticks:{
+				beginAtZero: false,
+				min: displayMin, //yvaluemin-20
+				max: displayMax,//yvalueMax+20
+				stepSize: 1, 
+				callback: function(label, index, labels) {
+					  switch (label) {
+								case rangeMin:
+									return rangeMin; 
+								case rangeMax:
+									return rangeMax; 
 			   }
-			 }
-				   
-				  }
+			 }	   
+			}
 		  }],
 	  },
-	 bands: {
-	  yValueMin: 90,
-	  yValueMax: 120,
-	   //baseColorGradientColor:'red',
-		//pointBackgroundColor: 'red',
-		  //pointBackgroundColor: 'red',
-		  bandLine: {
-			  stroke:1,
-			  colour:'gainsboro',
-			  type: 'dashed'
-		  },
-		  belowMinThresholdColour: [
-			  'red'
-		  ],
-		  aboveMaxThresholdColour: [
-			  'red'
-		  ],
+	//min and max color change of the graph line 
+	bands: {
+	  yValueMin: rangeMin, 
+	  yValueMax: rangeMax, 
+
+	  //color of the dashed lines
+	  bandLine: {
+		stroke: 0.5, 
+		colour: 'gainsboro',
+		type: 'dashed' // 'solid' or 'dashed'
+		},
+
+	//below the minimum normal value
+	belowMinThresholdColour: [
+		'red'
+	],
+	//above the maximum normal value
+	aboveMaxThresholdColour: [
+		'red'
+	],
+
 	  },
-	
-	
+	  
+	tooltips: {
+	enabled: true,
+	caretSize: 5,
+	bodyFontSize: 11,
+	position: 'nearest',
+	displayColors: false,
+	callbacks: {
+	// use label callback to return the desired label
+	label: function(tooltipItem, data) {
+		return tooltipItem.yLabel+ units +" - " + tooltipItem.xLabel;
+	},
+	// remove title
+	title: function(tooltipItem, data) {
+		return;
+
+	}
+	}
+	}
    }
-	
-   var ctx = document.getElementById('myChart');
-	
-   let chart2 = new Chart(ctx, {
-	type: 'line',
-	data: data,
-	options: options,
-	responsive: true,
-	maintainAspectRatio:false
-	
-   });
+
+//insert the graphs into the canvas areas
+var x= document.getElementsByClassName("chart");
+var i;
+for(i=0; i< x.length; i++){
+	new Chart(x[i], {
+		type:type,
+		data:sData,
+		options:options
+	});
+}
    
- 
-   
-// Vertical line on graphs 
-// var element = document.getElementById('graphs');
 
-// var drawLines = function(event) {
-//   var x = event.pageX;
-//   var y = event.pageY;
-  
-//   var straightLine = element.querySelector('.straightLine');
-//   var hrLine = element.querySelector('.hrLine');
-  
-//   var slTrans = 'translate(' + x + 'px, 0px)';
-//   var hrTrans = 'translate(0px, ' + y + 'px)';
-//   if(!straightLine) {
-//      straightLine = document.createElement('div');
-//      straightLine.classList.add('straightLine');
-//      straightLine.style.height = "100%";
-//      straightLine.style.width = '2px';
-//      element.appendChild(straightLine);
-//   }
-//   straightLine.style.transform = slTrans;
-  
-//   if(!hrLine) {
-//      hrLine = document.createElement('div');
-//      hrLine.style.height = "2px";
-//      hrLine.classList.add('hrLine');
-//      hrLine.style.width = '100%';
-//      element.appendChild(hrLine);
-//   }
-//   hrLine.style.transform = hrTrans;
-// }
 
-// element.addEventListener('mousemove', function(event) {
-//    drawLines(event);
-// });
 
-// element.addEventListener('mousedown', function(event) {
-//    drawLines(event);   
-// });
 
-// element.addEventListener('mouseup', function(event) {
-//    drawLines(event);
-// });
 
-// element.addEventListener('mouseout', function(event) {
-//    drawLines(event);
-// });
+
+
+
+
+
