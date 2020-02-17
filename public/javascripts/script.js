@@ -136,32 +136,82 @@ console.log(dateTips);
 
 
 //update time to display abbreviation
-//https://github.com/moment/moment/issues/3049
-moment.updateLocale('en', {
-    relativeTime : {
-        future: "in %s",
-        past:   "%s ",
-        s:  "s",
-        m:  "m",
-        mm: "%d m",
-        h:  "h",
-        hh: "%d h",
-        d:  "d",
-        dd: "%d d",
-        M:  "1 m", //Eric Indicated he wanted months displayed as "m"
-        MM: "%d m", //change here if this changes
-        y:  "1 y",
-        yy: "%d y"
-    }
-});
+//this one displays as what fits best
+// moment.updateLocale('en', {
+//     relativeTime : {
+//         future: "in %s",
+//         past:   "%s ",
+//         s:  "s",
+//         m:  "m",
+//         mm: "%d m",
+//         h:  "h",
+//         hh: "%d h",
+//         d:  "d",
+//         dd: "%d d",
+//         M:  "1 m", //Eric Indicated he wanted months displayed as "m"
+//         MM: "%d m", //change here if this changes
+//         y:  "1 y",
+//         yy: "%d y"
+//     }
+// });
 
 
-// time since for top time scale format as time since the lab
-var now=moment();
+// // time since for top time scale format as time since the lab
+// var now=moment();
+// dateScale = new Array();
+
+// dates.forEach(function(item,i){
+// 	dateScale[i]= moment(dates[i], "YYYYMMMDD").fromNow(true); 
+// });
+// console.log(dateScale);
+
+// https://github.com/moment/moment/issues/2781
+//this one does the same thing as above, but only displays months
+//figured I would leave both incase needs change
+var timeSince = function(date) {
+	if (typeof date !== 'object') {
+	  date = new Date(date);
+	}
+  
+	var seconds = Math.floor((new Date() - date) / 1000);
+	var intervalType;
+  
+	var interval = Math.floor(seconds / 2592000);
+	  if (interval >= 1) {
+		intervalType = 'm';
+	  } else {
+		interval = Math.floor(seconds / 86400);
+		if (interval >= 1) {
+		  intervalType = 'd';
+		} else {
+		  interval = Math.floor(seconds / 3600);
+		  if (interval >= 1) {
+			intervalType = "h";
+		  } else {
+			interval = Math.floor(seconds / 60);
+			if (interval >= 1) {
+			  intervalType = "m";
+			} else {
+			  interval = seconds;
+			  intervalType = "now";
+			}
+		  }
+		}
+	  }
+	
+  
+	// if (interval > 1 || interval === 0) {
+	//   intervalType += 's';
+	// }
+  
+	return interval + ' ' + intervalType;
+  };
+
+
 dateScale = new Array();
 
 dates.forEach(function(item,i){
-	dateScale[i]= moment(dates[i], "YYYYMMMDD").fromNow(true); 
+	dateScale[i]= timeSince(dates[i]); 
 });
 console.log(dateScale);
 
@@ -213,6 +263,7 @@ var options = {
 	
 			  },
 			ticks:{
+
 				fontSize: 10,
 				beginAtZero: false,
 
@@ -224,10 +275,15 @@ var options = {
 								case rangeMax:
 									return rangeMax; 
 			   }
-			 }	   
+			 }	
+			    
 			}
 		  }],
 	  },
+
+
+
+
 	//min and max color change of the graph line 
 	bands: {
 	  yValueMin: rangeMin, 
@@ -337,7 +393,12 @@ var timechart = new Chart(y, {
             	},
 				ticks:{
 					display:true,
-					autoSkip:false,
+					autoSkip : true,
+					source:'labels',
+					//skip labels 
+                    callback: function(tick, index, array) {
+                              return (index % 3) ? "" : tick;
+                               },
 					maxRotation:0,
 					minRotation:0,
 					font: function(context) {
