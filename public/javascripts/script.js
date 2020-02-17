@@ -107,7 +107,7 @@ function copyFunction() {
 
 
   
-//GRAPHS
+//GRAPH
 //need to figure out how to draw in data for these:
 var graphName="Example Name"
 var units="mm"
@@ -115,14 +115,62 @@ var rangeMin= 90
 var rangeMax= 120
 var displayMin = rangeMin -20
 var displayMax = rangeMax +20
-var dates =['7/31/2018', '11/7/2018', '2/11/2019', '4/3/2019','5/11/2019','7/18/2019', 'extra', 'extra']
+var dateArray =['2018-07-31', '2018-11-07', '2019-02-11', '2019-04-03','2019-05-11','2019-07-18', '2019-08-20', '2019-09-24']
 var data1=[117,70 ,70 ,100 , 106, 110, 100 ,140]
+
+//convert to dates
+dates = new Array();
+
+dateArray.forEach(function(item,i){
+	dates[i]= new Date(dateArray[i]); 
+});
+console.log(dates);
+
+//simple date for the tooltips on graphs as 00/00/0000
+dateTips = new Array();
+dates.forEach(function(item,i){
+	dateTips[i]= moment(dates[i]).format('L')
+});
+console.log(dateTips);
+
+
+
+//update time to display abbreviation
+//https://github.com/moment/moment/issues/3049
+moment.updateLocale('en', {
+    relativeTime : {
+        future: "in %s",
+        past:   "%s ",
+        s:  "s",
+        m:  "m",
+        mm: "%d m",
+        h:  "h",
+        hh: "%d h",
+        d:  "d",
+        dd: "%d d",
+        M:  "1 m", //Eric Indicated he wanted months displayed as "m"
+        MM: "%d m", //change here if this changes
+        y:  "1 y",
+        yy: "%d y"
+    }
+});
+
+
+// time since for top time scale format as time since the lab
+var now=moment();
+dateScale = new Array();
+
+dates.forEach(function(item,i){
+	dateScale[i]= moment(dates[i], "YYYYMMMDD").fromNow(true); 
+});
+console.log(dateScale);
+
 
 
 //  graph structure -may have to figure out how to work with data that has no upper or lower limit
 var type = 'line'
-var sData = {
-	labels: dates,
+var data = {
+	labels: dateTips,
 	datasets: [{
 	  data: data1,
 	  fill: false,
@@ -138,7 +186,7 @@ var options = {
 	maintainAspectRatio:false,
 	layout:{
 		padding:{
-			right:8,
+			right:10,
 			bottom:2
 		},
 	},
@@ -165,9 +213,9 @@ var options = {
 	
 			  },
 			ticks:{
+				fontSize: 10,
 				beginAtZero: false,
-				min: displayMin, //yvaluemin-20
-				max: displayMax,//yvalueMax+20
+
 				stepSize: 1, 
 				callback: function(label, index, labels) {
 					  switch (label) {
@@ -206,7 +254,7 @@ var options = {
 	tooltips: {
 	enabled: true,
 	caretSize: 5,
-	bodyFontSize: 11,
+	bodyFontSize: 10,
 	position: 'nearest',
 	displayColors: false,
 	callbacks: {
@@ -224,21 +272,99 @@ var options = {
    }
 
 //insert the graphs into the canvas areas
-var x= document.getElementsByClassName("chart");
-var i;
-for(i=0; i< x.length; i++){
-	new Chart(x[i], {
+// var x= document.getElementsByClassName("chart");
+// var i;
+// for(i=0; i< x.length; i++){
+// 	new Chart(x[i], {
+// 		type:type,
+// 		data:sData,
+// 		options:options
+// 	});
+// }
+   
+//insert the graphs into the canvas areas
+// graph1:
+// change name of graph
+document.getElementById("name1").innerHTML= graphName;
+
+//insert graph
+var x= document.getElementById("chart1");
+let chart1=new Chart(x, {
 		type:type,
-		data:sData,
+		data:data,
 		options:options
 	});
-}
-   
 
 
 
 
 
+
+//DATE SCALE, actually is it's own graph with no data
+//I am sure there is a better way to do this, but I chose to 
+//create a small graph timescale
+
+var y = document.getElementById('time').getContext('2d');
+var timechart = new Chart(y, {
+    // The type of chart we want to create
+    type: 'line',
+    // The data for our dataset
+    data: {
+        labels: dateScale,
+    },
+    // Configuration options go here
+    options: {
+		responsive:true,
+		maintainAspectRatio: false,
+		layout:{
+			padding:{
+				// left:2,
+				bottom:4,
+				right:0,
+			},},
+		legend: {display: false},
+		scales: {
+        	xAxes: [{
+				// type:'time',
+				// time:{
+				// 	//format: timeFormat,
+
+				// },
+            	gridLines: {
+                	display: true,
+					drawBorder: false,
+					tickMarkLength:0,
+            	},
+				ticks:{
+					display:true,
+					autoSkip:false,
+					maxRotation:0,
+					minRotation:0,
+					font: function(context) {
+						var width = context.chart.width;
+						var size = Math.round(width / 32);
+		
+						return {
+							weight: 'bold',
+							size: size
+						};
+					},
+					// callback: function(value, index, values) {
+                    //     return '$' + value;
+                    // }
+				}
+        	}],
+        	yAxes: [{
+            	gridLines: {
+                	display: false,
+					drawBorder:false,
+           		},
+				ticks:{display:false,}
+        	}]
+    	},
+		tooltips: {display:false,},
+	}
+});
 
 
 

@@ -548,9 +548,6 @@ screen width is narrow*/
 
 
 
-
-
-
 /* ===========
    List Module
    ============ */
@@ -567,64 +564,54 @@ screen width is narrow*/
    Graph Module
    ==============*/
 .panelOfGraphs {
-  margin:auto;
-  display: flex;
-  flex-flow: column wrap; 
-  /* background-color: lime; */
-  /* height:100%;*/
-  /* background-color: yellow; */
+  display:grid;
+  grid-template-columns: auto auto;
 } 
 
-  /* Graph Labels  */
-  .labeledBoxGraphs {
-    /* background-color: lime; */
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    position: relative;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /* background-color: rgb(252, 250, 250); */
 
-    /* align-content: center; */
-    /* justify-content: center; */
-    align-items:center;
-  } 
+.graphLabelBox {
+  display:flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  /* background-color: lime; */
+  font-family: 'Roboto', sans-serif;
+  width:100%;
+  /* padding:0 2px 0 2px; */
+} 
 
+.graphLabelBox .labelContainerGraphs:nth-child(odd) {
+  background-color: rgb(252, 250, 250);
+}
   .labelContainerGraphs {
-    display: flex;
-    align-items: flex-end;
-    /* justify-content: flex-end; */
-    flex-direction: column;
-    flex-wrap: wrap;
-    width:10%;
-    /* height: 100%; */
     /* background-color:yellow; */
-    padding-right:5px;
+    /* margin:5px; */
+    text-align: center;
+    height:60px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    min-width:50px;
+    margin: 0 5px 0 5px;
   }
   
   .labelGraphs {
     color: grey;
     font-size: 8px;
     font-weight: 100;
-    /* padding: 0px 0px 2px 0px !important; */
-    /* background-color: pink; */
-    /* padding-right:4px;
-    padding-top:4px; */
-    -ms-transform: rotate(-90deg); /* IE 9 */
-    transform: rotate(-90deg);
-    text-align: center;
-    /* height: 100%; */
-    /* background-color: aquamarine; */
+    width:100%;
   }
-
-
+  
+.top{
+  /* background-color: white !important; */
+  color: rgb(252, 250, 250);
+}
 
 
 .panelOfGraphs .labeledBoxGraphs:not(:first-child){
   /* margin-top: 10px; */
   /* spacing between graphs  */
 }
-.panelOfGraphs .labeledBoxGraphs:nth-child(even) {
+.graphBox .graphContainer:nth-child(odd) {
   background-color: rgb(252, 250, 250);
 }
 .graphContainer {
@@ -645,11 +632,14 @@ screen width is narrow*/
   justify-content: flex-end;
   /* background-color: pink; */
   width:100%;
+  padding-bottom:4px;
   /* uncomment ^^If you want the buttons on the end^^^ */
 }
 
 .scale {
-  width:90%;
+  width:100%;
+  height:20px;
+  padding-left:5%;
   /* background-color: yellow; */
   background-color: rgb(252, 250, 250);
   text-align: center;
@@ -661,6 +651,11 @@ screen width is narrow*/
   height:100%;
 }
 
+.time{
+  width:100%;
+  height:20px !important;
+  /* background-color: coral; */
+}
 /* vertical line on graph container  */
 
 
@@ -771,17 +766,16 @@ screen width is narrow*/
     }
 
     /* graph indiv labels  */
-    .labelContainerGraphs {
+    /* .labelContainerGraphs {
       width:15%;
       /* background-color:yellow; */
-    }
+    
 
     /* graph scale  */
-    .scale {
+    /* .scale {
       width:85%;
       /* background-color: yellow; */
-    }
-
+    
 
 /* ======================
    Colored box displaying 
