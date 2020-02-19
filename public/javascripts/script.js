@@ -106,68 +106,8 @@ function copyFunction() {
   }
 
 
-  
-//GRAPH
-//need to figure out how to draw in data for these:
-var graphName="Example Name"
-var units="mm"
-var rangeMin= 90
-var rangeMax= 120
-var displayMin = rangeMin -20
-var displayMax = rangeMax +20
-var dateArray =['2018-07-31', '2018-11-07', '2019-02-11', '2019-04-03','2019-05-11','2019-07-18', '2019-08-20', '2019-09-24']
-var data1=[117,70 ,70 ,100 , 106, 110, 100 ,140]
-
-//convert to dates
-dates = new Array();
-
-dateArray.forEach(function(item,i){
-	dates[i]= new Date(dateArray[i]); 
-});
-console.log(dates);
-
-//simple date for the tooltips on graphs as 00/00/0000
-dateTips = new Array();
-dates.forEach(function(item,i){
-	dateTips[i]= moment(dates[i]).format('L')
-});
-console.log(dateTips);
-
-
-
-//update time to display abbreviation
-//this one displays as what fits best
-// moment.updateLocale('en', {
-//     relativeTime : {
-//         future: "in %s",
-//         past:   "%s ",
-//         s:  "s",
-//         m:  "m",
-//         mm: "%d m",
-//         h:  "h",
-//         hh: "%d h",
-//         d:  "d",
-//         dd: "%d d",
-//         M:  "1 m", //Eric Indicated he wanted months displayed as "m"
-//         MM: "%d m", //change here if this changes
-//         y:  "1 y",
-//         yy: "%d y"
-//     }
-// });
-
-
-// // time since for top time scale format as time since the lab
-// var now=moment();
-// dateScale = new Array();
-
-// dates.forEach(function(item,i){
-// 	dateScale[i]= moment(dates[i], "YYYYMMMDD").fromNow(true); 
-// });
-// console.log(dateScale);
-
 // https://github.com/moment/moment/issues/2781
-//this one does the same thing as above, but only displays months
-//figured I would leave both incase needs change
+//date format in time since/duration scale for the date scale
 var timeSince = function(date) {
 	if (typeof date !== 'object') {
 	  date = new Date(date);
@@ -193,38 +133,161 @@ var timeSince = function(date) {
 			  intervalType = "m";
 			} else {
 			  interval = seconds;
-			  intervalType = "now";
+			  intervalType = "s";
 			}
 		  }
 		}
 	  }
-	
-  
-	// if (interval > 1 || interval === 0) {
-	//   intervalType += 's';
-	// }
   
 	return interval + ' ' + intervalType;
   };
 
+//create an array of 12 months before now
+var datesForScale=new Array();
+for (let i = 0; i < 13; i++) {
+	datesForScale.push(moment().subtract(i,"months"));
+}
+// console.log(datesForScale);
+//need to reverse order so it goes from 12 to 1
+var rev=datesForScale.reverse();
 
+// create an array of the new formatted dates to use in timescale
 dateScale = new Array();
-
-dates.forEach(function(item,i){
-	dateScale[i]= timeSince(dates[i]); 
+rev.forEach(function(item,i){
+	dateScale[i]= timeSince(rev[i]); 
 });
-console.log(dateScale);
+
+//Add this to get rid of the zero at the right side of the graph
+dateScale[12]="1 m"
+
+
+//Instantiated the DATE SCALE at top of graphs
+//format: it is a small graph with no data
+var y = document.getElementById('time').getContext('2d');
+var timechart = new Chart(y, {
+    // The type of chart we want to create
+    type: 'line',
+    // The data for our dataset
+    data: {
+        labels: dateScale,
+    },
+    // Configuration options go here
+    options: {
+		responsive:true,
+		maintainAspectRatio: false,
+		layout:{
+			padding:{
+				// left:2,
+				bottom:4,
+				right:0,
+			},},
+		legend: {display: false},
+		scales: {
+        	xAxes: [{
+            	gridLines: {
+                	display: true,
+					drawBorder: false,
+					tickMarkLength:0,
+            	},
+				ticks:{
+					fontSize: 10,
+					display:true,
+					// autoSkip : true,
+					source:'labels',
+					//skip labels if you want to have less duration markers
+                    callback: function(tick, index, array) {
+                              return (index % 3) ? "" : tick;
+                               },
+					maxRotation:0,
+					minRotation:0,
+					font: function(context) {
+						var width = context.chart.width;
+						var size = Math.round(width / 32);
+		
+						return {
+							weight: 'bold',
+							size: size
+						};
+					}
+				}
+        	}],
+        	yAxes: [{
+            	gridLines: {
+                	display: false,
+					drawBorder:false,
+           		},
+				ticks:{display:false,}
+        	}]
+    	},
+		tooltips: {display:false,},
+	}
+});
+
+
+// Read in CSV files 
+var url="storedFiles/randLabGenGaus.csv"
+var request = new XMLHttpRequest();  
+request.open("GET", url, false);   
+request.send(null);  
+
+var labs = new Array();
+var jsonObject = request.responseText.split(/\r?\n|\r/);
+for (var i = 0; i < jsonObject.length; i++) {
+  labs.push(jsonObject[i].split(','));
+}
+// console.log(labs);
 
 
 
-//  graph structure -may have to figure out how to work with data that has no upper or lower limit
+// FUNCTION SHOULD START HERE AND IS PASSED A VALUE FOR THE ROW NUMBER 
+//(The dates are on the same row and this value should not be changed)
+
+// pull data from csv 
+var datesPull=new Array();
+var valuesPull =new Array();
+for (let i = 4; i < 13; i++) {
+	datesPull.push(labs[0][i]);
+	// valuesPull.push((Number(values[i][1])).toFixed(2)); with rounding
+	valuesPull.push((Number(labs[1][i])));
+  }
+
+//assign values to varibles to use in the graphs
+var graphName=labs[1][0]
+var units=labs[1][3]
+var rangeMin= Number(labs[1][1])
+var rangeMax= Number(labs[1][2])
+// var displayMin = rangeMin -20 //not sure if we need
+// var displayMax = rangeMax-20
+var dateArray = datesPull
+var data1=valuesPull
+
+//convert to real javascript dates 
+dates = new Array();
+dateArray.forEach(function(item,i){
+	dates[i]= new Date(dateArray[i]); 
+});
+// console.log(dates);
+
+//simple date for the tooltips on graphs as 00/00/0000
+//NOTE: for some reason this is subtracting a day from the actual date
+dateTips = new Array(); 
+dates.forEach(function(item,i){
+	dateTips[i]= moment(dates[i]).format('L')
+});
+
+
+// Line graph structure 
+// (reverse the order of the graphs)- this makes the graph go from then to now,
+//if this need changes, simply swap now and yearAgo variable names
+var now = moment()
+var yearAgo = moment(now).subtract(1,'years')
+
 var type = 'line'
 var data = {
 	labels: dateTips,
 	datasets: [{
 	  data: data1,
 	  fill: false,
-	//   pointBackgroundColor: 'black',
 	  borderColor: "black",
 	  borderWidth:1,
 	  pointHitRadius: 4,
@@ -245,6 +308,15 @@ var options = {
 	}, 
 	scales: {
 		xAxes: [{
+			type: "time",
+			  time: {
+				unit: 'month',
+				displayFormats: {
+				   second: 'MM DD'
+				},
+				min: yearAgo,
+				max: now
+			 },
 			gridLines: {
 				  display: false,
 				  drawBorder: false,
@@ -269,44 +341,40 @@ var options = {
 
 				stepSize: 1, 
 				callback: function(label, index, labels) {
-					  switch (label) {
-								case rangeMin:
-									return rangeMin; 
-								case rangeMax:
-									return rangeMax; 
-			   }
-			 }	
-			    
+					//fix side labels with some sort of band label-lookup
+			// 		  switch (label) {
+			// 					case rangeMin:
+			// 						return rangeMin; 
+			// 					case rangeMax:
+			// 						return rangeMax; 
+			//    }
+				return label;	
+			 }   
 			}
 		  }],
 	  },
-
-
-
 
 	//min and max color change of the graph line 
 	bands: {
 	  yValueMin: rangeMin, 
 	  yValueMax: rangeMax, 
 
-	  //color of the dashed lines
-	  bandLine: {
+		//color of the dashed lines
+		bandLine: {
 		stroke: 0.5, 
 		colour: 'gainsboro',
-		type: 'dashed' // 'solid' or 'dashed'
+		type: 'dashed' 
 		},
 
-	//below the minimum normal value
-	belowMinThresholdColour: [
-		'red'
-	],
-	//above the maximum normal value
-	aboveMaxThresholdColour: [
-		'red'
-	],
-
+		//below the minimum normal value
+		belowMinThresholdColour: [
+			'red'
+		],
+		//above the maximum normal value
+		aboveMaxThresholdColour: [
+			'red'
+		],
 	  },
-	  
 	tooltips: {
 	enabled: true,
 	caretSize: 5,
@@ -321,29 +389,22 @@ var options = {
 	// remove title
 	title: function(tooltipItem, data) {
 		return;
-
 	}
 	}
 	}
    }
 
-//insert the graphs into the canvas areas
-// var x= document.getElementsByClassName("chart");
-// var i;
-// for(i=0; i< x.length; i++){
-// 	new Chart(x[i], {
-// 		type:type,
-// 		data:sData,
-// 		options:options
-// 	});
-// }
-   
-//insert the graphs into the canvas areas
-// graph1:
-// change name of graph
-document.getElementById("name1").innerHTML= graphName;
 
-//insert graph
+   
+//insert the graphs into the canvas areas by id
+document.getElementById("name1").innerHTML= graphName;
+// document.getElementById("name2").innerHTML= graphName;
+// document.getElementById("name3").innerHTML= graphName;
+// document.getElementById("name4").innerHTML= graphName;
+// document.getElementById("name5").innerHTML= graphName;
+// document.getElementById("name6").innerHTML= graphName;
+
+//instantiate graph
 var x= document.getElementById("chart1");
 let chart1=new Chart(x, {
 		type:type,
@@ -351,81 +412,6 @@ let chart1=new Chart(x, {
 		options:options
 	});
 
-
-
-
-
-
-//DATE SCALE, actually is it's own graph with no data
-//I am sure there is a better way to do this, but I chose to 
-//create a small graph timescale
-
-var y = document.getElementById('time').getContext('2d');
-var timechart = new Chart(y, {
-    // The type of chart we want to create
-    type: 'line',
-    // The data for our dataset
-    data: {
-        labels: dateScale,
-    },
-    // Configuration options go here
-    options: {
-		responsive:true,
-		maintainAspectRatio: false,
-		layout:{
-			padding:{
-				// left:2,
-				bottom:4,
-				right:0,
-			},},
-		legend: {display: false},
-		scales: {
-        	xAxes: [{
-				// type:'time',
-				// time:{
-				// 	//format: timeFormat,
-
-				// },
-            	gridLines: {
-                	display: true,
-					drawBorder: false,
-					tickMarkLength:0,
-            	},
-				ticks:{
-					display:true,
-					autoSkip : true,
-					source:'labels',
-					//skip labels 
-                    callback: function(tick, index, array) {
-                              return (index % 3) ? "" : tick;
-                               },
-					maxRotation:0,
-					minRotation:0,
-					font: function(context) {
-						var width = context.chart.width;
-						var size = Math.round(width / 32);
-		
-						return {
-							weight: 'bold',
-							size: size
-						};
-					},
-					// callback: function(value, index, values) {
-                    //     return '$' + value;
-                    // }
-				}
-        	}],
-        	yAxes: [{
-            	gridLines: {
-                	display: false,
-					drawBorder:false,
-           		},
-				ticks:{display:false,}
-        	}]
-    	},
-		tooltips: {display:false,},
-	}
-});
 
 
 
