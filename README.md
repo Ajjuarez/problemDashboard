@@ -93,6 +93,7 @@ For further instruction on how to use the database: https://www.sqlitetutorial.n
 ## Authors
 
 * **Alexandria Juarez** - *Initial work* - [Github](https://github.com/Ajjuarez)
+* **Julia Otteson** - *Initial work* - [Github](https://github.com/Ajjuarez)
 
 See also the list of [contributors](https://github.com/Ajjuarez/problemDashboard/contributors) who participated in this project.
 
