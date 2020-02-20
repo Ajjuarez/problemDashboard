@@ -9,11 +9,8 @@
 	}
 	}
 
-
 //Clickoutside the menu div and it goes away
-//code goes here
-
-
+//code goes here need to figure this out
 
 // Searchbar
 //autofill searchbar
@@ -158,7 +155,7 @@ rev.forEach(function(item,i){
 });
 
 //Add this to get rid of the zero at the right side of the graph
-dateScale[12]="1 m"
+dateScale[12]="0"
 
 
 //Instantiated the DATE SCALE at top of graphs
@@ -179,7 +176,7 @@ var timechart = new Chart(y, {
 			padding:{
 				// left:2,
 				bottom:4,
-				right:0,
+				right:15,
 			},},
 		legend: {display: false},
 		scales: {
@@ -235,185 +232,213 @@ var jsonObject = request.responseText.split(/\r?\n|\r/);
 for (var i = 0; i < jsonObject.length; i++) {
   labs.push(jsonObject[i].split(','));
 }
-// console.log(labs);
 
 
+var url="storedFiles/randLabDates.csv"
+var request = new XMLHttpRequest();  
+request.open("GET", url, false);   
+request.send(null);  
 
+var labDates = new Array();
+var jsonObject = request.responseText.split(/\r?\n|\r/);
+for (var i = 0; i < jsonObject.length; i++) {
+  labDates.push(jsonObject[i].split(','));
+}
+
+
+// console.log(labDates);
 // FUNCTION SHOULD START HERE AND IS PASSED A VALUE FOR THE ROW NUMBER 
 //(The dates are on the same row and this value should not be changed)
-
-// pull data from csv 
-var datesPull=new Array();
-var valuesPull =new Array();
-for (let i = 4; i < 13; i++) {
-	datesPull.push(labs[0][i]);
-	// valuesPull.push((Number(values[i][1])).toFixed(2)); with rounding
-	valuesPull.push((Number(labs[1][i])));
-  }
-
-//assign values to varibles to use in the graphs
-var graphName=labs[1][0]
-var units=labs[1][3]
-var rangeMin= Number(labs[1][1])
-var rangeMax= Number(labs[1][2])
-// var displayMin = rangeMin -20 //not sure if we need
-// var displayMax = rangeMax-20
-var dateArray = datesPull
-var data1=valuesPull
-
-//convert to real javascript dates 
-dates = new Array();
-dateArray.forEach(function(item,i){
-	dates[i]= new Date(dateArray[i]); 
-});
-// console.log(dates);
-
-//simple date for the tooltips on graphs as 00/00/0000
-//NOTE: for some reason this is subtracting a day from the actual date
-dateTips = new Array(); 
-dates.forEach(function(item,i){
-	dateTips[i]= moment(dates[i]).format('L')
-});
+function labFunction(dataIndex, graphLabel, graphLocation){
+	// pull data from csv 
+	var datesPull=new Array();
+	var valuesPull =new Array();
+	for (let i = 4; i < 13; i++) {
+		datesPull.push(labDates[dataIndex][i]);
+		// datesPull.push(labs[0][i]);
+		// valuesPull.push((Number(values[i][1])).toFixed(2)); with rounding
+		valuesPull.push((Number(labs[dataIndex][i])));
+	}
+	console.log(datesPull);
 
 
-// Line graph structure 
-// (reverse the order of the graphs)- this makes the graph go from then to now,
-//if this need changes, simply swap now and yearAgo variable names
-var now = moment()
-var yearAgo = moment(now).subtract(1,'years')
+	//assign values to varibles to use in the graphs
+	var graphName=labs[dataIndex][0]
+	var units=labs[dataIndex][3]
+	var rangeMin= Number(labs[dataIndex][1])
+	var rangeMax= Number(labs[dataIndex][2])
+	// var displayMin = rangeMin -20 //not sure if we need
+	// var displayMax = rangeMax-20
+	var dateArray = datesPull
+	var data1=valuesPull
 
-var type = 'line'
-var data = {
-	labels: dateTips,
-	datasets: [{
-	  data: data1,
-	  fill: false,
-	  borderColor: "black",
-	  borderWidth:1,
-	  pointHitRadius: 4,
-	  pointRadius:2
-	}],
-   }		
-var options = {
-	responsive: true,
-	maintainAspectRatio:false,
-	layout:{
-		padding:{
-			right:10,
-			bottom:2
-		},
-	},
-	legend: {
-	  display: false
-	}, 
-	scales: {
-		xAxes: [{
-			type: "time",
-			  time: {
-				unit: 'month',
-				displayFormats: {
-				   second: 'MM DD'
-				},
-				min: yearAgo,
-				max: now
-			 },
-			gridLines: {
-				  display: false,
-				  drawBorder: false,
+	//convert to real javascript dates 
+	dates = new Array();
+	dateArray.forEach(function(item,i){
+		dates[i]= new Date(dateArray[i]); 
+	});
+	// console.log(dates);
+
+	//simple date for the tooltips on graphs as 00/00/0000
+	//NOTE: for some reason this is subtracting a day from the actual date
+	dateTips = new Array(); 
+	dates.forEach(function(item,i){
+		dateTips[i]= moment(dates[i]).format('L')
+	});
+
+
+	// Line graph structure 
+	// (reverse the order of the graphs)- this makes the graph go from oldest dates to newer dates,
+	//if this need changes, simply swap now and yearAgo variable names
+	var now = moment()
+	var yearAgo = moment(now).subtract(1,'years')
+
+	var type = 'line'
+	var data = {
+		labels: dateTips,
+		datasets: [{
+		data: data1,
+		fill: false,
+		borderColor: "black",
+		borderWidth:1.5,
+		pointHitRadius: 4,
+		pointRadius:2
+		}],
+	}		
+	var options = {
+		responsive: true,
+		maintainAspectRatio:false,
+		layout:{
+			padding:{
+				right:10,
+				bottom:2
 			},
-			ticks:{display:false,
-			}
-		  }],
-		yAxes: [{
-			gridLines: {
-				display: false,
-				drawBorder: false,
-				scaleLabel: {
-							show: false,
-							labelString: 'Value'
-							},
-	
-			  },
-			ticks:{
+		},
+		legend: {
+		display: false
+		}, 
+		scales: {
+			xAxes: [{
+				type: "time",
+				time: {
+					unit: 'month',
+					displayFormats: {
+					second: 'MM DD'
+					},
+					min: yearAgo,
+					max: now
+				},
+				gridLines: {
+					display: false,
+					drawBorder: false,
+				},
+				ticks:{display:false,
+				}
+			}],
+			yAxes: [{
+				gridLines: {
+					display: false,
+					drawBorder: false,
+					scaleLabel: {
+								show: false,
+								labelString: 'Value'
+								},
+		
+				},
+				ticks:{
+					// autoSkip:false,
+					fontSize: 8,
+					beginAtZero: false,
+				// 	callback: function(value) {
+				// ////fix side labels with some sort of band label-lookup
+				// 	console.log(value);
+				// 	// var mingoal = rangeMin
+				// 	// var maxgoal = rangeMax
+				// 	// var closestmin = value.reduce(function(prev, curr) {
+				// 	// 	return (Math.abs(curr - goal) < Math.abs(prev - mingoal) ? curr : prev);
+				// 	//   });
+				// 	// var closestmax = value.reduce(function(prev, curr) {
+				// 	// 	return (Math.abs(curr - goal) < Math.abs(prev - maxgoal) ? curr : prev);
+				// 	//   });
+				// 	// switch (value) {
+				// 	// 	case closestmin:
+				// 	// 		return rangeMin; 
+				// 	// 	case closestmax:
+				// 	// 		return rangeMax; 
+				// 	// }
 
-				fontSize: 10,
-				beginAtZero: false,
-
-				stepSize: 1, 
-				callback: function(label, index, labels) {
-					//fix side labels with some sort of band label-lookup
-			// 		  switch (label) {
-			// 					case rangeMin:
-			// 						return rangeMin; 
-			// 					case rangeMax:
-			// 						return rangeMax; 
-			//    }
-				return label;	
-			 }   
-			}
-		  }],
-	  },
-
-	//min and max color change of the graph line 
-	bands: {
-	  yValueMin: rangeMin, 
-	  yValueMax: rangeMax, 
-
-		//color of the dashed lines
-		bandLine: {
-		stroke: 0.5, 
-		colour: 'gainsboro',
-		type: 'dashed' 
+				// }     
+				}
+			}],
 		},
 
-		//below the minimum normal value
-		belowMinThresholdColour: [
-			'red'
-		],
-		//above the maximum normal value
-		aboveMaxThresholdColour: [
-			'red'
-		],
-	  },
-	tooltips: {
-	enabled: true,
-	caretSize: 5,
-	bodyFontSize: 10,
-	position: 'nearest',
-	displayColors: false,
-	callbacks: {
-	// use label callback to return the desired label
-	label: function(tooltipItem, data) {
-		return tooltipItem.yLabel+ units +" - " + tooltipItem.xLabel;
-	},
-	// remove title
-	title: function(tooltipItem, data) {
-		return;
+		//min and max color change of the graph line 
+		bands: {
+		yValueMin: rangeMin, 
+		yValueMax: rangeMax, 
+
+			//color of the band lines
+			bandLine: {
+				stroke: 0.5, 
+				colour: 'rgba(0, 0, 0, 0.3)',
+				type: 'dashed', 
+				// label: 'M',                 
+				fontSize: '12',
+				fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+				fontStyle: 'normal',
+			},
+
+			//below the minimum normal value
+			belowMinThresholdColour: [
+				'red'
+			],
+			//above the maximum normal value
+			aboveMaxThresholdColour: [
+				'red'
+			],
+		},
+		tooltips: {
+		enabled: true,
+		caretSize: 5,
+		bodyFontSize: 10,
+		position: 'nearest',
+		displayColors: false,
+		callbacks: {
+		// use label callback to return the desired label
+		label: function(tooltipItem,) {
+			return tooltipItem.yLabel+ units +" - " + tooltipItem.xLabel;
+		},
+		// remove title
+		title: function() {
+			return;
+		}
+		}
+		}
 	}
-	}
-	}
-   }
 
 
    
-//insert the graphs into the canvas areas by id
-document.getElementById("name1").innerHTML= graphName;
-// document.getElementById("name2").innerHTML= graphName;
-// document.getElementById("name3").innerHTML= graphName;
-// document.getElementById("name4").innerHTML= graphName;
-// document.getElementById("name5").innerHTML= graphName;
-// document.getElementById("name6").innerHTML= graphName;
+//update the graph labels
+document.getElementById(graphLabel).innerHTML= graphName;
 
 //instantiate graph
-var x= document.getElementById("chart1");
+var x= document.getElementById(graphLocation);
 let chart1=new Chart(x, {
 		type:type,
 		data:data,
 		options:options
 	});
 
+}
 
 
-
-
-
+// instantiate all 6 graphs 
+//labFunction(integer value for row index of the lab in the CSV, 
+//				"div id for where the label will reside",
+//				"div id for where the graph will reside")
+labFunction(1, "name1", "chart1");
+labFunction(2, "name2", "chart2");
+labFunction(3, "name3", "chart3");
+labFunction(4, "name4", "chart4");
+labFunction(5, "name5", "chart5");
+labFunction(6, "name6", "chart6");
