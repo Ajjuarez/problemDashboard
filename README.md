@@ -61,7 +61,7 @@ file:///C:/Users/your/file/path/problemDashboard/views/demo/frame.html<br>
 Navigate to SQLite folder in the problemDashboard directory:
 
 ```
-c:\make\sure\your\path\is\correct\sqlite>
+c:\your\path\problemDashboard\sqlite>
 ```
 
 Use the following command to connect to the database:
@@ -81,7 +81,7 @@ Try a simple command to view all the tables available in the sample database:
 ```
 sqlite> .tables 
 ```
-For further instruction on how to use the database: https://www.sqlitetutorial.net/sqlite-sample-database/
+For further instruction on how to use the database: https://www.sqlitetutorial.net/sqlite-sample-database/<br>
 
 ## Built With
 
