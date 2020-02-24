@@ -2,9 +2,9 @@
 <!-- this file contains the modules used in the data display design -->
 
 
-                <div class="layout">
+                <div id="layout" class="layout">
                     <!-- Text module  -->
-                    <div id="text" class="moduleContainer">
+                    <div id="text" class="moduleContainer text">
                         <div class="labeledBox text">
                             <!-- labels and tabs go here if find you need them, they are already
                             flexed and styled so they just need to be inserted-->
@@ -25,7 +25,7 @@
 
                     <!-- Note module-->
                     <div id ="note" class="moduleContainer">
-                        <div class="labeledBox note">
+                        <div class="labeledBox">
                             <!-- label & Tabs -->
                             <div class="labelContainer">
                                 <div class="label">Note Type</div><!--AUTOGEN THIS -->
@@ -124,65 +124,62 @@
 
                     <!-- Graphs module-->
                     <div id="graphs" class="moduleContainer graphModule">
-
-
-                            <!-- Begin panel of 6 graphs  -->
-                            <div class="panelOfGraphs">
-                                <!-- Graph 1 -->
-                                <div class="graphLabelBox">
-                                    <div class="timeScaleContainer">
-                                        <div class="scale top">top</div>
-                                    </div>
-                                    <div class="labelContainerGraphs">
-                                        <div id="name1" class="labelGraphs">Stat Line 1</div>
-                                    </div>
-                                    <div class="labelContainerGraphs">
-                                        <div id="name2" class="labelGraphs">Stat Line 2</div>
-                                    </div>
-                                    <div class="labelContainerGraphs">
-                                        <div id="name3" class="labelGraphs">Stat Line 3</div>
-                                    </div>
-                                    <div class="labelContainerGraphs">
-                                        <div id="name4" class="labelGraphs">Stat Line 4</div>
-                                    </div>
-                                    <div class="labelContainerGraphs">
-                                        <div id="name5" class="labelGraphs">Stat Line 5</div>
-                                    </div>
-                                    <div class="labelContainerGraphs">
-                                        <div id="name6" class="labelGraphs">Stat Line 6</div>
-                                    </div>
+                        <!-- Begin panel of 6 graphs  -->
+                        <div class="panelOfGraphs">
+                            <!-- Graph 1 -->
+                            <div class="graphLabelBox">
+                                <div class="labelContainerGraphs">
+                                    <div class="labelGraphs top">top</div>
                                 </div>
-
-                                <!-- Graph 2 -->
-                                <div class="graphBox">
-                                    <!-- time scale for graphs  -->
-                                    <div class="timeScaleContainer">
-                                        <div class="scale"> 
-                                            <canvas id="time" class="time"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="graphContainer">
-                                        <canvas id="chart1" class="chart"></canvas>
-                                    </div>
-                                    <div class="graphContainer">
-                                        <canvas id="chart2" class="chart"></canvas>
-                                    </div>
-                                    <div class="graphContainer">
-                                        <canvas id="chart3" class="chart"></canvas>
-                                    </div>
-                                    <div class="graphContainer">
-                                        <canvas id="chart4" class="chart"></canvas>
-                                     </div>
-                                     <div class="graphContainer">
-                                        <canvas id="chart5" class="chart"></canvas>
-                                    </div>
-                                    <div class="graphContainer">
-                                        <canvas id="chart6" class="chart"></canvas>
-                                    </div>
+                                <div class="labelContainerGraphs">
+                                    <div id="name1" class="labelGraphs">Stat Line 1</div>
+                                </div>
+                                <div class="labelContainerGraphs">
+                                    <div id="name2" class="labelGraphs">Stat Line 2</div>
+                                </div>
+                                <div class="labelContainerGraphs">
+                                    <div id="name3" class="labelGraphs">Stat Line 3</div>
+                                </div>
+                                <div class="labelContainerGraphs">
+                                    <div id="name4" class="labelGraphs">Stat Line 4</div>
+                                </div>
+                                <div class="labelContainerGraphs">
+                                    <div id="name5" class="labelGraphs">Stat Line 5</div>
+                                </div>
+                                <div class="labelContainerGraphs">
+                                    <div id="name6" class="labelGraphs">Stat Line 6</div>
                                 </div>
                             </div>
-                     </div>
-            
+                        
+                            <!-- Graph 2 -->
+                            <div class="graphBox">
+                                <!-- time scale for graphs  -->
+                                <div class="graphContainer">
+                                    <canvas id="time" class="chart"></canvas>
+                                </div>
+                                <div class="graphContainer">
+                                    <canvas id="chart1" class="chart"></canvas>
+                                </div>
+                                <div class="graphContainer">
+                                    <canvas id="chart2" class="chart"></canvas>
+                                </div>
+                                <div class="graphContainer">
+                                    <canvas id="chart3" class="chart"></canvas>
+                                </div>
+                                <div class="graphContainer">
+                                    <canvas id="chart4" class="chart"></canvas>
+                                </div>
+                                <div class="graphContainer">
+                                    <canvas id="chart5" class="chart"></canvas>
+                                </div>
+                                <div class="graphContainer">
+                                    <canvas id="chart6" class="chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
                 
                
 

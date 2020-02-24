@@ -27,6 +27,7 @@ function toggleGraphsFunction(){
 	var labs = document.getElementById("labs");
 	var social = document.getElementById("social");
 	var x = document.getElementById("butName");
+	var layout=document.getElementById("layout");
 
 	if (x.innerHTML === "Hide Graphs") {
 		x.innerHTML = "Show Graphs";
@@ -38,6 +39,7 @@ function toggleGraphsFunction(){
 	meds.classList.toggle("toggleMeds");
 	labs.classList.toggle("toggleLabs");
 	social.classList.toggle("toggleSocial");
+	layout.classList.toggle("toggleLayout");
 }
 
 
@@ -176,7 +178,7 @@ var timechart = new Chart(y, {
 			padding:{
 				// left:2,
 				bottom:4,
-				right:15,
+				right:10,
 			},},
 		legend: {display: false},
 		scales: {
@@ -246,27 +248,39 @@ for (var i = 0; i < jsonObject.length; i++) {
 }
 
 
-// console.log(labDates);
 // FUNCTION SHOULD START HERE AND IS PASSED A VALUE FOR THE ROW NUMBER 
 //(The dates are on the same row and this value should not be changed)
-function labFunction(dataIndex, graphLabel, graphLocation){
+function labFunction(name, graphLabel, graphLocation){
+
+	// create an array of names
+	var indexPull=new Array();
+	for (let i = 0; i < labs.length; i++) {
+		indexPull.push(labs[i][0]);
+	}
+	//so it wont be case sensitive
+	var upname=name.toUpperCase()
+	//finds the index number
+	var nameIndex = indexPull.indexOf(upname);
+	//this is the variable the rest of the code will 
+	//reference now. It contains the index number as an integer
+	var dataIndex =Number(nameIndex);
+
+
 	// pull data from csv 
 	var datesPull=new Array();
 	var valuesPull =new Array();
-	for (let i = 4; i < 13; i++) {
+	for (let i = 5; i < labDates.length; i++) {
 		datesPull.push(labDates[dataIndex][i]);
-		// datesPull.push(labs[0][i]);
 		// valuesPull.push((Number(values[i][1])).toFixed(2)); with rounding
 		valuesPull.push((Number(labs[dataIndex][i])));
 	}
-	console.log(datesPull);
 
 
 	//assign values to varibles to use in the graphs
-	var graphName=labs[dataIndex][0]
-	var units=labs[dataIndex][3]
-	var rangeMin= Number(labs[dataIndex][1])
-	var rangeMax= Number(labs[dataIndex][2])
+	var graphName=labs[dataIndex][1]
+	var units=labs[dataIndex][4]
+	var rangeMin= Number(labs[dataIndex][2])
+	var rangeMax= Number(labs[dataIndex][3])
 	// var displayMin = rangeMin -20 //not sure if we need
 	// var displayMax = rangeMax-20
 	var dateArray = datesPull
@@ -293,16 +307,18 @@ function labFunction(dataIndex, graphLabel, graphLocation){
 	var now = moment()
 	var yearAgo = moment(now).subtract(1,'years')
 
+	//set min and max values
 	var type = 'line'
 	var data = {
 		labels: dateTips,
 		datasets: [{
-		data: data1,
-		fill: false,
-		borderColor: "black",
-		borderWidth:1.5,
-		pointHitRadius: 4,
-		pointRadius:2
+			data: data1,
+			fill: false,
+			borderColor: 'rgba(0, 0, 0, .4)',
+			borderWidth:1.5,
+			pointHitRadius: 4,
+			pointRadius:2,
+			lineTension:0
 		}],
 	}		
 	var options = {
@@ -311,7 +327,8 @@ function labFunction(dataIndex, graphLabel, graphLocation){
 		layout:{
 			padding:{
 				right:10,
-				bottom:2
+				bottom:0,
+				top:10
 			},
 		},
 		legend: {
@@ -349,6 +366,9 @@ function labFunction(dataIndex, graphLabel, graphLocation){
 					// autoSkip:false,
 					fontSize: 8,
 					beginAtZero: false,
+					
+					// suggestedMin:rangeMin - 1,
+					// suggestedMax:rangeMax + 1,
 				// 	callback: function(value) {
 				// ////fix side labels with some sort of band label-lookup
 				// 	console.log(value);
@@ -380,7 +400,7 @@ function labFunction(dataIndex, graphLabel, graphLocation){
 			//color of the band lines
 			bandLine: {
 				stroke: 0.5, 
-				colour: 'rgba(0, 0, 0, 0.3)',
+				colour: 'rgba(0, 0, 0, 0.4)',
 				type: 'dashed', 
 				// label: 'M',                 
 				fontSize: '12',
@@ -390,11 +410,11 @@ function labFunction(dataIndex, graphLabel, graphLocation){
 
 			//below the minimum normal value
 			belowMinThresholdColour: [
-				'red'
+				'rgba(240, 52, 52, 1)'
 			],
 			//above the maximum normal value
 			aboveMaxThresholdColour: [
-				'red'
+				'rgba(240, 52, 52, 1)'
 			],
 		},
 		tooltips: {
@@ -423,7 +443,7 @@ document.getElementById(graphLabel).innerHTML= graphName;
 
 //instantiate graph
 var x= document.getElementById(graphLocation);
-let chart1=new Chart(x, {
+new Chart(x, {
 		type:type,
 		data:data,
 		options:options
@@ -433,12 +453,48 @@ let chart1=new Chart(x, {
 
 
 // instantiate all 6 graphs 
-//labFunction(integer value for row index of the lab in the CSV, 
+//labFunction(name of the lab- not case sensitive but needs to be spelled correctly, 
 //				"div id for where the label will reside",
 //				"div id for where the graph will reside")
-labFunction(1, "name1", "chart1");
-labFunction(2, "name2", "chart2");
-labFunction(3, "name3", "chart3");
-labFunction(4, "name4", "chart4");
-labFunction(5, "name5", "chart5");
-labFunction(6, "name6", "chart6");
+labFunction("potassium", "name1", "chart1");
+labFunction("sodium", "name2", "chart2");
+labFunction("co2", "name3", "chart3");
+labFunction("creatinine", "name4", "chart4");
+labFunction("chlorine", "name5", "chart5");
+labFunction("calcium", "name6", "chart6");
+
+
+// $(document).bind('mousemove', function(e){
+// 	$('.box').css({
+// 	  top: e.pageY - $(".box").height()/2, // just minus by half the height
+// 	  left:  e.pageX - $(".box").width()/2 // just minus by half the width
+// 	});
+//   });
+// var mouseX = 0, mouseY = 0, limitX, limitY, containerWidth;
+
+// window.onload = function(e) {
+//   var containerObjStyle = window.getComputedStyle(document.querySelectorAll(".container")[0]);
+//   containerWidth =  parseFloat(containerObjStyle.width).toFixed(0);
+//   containerHeight = parseFloat(containerObjStyle.height).toFixed(0);
+//   document.getElementById('debug').innerHTML = 'Container Width = ' + containerWidth + '<br/>Container Height = ' + containerHeight;
+//   var follower = document.getElementById("follower");
+//   var xp = 0, yp = 0;
+//   limitX = containerWidth-15;
+//   limitY = containerHeight-15;
+//   var loop = setInterval(function(){
+//     xp = (mouseX == limitX) ? limitX : mouseX -7;
+//     xp = (xp < 0) ? 0 : xp;
+//     yp = (mouseY == limitY) ? limitY : mouseY -7;
+//     yp = (yp < 0) ? 0 : yp;
+//     follower.style.left = xp + 'px';
+//     follower.style.top = yp + 'px';
+//   }, 15);
+//   window.onresize = function(e) {
+//     limitX = parseFloat(window.getComputedStyle(document.querySelectorAll(".container")[0]).width).toFixed(0);
+//     document.getElementById("debug")[0].innerHTML='Container Width = ' + containerWidth + '<br/>Container Height = ' + containerHeight;
+//   }
+//   document.onmousemove = function(e) {
+//     mouseX = Math.min(e.pageX, limitX);
+//     mouseY = Math.min(e.pageY, limitY);
+//   }
+// };
