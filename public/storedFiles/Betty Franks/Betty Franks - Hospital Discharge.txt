@@ -1,0 +1,16 @@
+Patient Name: Betty Franks
+Medical Record Number: 999999999
+Admission Date: 7/26/2018
+Discharge Date: 7/31/2018
+Attending Physician: Dr. Somgai
+Primary Care Physician: Dr. Mitchell
+Consulting Physicians: Dr. Goodman, Nephrology, Dr. Halakis, Cardiology
+Condition on discharge: stable
+Final Diagnosis: Atherosclerotic Heart Disease with Acute Ischemia of the Left Anterior Coronary Artery
+Procedure: Left coronary catheterization with drug eluting stent placement
+Hospital Course:
+71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR <65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
+Discharge Instructions:
+Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.
+
+

@@ -43,50 +43,88 @@ function toggleGraphsFunction(){
 }
 
 
-// Tabs for notes- from https://rudrastyh.com/javascript/tabs.html
-function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
-	// first of all we get all tab content blocks (I think the best way to get them by class names)
-	var x = document.getElementsByClassName("tabcontent");
-	var i;
-	for (i = 0; i < x.length; i++) {
-		x[i].style.display = 'none'; // hide all tab content
-	}
-	document.getElementById(rudr_tab_content).style.display = 'block'; // display the content of the tab we need
- 
-	// now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
-	var x = document.getElementsByClassName("tabmenu");
-	var i;
-	for (i = 0; i < x.length; i++) {
-		x[i].className = 'tabmenu'; 
-	}
-	document.getElementById(rudr_tab_id).className = 'tabmenu active';
+
+// Read in JSON for physician notes 
+var url="storedFiles/physicianNotes.json"
+var request = new XMLHttpRequest();  
+request.open("GET", url, false);   
+request.send(null);  
+
+//create new array to store notes
+var jsonObject = request.responseText;
+var docNote = JSON.parse(jsonObject);
+
+console.log(docNote);
+
+function noteFunction(noteIndexNumber, contentLocation, dateLocation, contentContainer){
+	
+	//note name
+	var noteType= docNote[noteIndexNumber].type;
+
+	//note Author
+	// var noteAuthor = docNote[noteIndexNumber].author;
+	//insert into html
+	// document.getElementById("notename1").innerHTML= noteAuthor
+
+	// note date
+	var noteDate= docNote[noteIndexNumber].date;
+	//insert into html
+	document.getElementById(dateLocation).innerHTML= noteDate;
+
+	//content of note
+	var noteContent=docNote[noteIndexNumber].content;
+
+	var noteContentUpdate=noteContent.replace(/\n/g,"<br>");
+	// Insert into HTML
+	document.getElementById(contentLocation).innerHTML= noteContentUpdate;
+	// console.log(noteContentUpdate);
+
+	//Truncate text in text display with jquery dotdotdot 
+	var text = document.getElementById(contentContainer);
+	var options = {
+		// Prevents the <a class="read-more" /> from being removed
+		keep: '.read-more',
+		//truncates on words not letters
+		truncate: "word",
+		watch: "window"
+	};
+	new Dotdotdot(text, options);
+	console.log(text);
 }
 
 
-// Insert text into modal
-	var content = $('.content').html();
-	var theDiv = $('.insert').html(content);
-	//need to figure out how to do this dynamically
-
-
-// Read More button after length- https://stackoverflow.com/questions/38296509/trim-text-using-jquery-with-clickable-more-but-keep-text-format
-	var minimized_elements = $('.content'); 
-
-	minimized_elements.each(function() {
-	var t = $(this).html();
-	//set the length of small note here
-	if (t.length < 200) return;
-
-	$(this).html(
-		t.slice(0, 200) + '<a href="#ex1" rel="modal:open" class="more">Read More</a>' 
-	);
-	// the problem might be here with id='#ex1' - i think it needs to call on a different href 
-	// in order to display a different text in the modal
-	});
+noteFunction(0,'insertContent1', 'tb_1', 'content_1');
+noteFunction(2,'insertContent2', 'tb_2', 'content_2');
+noteFunction(3,'insertContent3','tb_3', 'content_3');
+noteFunction(4,'insertContent4','tb_4', 'content_4');
 
 
 
-// copy from note
+
+
+
+
+// // Tabs for notes- from https://rudrastyh.com/javascript/tabs.html
+// function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
+// 	// first of all we get all tab content blocks (I think the best way to get them by class names)
+// 	var x = document.getElementsByClassName("tabcontent");
+// 	var i;
+// 	for (i = 0; i < x.length; i++) {
+// 		x[i].style.display = 'none'; // hide all tab content
+// 	}
+// 	document.getElementById(rudr_tab_content).style.display = 'block'; // display the content of the tab we need
+ 
+// 	// now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
+// 	var x = document.getElementsByClassName("tabmenu");
+// 	var i;
+// 	for (i = 0; i < x.length; i++) {
+// 		x[i].className = 'tabmenu'; 
+// 	}
+// 	document.getElementById(rudr_tab_id).className = 'tabmenu active';
+// }
+
+
+// copy from free text note
 function copyFunction() {
 	var copyText = document.getElementById("editableText");
 	copyText.select();
@@ -439,6 +477,7 @@ function labFunction(name, graphLabel, graphLocation){
 
    
 //update the graph labels
+// console.log(graphName);
 document.getElementById(graphLabel).innerHTML= graphName;
 
 //instantiate graph
@@ -464,37 +503,4 @@ labFunction("chlorine", "name5", "chart5");
 labFunction("calcium", "name6", "chart6");
 
 
-// $(document).bind('mousemove', function(e){
-// 	$('.box').css({
-// 	  top: e.pageY - $(".box").height()/2, // just minus by half the height
-// 	  left:  e.pageX - $(".box").width()/2 // just minus by half the width
-// 	});
-//   });
-// var mouseX = 0, mouseY = 0, limitX, limitY, containerWidth;
 
-// window.onload = function(e) {
-//   var containerObjStyle = window.getComputedStyle(document.querySelectorAll(".container")[0]);
-//   containerWidth =  parseFloat(containerObjStyle.width).toFixed(0);
-//   containerHeight = parseFloat(containerObjStyle.height).toFixed(0);
-//   document.getElementById('debug').innerHTML = 'Container Width = ' + containerWidth + '<br/>Container Height = ' + containerHeight;
-//   var follower = document.getElementById("follower");
-//   var xp = 0, yp = 0;
-//   limitX = containerWidth-15;
-//   limitY = containerHeight-15;
-//   var loop = setInterval(function(){
-//     xp = (mouseX == limitX) ? limitX : mouseX -7;
-//     xp = (xp < 0) ? 0 : xp;
-//     yp = (mouseY == limitY) ? limitY : mouseY -7;
-//     yp = (yp < 0) ? 0 : yp;
-//     follower.style.left = xp + 'px';
-//     follower.style.top = yp + 'px';
-//   }, 15);
-//   window.onresize = function(e) {
-//     limitX = parseFloat(window.getComputedStyle(document.querySelectorAll(".container")[0]).width).toFixed(0);
-//     document.getElementById("debug")[0].innerHTML='Container Width = ' + containerWidth + '<br/>Container Height = ' + containerHeight;
-//   }
-//   document.onmousemove = function(e) {
-//     mouseX = Math.min(e.pageX, limitX);
-//     mouseY = Math.min(e.pageY, limitY);
-//   }
-// };

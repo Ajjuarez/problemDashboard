@@ -1,0 +1,9 @@
+The patient is a pleasant 71-year-old woman with a history of hyperlipidemia, diabetes and acute myocardial infarction. She has been referred for an exercise echocardiogram.
+Informed written consent has been obtained from the patient. I explained the procedure to her prior to initiation of such. The appropriate time-out procedure as per Medical Center protocol was performed prior to the procedure being begun while the patient was actively participating with appropriate identification of the patient, procedure, physician, documentation, position. There were no safety concerns noted by staff nor myself.
+REST ECHO: EF 40%. Reduced mobility of anterior wall. EKG shows normal sinus rhythm with mild ST depressions. The patient exercised for 4 minutes 30 seconds on a standard Bruce protocol, exceeding target heart rate; no angina nor significant ECG changes seen. Peak stress echo imaging shows EF of 44%, with reduced mobility of anterior wall. Resting blood pressure was within the normal range, and responded appropriately to exercise. No dysrhythmias noted.
+IMPRESSION:
+1. Negative exercise ECG/echocardiogram stress evaluation for inducible ischemia in excess of target heart rate.  
+2. Reduced ejection fraction likely due to hypokinetic anterior wall.
+3. Appropriate response of blood pressure to exercise.
+These results have been discussed with the patient. Other management as per the hospital-based internal medicine service.
+To be clear, there were no complications of this procedure.

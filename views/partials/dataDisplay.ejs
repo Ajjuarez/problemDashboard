@@ -28,42 +28,36 @@
                         <div class="labeledBox">
                             <!-- label & Tabs -->
                             <div class="labelContainer">
-                                <div class="label">Note Type</div><!--AUTOGEN THIS -->
+                                <div id="noteName" class="label">Physician Notes</div>
                                 <ul class="tabrow">
-                                    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">Date</a></li><!--AUTOGEN THIS -->
-                                    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">Date</a></li><!--AUTOGEN THIS -->
+                                    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">Date</a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">Date</a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_3', 'content_3');" id="tb_3" class="tabmenu">Date</a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_4', 'content_4');" id="tb_4" class="tabmenu">Other</a></li>
                                 </ul>
                             </div>
                             <!-- Note -->
                             <div class="displayTextContainer">
-                                <!-- NEXT STEP IS TO LEARN HOW TO READ IN DATA 
-                                and figure out how to call on each individual content, while 
-                                remaining dynamic 
-                                Each note needs to have a unique ID that needs to be called by the modal (in body.ejs)
-                                how to do this I am still unsure-->
-                                <div id="content_1" class="tabcontent"> 
-                                    <article class="displayText content">
-                                        Final Diagnosis: Atherosclerotic Heart Disease with Acute Ischemia of the Left Anterior Coronary Artery
-                                        <br/>
-                                        Procedure: Left coronary catheterization with drug eluting stent placement
-                                        <br/>
-                                        Hospital Course:
-                                        71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR  less than 65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
-                                        <br/>
-                                        Discharge Instructions:
-                                        Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.
-                                    </article>
+                                <div id="content_1" class="tabcontent">
+                                    <!-- <span id="notename1"></span> -->
+                                    <p><span id="insertContent1" class="content"></span>
+                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
                                 </div> 
+
                                 <div id="content_2" class="tabcontent" style="display:none;">
-                                    <article class="displayText content">
-                                        Procedure: Left coronary catheterization with drug eluting stent placement
-                                        <br/>
-                                        Hospital Course:
-                                        71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR  less than 65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
-                                        <br/>
-                                        Discharge Instructions:
-                                        Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.
-                                    </article>
+                                    <!-- <span id="notename1"></span> -->
+                                    <p><span id="insertContent2" class="content"></span>
+                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
+                                </div>
+                                <div id="content_3" class="tabcontent" style="display:none;">
+                                    <!-- <span id="notename1"></span> -->
+                                    <p><span id="insertContent3" class="content"></span>
+                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
+                                </div>
+                                <div id="content_4" class="tabcontent" style="display:none;">
+                                    <!-- <span id="notename1"></span> -->
+                                    <p><span id="insertContent4" class="content"></span>
+                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
                                 </div>
                                 
                             </div>
