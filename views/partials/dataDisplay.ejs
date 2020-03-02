@@ -28,7 +28,8 @@
                         <div class="labeledBox">
                             <!-- label & Tabs -->
                             <div class="labelContainer">
-                                <div id="noteName" class="label">Physician Notes</div>
+                                <div id="noteName" class="label">Clinican Notes</div>
+
                                 <ul class="tabrow">
                                     <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">Date</a></li>
                                     <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">Date</a></li>
@@ -38,26 +39,27 @@
                             </div>
                             <!-- Note -->
                             <div class="displayTextContainer">
-                                <div id="content_1" class="tabcontent">
+
+                                <div id="content_1" class="tabcontent" style="display:block;">
                                     <!-- <span id="notename1"></span> -->
                                     <p><span id="insertContent1" class="content"></span>
-                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
+                                    <a href="#modal1" rel="modal:open" class="read-more">Read more &raquo;</a></p>
                                 </div> 
 
-                                <div id="content_2" class="tabcontent" style="display:none;">
+                                <div id="content_2" class="tabcontent" style="display:block;visibility:hidden;">
                                     <!-- <span id="notename1"></span> -->
                                     <p><span id="insertContent2" class="content"></span>
-                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
+                                    <a href="#modal2" rel="modal:open"class="read-more">Read more &raquo;</a></p>
                                 </div>
-                                <div id="content_3" class="tabcontent" style="display:none;">
+                                <div id="content_3" class="tabcontent" style="display:block;visibility:hidden;">
                                     <!-- <span id="notename1"></span> -->
                                     <p><span id="insertContent3" class="content"></span>
-                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
+                                    <a href="#modal3" rel="modal:open" class="read-more">Read more &raquo;</a></p>
                                 </div>
-                                <div id="content_4" class="tabcontent" style="display:none;">
+                                <div id="content_4" class="tabcontent" style="display:block;visibility:hidden;">
                                     <!-- <span id="notename1"></span> -->
-                                    <p><span id="insertContent4" class="content"></span>
-                                    <a href="#/" class="read-more">Read more &raquo;</a></p>
+                                    <!-- <p><span id="insertContent4" class="content"></span>
+                                    <a href="#/" class="read-more">Read more &raquo;</a></p> -->
                                 </div>
                                 
                             </div>

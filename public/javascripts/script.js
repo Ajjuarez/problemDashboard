@@ -56,7 +56,7 @@ var docNote = JSON.parse(jsonObject);
 
 console.log(docNote);
 
-function noteFunction(noteIndexNumber, contentLocation, dateLocation, contentContainer){
+function noteFunction(noteIndexNumber, contentLocation, dateLocation, contentContainer,modalLoc){
 	
 	//note name
 	var noteType= docNote[noteIndexNumber].type;
@@ -77,6 +77,7 @@ function noteFunction(noteIndexNumber, contentLocation, dateLocation, contentCon
 	var noteContentUpdate=noteContent.replace(/\n/g,"<br>");
 	// Insert into HTML
 	document.getElementById(contentLocation).innerHTML= noteContentUpdate;
+	document.getElementById(modalLoc).innerHTML=noteContentUpdate;
 	// console.log(noteContentUpdate);
 
 	//Truncate text in text display with jquery dotdotdot 
@@ -86,17 +87,19 @@ function noteFunction(noteIndexNumber, contentLocation, dateLocation, contentCon
 		keep: '.read-more',
 		//truncates on words not letters
 		truncate: "word",
-		watch: "window"
+		watch: "window",
+		// height: 60,
+
 	};
 	new Dotdotdot(text, options);
 	console.log(text);
 }
 
 
-noteFunction(0,'insertContent1', 'tb_1', 'content_1');
-noteFunction(2,'insertContent2', 'tb_2', 'content_2');
-noteFunction(3,'insertContent3','tb_3', 'content_3');
-noteFunction(4,'insertContent4','tb_4', 'content_4');
+noteFunction(0,'insertContent1', 'tb_1', 'content_1','insert1');
+noteFunction(1,'insertContent2', 'tb_2', 'content_2','insert2');
+noteFunction(2,'insertContent3','tb_3', 'content_3','insert3');
+// noteFunction(3,'insertContent4','tb_4', 'content_4');
 
 
 
@@ -105,23 +108,23 @@ noteFunction(4,'insertContent4','tb_4', 'content_4');
 
 
 // // Tabs for notes- from https://rudrastyh.com/javascript/tabs.html
-// function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
-// 	// first of all we get all tab content blocks (I think the best way to get them by class names)
-// 	var x = document.getElementsByClassName("tabcontent");
-// 	var i;
-// 	for (i = 0; i < x.length; i++) {
-// 		x[i].style.display = 'none'; // hide all tab content
-// 	}
-// 	document.getElementById(rudr_tab_content).style.display = 'block'; // display the content of the tab we need
- 
-// 	// now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
-// 	var x = document.getElementsByClassName("tabmenu");
-// 	var i;
-// 	for (i = 0; i < x.length; i++) {
-// 		x[i].className = 'tabmenu'; 
-// 	}
-// 	document.getElementById(rudr_tab_id).className = 'tabmenu active';
-// }
+function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
+	// first of all we get all tab content blocks (I think the best way to get them by class names)
+	var x = document.getElementsByClassName("tabcontent");
+	var i;
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = 'none'; // hide all tab content
+	}
+	document.getElementById(rudr_tab_content).style.display = 'block'; // display the content of the tab we need
+	document.getElementById(rudr_tab_content).style.visibility = 'visible';
+	// now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
+	var x = document.getElementsByClassName("tabmenu");
+	var i;
+	for (i = 0; i < x.length; i++) {
+		x[i].className = 'tabmenu'; 
+	}
+	document.getElementById(rudr_tab_id).className = 'tabmenu active';
+}
 
 
 // copy from free text note
