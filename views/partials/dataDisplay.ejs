@@ -31,10 +31,10 @@
                                 <div id="noteName" class="label">Clinican Notes</div>
 
                                 <ul class="tabrow">
-                                    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">Date</a></li>
-                                    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">Date</a></li>
-                                    <li><a href="javascript:rudrSwitchTab('tb_3', 'content_3');" id="tb_3" class="tabmenu">Date</a></li>
-                                    <li><a href="javascript:rudrSwitchTab('tb_4', 'content_4');" id="tb_4" class="tabmenu">Other</a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active" title='Specialty Note'><span class="hidetab" id="tab1"></span></a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu" title='Discharge Note'><span class="hidetab" id="tab2"></span></a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_3', 'content_3');" id="tb_3" class="tabmenu" title='Specialty Note'><span class="hidetab" id="tab3"></span></a></li>
+                                    <li><a href="javascript:rudrSwitchTab('tb_4', 'content_4');" id="tb_4" class="tabmenu" title='Other'><span class="hidetab" id="tab4">Other</span></a></li>
                                 </ul>
                             </div>
                             <!-- Note -->
@@ -87,7 +87,7 @@
                             </div> -->
 
                             <div class="listContainer">
-                                <div class="temp">Labs</div>
+                                <div id="example-table"></div>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                     </div>
 
                     <!-- Graphs module-->
-                    <div id="graphs" class="moduleContainer graphModule">
+                    <div id="graphs" class="graphModule">
                         <!-- Begin panel of 6 graphs  -->
                         <div class="panelOfGraphs">
                             <!-- Graph 1 -->

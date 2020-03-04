@@ -28,6 +28,9 @@ function toggleGraphsFunction(){
 	var social = document.getElementById("social");
 	var x = document.getElementById("butName");
 	var layout=document.getElementById("layout");
+	var lines1=document.getElementById('insertContent1');
+	var lines2=document.getElementById('insertContent2');
+	var lines3=document.getElementById('insertContent3');
 
 	if (x.innerHTML === "Hide Graphs") {
 		x.innerHTML = "Show Graphs";
@@ -40,6 +43,9 @@ function toggleGraphsFunction(){
 	labs.classList.toggle("toggleLabs");
 	social.classList.toggle("toggleSocial");
 	layout.classList.toggle("toggleLayout");
+	lines1.classList.toggle("toggleLines1");
+	lines2.classList.toggle("toggleLines2");
+	lines3.classList.toggle("toggleLines3");
 }
 
 
@@ -54,22 +60,29 @@ request.send(null);
 var jsonObject = request.responseText;
 var docNote = JSON.parse(jsonObject);
 
-console.log(docNote);
+// console.log(docNote);
 
-function noteFunction(noteIndexNumber, contentLocation, dateLocation, contentContainer,modalLoc){
+function noteFunction(noteIndexNumber, contentLocation, specialtyLocation, contentContainer,modalLoc, noteTitleLoc, noteAuthLoc,noteDateLoc){
 	
 	//note name
 	var noteType= docNote[noteIndexNumber].type;
+	// insert into html
+	document.getElementById(noteTitleLoc).innerHTML= noteType
 
-	//note Author
-	// var noteAuthor = docNote[noteIndexNumber].author;
-	//insert into html
-	// document.getElementById("notename1").innerHTML= noteAuthor
+	// note Author
+	var noteAuthor = docNote[noteIndexNumber].author;
+	// insert into html
+	document.getElementById(noteAuthLoc).innerHTML= "by " + noteAuthor
+
+
+	// Tab labels 
+	var noteSpecialty = docNote[noteIndexNumber].specialty;
+	document.getElementById(specialtyLocation).innerHTML= noteSpecialty;
 
 	// note date
 	var noteDate= docNote[noteIndexNumber].date;
 	//insert into html
-	document.getElementById(dateLocation).innerHTML= noteDate;
+	document.getElementById(noteDateLoc).innerHTML= noteDate;
 
 	//content of note
 	var noteContent=docNote[noteIndexNumber].content;
@@ -81,24 +94,29 @@ function noteFunction(noteIndexNumber, contentLocation, dateLocation, contentCon
 	// console.log(noteContentUpdate);
 
 	//Truncate text in text display with jquery dotdotdot 
-	var text = document.getElementById(contentContainer);
-	var options = {
-		// Prevents the <a class="read-more" /> from being removed
-		keep: '.read-more',
-		//truncates on words not letters
-		truncate: "word",
-		watch: "window",
-		// height: 60,
 
-	};
-	new Dotdotdot(text, options);
-	console.log(text);
+	// document.addEventListener( "DOMContentLoaded", () => {
+	// 	var text = document.getElementById(contentContainer);
+	// var options = {
+	// 	// height:90,
+	// 	// Prevents the <a class="read-more" /> from being removed
+	// 	// keep: '.read-more',
+	// 	//truncates on words not letters
+	// 	// truncate: "word",
+	// 	// watch: "window",
+	// 	// height: 60,
+
+	// };
+	// new Dotdotdot(text, options);
+	// console.log(text);
+	//  });
+	
 }
 
-
-noteFunction(0,'insertContent1', 'tb_1', 'content_1','insert1');
-noteFunction(1,'insertContent2', 'tb_2', 'content_2','insert2');
-noteFunction(2,'insertContent3','tb_3', 'content_3','insert3');
+//FIX THESE SO ONLY TWO ARGUMENTS ARE BEING PASSED
+noteFunction(0,'insertContent1', 'tab1', 'content_1','insert1', 'note1', 'author1','date1');
+noteFunction(1,'insertContent2', 'tab2', 'content_2','insert2', 'note2', 'author2','date2');
+noteFunction(2,'insertContent3','tab3', 'content_3','insert3', 'note3', 'author3','date3');
 // noteFunction(3,'insertContent4','tb_4', 'content_4');
 
 
@@ -504,6 +522,38 @@ labFunction("co2", "name3", "chart3");
 labFunction("creatinine", "name4", "chart4");
 labFunction("chlorine", "name5", "chart5");
 labFunction("calcium", "name6", "chart6");
+
+
+
+
+
+// Read in JSON for physician notes 
+var url="storedFiles/test.json"
+var request = new XMLHttpRequest();  
+request.open("GET", url, false);   
+request.send(null);  
+
+//create new array to store notes
+var jsonObject = request.responseText;
+var tableData = JSON.parse(jsonObject);
+
+
+var table = new Tabulator("#example-table", {
+	height:200, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+	data:tableData, //assign data to table
+	layout:"fitColumns", //fit columns to width of table (optional)
+	columns:[ //Define Table Columns
+		{title:"Name", field:"Name"},
+		{title:"Value", field:"measurement"},
+		// {title:"Min", field:"Min"},
+		// {title:"Max",field:"Max"},
+		{title:"Units", field:"Units"},
+		{title:"Date", field:"date"}
+	],
+	rowClick:function(e, row){ //trigger an alert message when the row is clicked
+		// alert("Row " + row.getData().id + " Clicked!!!!");
+	},
+});
 
 
 

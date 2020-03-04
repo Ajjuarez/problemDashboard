@@ -1,4 +1,4 @@
-type,author,date,content
+type,author,date,content,specialty
 Cardiology Note,John Smith,2/19/2020,"HPI: This 71-year-old white female presents for follow up of congestive heart failure and uncontrolled hypertension. Patient continues to have mild orthopnea and complains of dizziness, but has not had any chest pains. The patient reports taking her medications faithfully, though she cannot name any of them except the aspirin. Patient has history of ischemic heart disease, end-stage LV systolic dysfunction.  Patient is much improved compared to the last visit in September, but records show a recent change in medications.
 PHYSICAL EXAMINATION: 
 HEENT: Head normocephalic. Eyes, no evidence of anemia or jaundice. Oral hygiene is good. 
@@ -17,7 +17,7 @@ PLAN:
 1. Reduce metoprolol from 25 mg daily to 12.5 mg daily.
 2. Consider addition of Lisinopril.
 3. Stress Echo,
-4. Follow up in four months."
+4. Follow up in four months.",Cardiology
 Hospital Discharge Note,Thomas Jones,1/12/2020,"Patient Name: Betty Franks
 Medical Record Number: 999999999
 Admission Date: 7/26/2018
@@ -31,7 +31,7 @@ Procedure: Left coronary catheterization with drug eluting stent placement
 Hospital Course:
 71 year old white female presented with acute left jaw pain.  EKG demonstrated STEMI in the anterior wall.  Patient treated per protocol and admitted to the general floor.  Cardiology and nephrology were consulted (due to GFR <65). Patient gradually improved and catheterization performed on day 2 of hospitalization.  Patient was started on Plavix 75mg and aspirin 81mg and otherwise continued on home medications.  Patient was discharged on day 5 on room air.
 Discharge Instructions:
-Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion."
+Follow up with primary care physician in one month.  Follow up with nephrology and cardiology as scheduled.  Regular diet.  Activity as tolerated but instructed to avoid exertion.",Discharge
 Nephrology Note,Jane Doe,12/16/2019,"HISTORY OF PRESENT ILLNESS: This is a 71-year-old white female who presents for a nephrology follow up for her chronic kidney disease secondary to congestive heart failure. Her most recent creatinine is stable from previous reported values. She denies any chest pain or tightness in his chest. She denies any shortness of breath, nausea, or vomiting. She denies any change to her appetite. She denies any fevers, chills, dysuria, or hematuria. She does report her blood pressure being checked at the senior center and reporting that it is improved. The patient has stage III chronic kidney disease.  Noted that cardiologist recommended adding Lisinopril. 
 
 PAST MEDICAL HISTORY: Hospitalized 7/26/2019 to 7/31/2019 for an MI. 
@@ -55,11 +55,11 @@ RECOMMENDATIONS: In summary:
 4. Start furosemide 40 mg daily
 5. Follow up in four months with labs prior to her next visit: CMP, phosphorus, CBC, PTH, and iron stores.
 
-"
+",Nephrology
 Podiatry Note,Fredrick Myer,11/17/2019,"SUBJECTIVE: Betty Franks, who has a history of uncontrolled diabetes mellitus type 2, returns to the Podiatry Clinic with the chief complaint of pins and needles in the plantar surface of the right foot. The patient states that she has had this off and on for the past 6 months, and seems to get worse with activity, but occurs only a few times per week. The patient states that she is currently doing no treatment for it.  She states that she is working to control her diabetes and her “numbers” have gone done significantly. The patient states that he has no change in the past medical history since his last visit and denies any fever, chills, vomiting, headache, chest, or shortness of breath.
 OBJECTIVE: Upon removal of shoes and socks bilaterally, neurovascular status remains unchanged since the last visit. There is no focal tenderness to palpation. There are no open areas or signs of infection noted.  Slight edema noted.
 ASSESSMENT: Diabetes type 2 with complications.
-PLAN:  No intervention is needed at this time.  The patient was told to continue with the good work on her diabetic control.  Recheck edema at next visit."
+PLAN:  No intervention is needed at this time.  The patient was told to continue with the good work on her diabetic control.  Recheck edema at next visit.",Podiatry
 Cardiac Cath,Robert Jones,10/18/2019,"PROCEDURES:
 1. Left heart catheterization, coronary angiography, left ventriculography.
 2. Drug eluting stent, proximal LAD.
@@ -101,7 +101,7 @@ IMPRESSION:
 
 PLAN: Overnight observation in ICU. Start aspirin and Plavix. Check serial cardiac enzymes. Further recommendations to follow. Check fasting lipid panel. Further recommendations to follow. 
 
-"
+",Cardiology
 Stress Echo,Thomas Jones,9/19/2019,"The patient is a pleasant 71-year-old woman with a history of hyperlipidemia, diabetes and acute myocardial infarction. She has been referred for an exercise echocardiogram.
 Informed written consent has been obtained from the patient. I explained the procedure to her prior to initiation of such. The appropriate time-out procedure as per Medical Center protocol was performed prior to the procedure being begun while the patient was actively participating with appropriate identification of the patient, procedure, physician, documentation, position. There were no safety concerns noted by staff nor myself.
 REST ECHO: EF 40%. Reduced mobility of anterior wall. EKG shows normal sinus rhythm with mild ST depressions. The patient exercised for 4 minutes 30 seconds on a standard Bruce protocol, exceeding target heart rate; no angina nor significant ECG changes seen. Peak stress echo imaging shows EF of 44%, with reduced mobility of anterior wall. Resting blood pressure was within the normal range, and responded appropriately to exercise. No dysrhythmias noted.
@@ -110,4 +110,4 @@ IMPRESSION:
 2. Reduced ejection fraction likely due to hypokinetic anterior wall.
 3. Appropriate response of blood pressure to exercise.
 These results have been discussed with the patient. Other management as per the hospital-based internal medicine service.
-To be clear, there were no complications of this procedure."
+To be clear, there were no complications of this procedure.",Cardiology

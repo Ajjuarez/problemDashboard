@@ -1,0 +1,1635 @@
+
+  {
+    "labs": {
+      "POTASSIUM": {
+        "Name": "Potassium",
+        "Min": 3.5,
+        "Max": 5,
+        "Units": "mEq/L",
+        "data": [
+          {
+            "measurement": 4.4,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 4.1,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 3.6,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 4.1,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 5.21,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 4,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 4.8,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 5.3,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 4.3,
+            "date": "1/12/2020"
+          }
+        ]
+      },
+      "SODIUM": {
+        "Name": "Sodium",
+        "Min": 135,
+        "Max": 145,
+        "Units": "mEq/L",
+        "data": [
+          {
+            "measurement": 140.8,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 139.2,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 140.1,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 138.7,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 138,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 139,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 140.4,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 140.4,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 145.2,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "CO2": {
+        "Name": "CO2",
+        "Min": 22,
+        "Max": 28,
+        "Units": "mEq/L",
+        "data": [
+          {
+            "measurement": 22.9,
+            "date": "5/14/2019"
+          },
+          {
+            "measurement": 24.6,
+            "date": "5/23/2019"
+          },
+          {
+            "measurement": 22,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 27.7,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 24.1,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 24.7,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 26,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 21.6,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 23.1,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "CREATININE": {
+        "Name": "Creatinine",
+        "Min": 0.8,
+        "Max": 1.3,
+        "Units": "mg/dL",
+        "data": [
+          {
+            "measurement": 1.2,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 0.8,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 1.2,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 1.2,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 1,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 1,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 1,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "CHLORINE": {
+        "Name": "Chlorine",
+        "Min": 95,
+        "Max": 105,
+        "Units": "mEq/L",
+        "data": [
+          {
+            "measurement": 103,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 98,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 100,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 99,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 99,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 101,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 96,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 100,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 102,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "CALCIUM": {
+        "Name": "Calcium",
+        "Min": 8.4,
+        "Max": 10.2,
+        "Units": "mg/dL",
+        "data": [
+          {
+            "measurement": 9,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 8.3,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 8.8,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 9.8,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 9.4,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 9.2,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 9.5,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 9.4,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 9.2,
+            "date": "2/19/2020"
+          }
+        ]
+      },
+      "GLUCOSE": {
+        "Name": "Glucose",
+        "Min": 65,
+        "Max": 110,
+        "Units": "mg/dL",
+        "data": [
+          {
+            "measurement": 80,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 76,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 98,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 87,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 76,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 97,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 93,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 91,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 95,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "AST": {
+        "Name": "AST",
+        "Min": 5,
+        "Max": 30,
+        "Units": "IU/L",
+        "data": [
+          {
+            "measurement": 8,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 15,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 16,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 3,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 18,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 15,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 19,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "ALT": {
+        "Name": "ALT",
+        "Min": 5,
+        "Max": 30,
+        "Units": "IU/L",
+        "data": [
+          {
+            "measurement": 26,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 19,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 16,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 19,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 18,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 17,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 8,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 22,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 17,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "ALBUMIN": {
+        "Name": "Albumin",
+        "Min": 3.5,
+        "Max": 5,
+        "Units": "g/dL",
+        "data": [
+          {
+            "measurement": 4.9,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 3.9,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 4.3,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 4.1,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 3.9,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 4.3,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 3.9,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 4.4,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 4.1,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "ALK PHOS": {
+        "Name": "Alk Phos",
+        "Min": 50,
+        "Max": 100,
+        "Units": "IU/L",
+        "data": [
+          {
+            "measurement": 83,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 96,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 97,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 58,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 84,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 93,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 69,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 78,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 81,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "BUN": {
+        "Name": "BUN",
+        "Min": 8,
+        "Max": 21,
+        "Units": "mg/dL",
+        "data": [
+          {
+            "measurement": 17,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 16,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 16,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 16,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 14,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 15,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 12,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 18,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 5,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PROTEIN": {
+        "Name": "Protein",
+        "Min": 3.5,
+        "Max": 5.2,
+        "Units": "g/dl",
+        "data": [
+          {
+            "measurement": 4.2,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 4.1,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 4,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 4,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 3.7,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 4.2,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 4.3,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 4.7,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 3.1,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "BILIRUBIN": {
+        "Name": "Bilirubin",
+        "Min": 0.2,
+        "Max": 2,
+        "Units": "mg/dL",
+        "data": [
+          {
+            "measurement": 0.6,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 1.4,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 0.7,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 0.9,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 1.3,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 0.8,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 1.2,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 0.3,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 2.2,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PH": {
+        "Name": "pH",
+        "Min": 7.35,
+        "Max": 7.45,
+        "Units": "-",
+        "data": [
+          {
+            "measurement": 7.41,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 7.42,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 7.37,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 7.38,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 7.37,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 7.4,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 7.42,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 7.39,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 7.4,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PCO2": {
+        "Name": "pCO2",
+        "Min": 35,
+        "Max": 45,
+        "Units": "mmHg",
+        "data": [
+          {
+            "measurement": 35,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 40,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 38,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 38,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 42,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 44,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 34,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 40,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 38,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "BE": {
+        "Name": "BE",
+        "Min": -3,
+        "Max": 3,
+        "Units": "mEq/L",
+        "data": [
+          {
+            "measurement": -3,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": -3.5,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": -4.7,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": -3.8,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": -3.2,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": -5.1,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": -2.9,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": -3.9,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": -3,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "HCO3": {
+        "Name": "HCO3",
+        "Min": 18,
+        "Max": 22,
+        "Units": "mEq/L",
+        "data": [
+          {
+            "measurement": 21,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 20,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 20,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 21,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 21,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 19,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 21,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 20,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 21,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PT": {
+        "Name": "PT",
+        "Min": 11,
+        "Max": 14,
+        "Units": "sec",
+        "data": [
+          {
+            "measurement": 12,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 12,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 12,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 12,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PTT": {
+        "Name": "PTT",
+        "Min": 20,
+        "Max": 40,
+        "Units": "sec",
+        "data": [
+          {
+            "measurement": 35,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 31,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 26,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 28,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 30,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 29,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 33,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 33,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 18,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "INR": {
+        "Name": "INR",
+        "Min": 0.9,
+        "Max": 1.2,
+        "Units": "-",
+        "data": [
+          {
+            "measurement": 1,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 1,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 1.1,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "WBC": {
+        "Name": "WBC",
+        "Min": 4,
+        "Max": 10,
+        "Units": "cells/mcl",
+        "data": [
+          {
+            "measurement": 6,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 10,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 8,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 8.2,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 7.8,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 6.3,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 7.4,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 7.1,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 6.6,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "RBC": {
+        "Name": "RBC",
+        "Min": 4.7,
+        "Max": 6.1,
+        "Units": "cells/mcl",
+        "data": [
+          {
+            "measurement": 5.3,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 5.8,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 5,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 5.7,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 5.2,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 5.7,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 5.8,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 5.5,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 4.8,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "HGB": {
+        "Name": "Hgb",
+        "Min": 12,
+        "Max": 17,
+        "Units": "gm/dL",
+        "data": [
+          {
+            "measurement": 14.1,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 14.7,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 13.5,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 15.7,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 15,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 13.7,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 14.4,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 15.1,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 16,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "HCT": {
+        "Name": "Hct",
+        "Min": 36,
+        "Max": 47,
+        "Units": "%",
+        "data": [
+          {
+            "measurement": 41.6,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 43.6,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 39.4,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 46.4,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 45.3,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 40.9,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 44,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 45.5,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 47,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "MCV": {
+        "Name": "MCV",
+        "Min": 80,
+        "Max": 100,
+        "Units": "um3",
+        "data": [
+          {
+            "measurement": 93.2,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 86.8,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 93.4,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 97.7,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 94.2,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 93.1,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 91.4,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 85.3,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 81.3,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "MCH": {
+        "Name": "MCH",
+        "Min": 25.4,
+        "Max": 34.6,
+        "Units": "pg",
+        "data": [
+          {
+            "measurement": 29.4,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 27.1,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 28.7,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 31.9,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 32.1,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 27.2,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 29.8,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 28.9,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 31.3,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "MCHC": {
+        "Name": "MCHC",
+        "Min": 30,
+        "Max": 35,
+        "Units": "%",
+        "data": [
+          {
+            "measurement": 33.3,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 32.6,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 32.4,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 33.1,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 33.7,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 31.2,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 34.4,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 33.3,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 30.9,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "RDW": {
+        "Name": "RDW",
+        "Min": 11.5,
+        "Max": 14.5,
+        "Units": "%",
+        "data": [
+          {
+            "measurement": 13.1,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 12.3,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 14.4,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 13.1,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 14,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 12.3,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 13.2,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 12.8,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 13.1,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PLT": {
+        "Name": "Plt",
+        "Min": 150,
+        "Max": 400,
+        "Units": "cells/mm3",
+        "data": [
+          {
+            "measurement": 318,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 260,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 367,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 343,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 207,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 304,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 173,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 215,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 289,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "MPV": {
+        "Name": "MPV",
+        "Min": 7.4,
+        "Max": 10.4,
+        "Units": "um3",
+        "data": [
+          {
+            "measurement": 8.3,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 7.7,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 9,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 8.5,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 9.6,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 9,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 9.2,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 8.5,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 9.4,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PULSE": {
+        "Name": "Pulse",
+        "Min": 60,
+        "Max": 100,
+        "Units": "beats/min",
+        "data": [
+          {
+            "measurement": 90,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 81,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 79,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 77,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 72,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 80,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 70,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 83,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 98,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "RESP RATE": {
+        "Name": "Resp Rate",
+        "Min": 12,
+        "Max": 18,
+        "Units": "breaths/min",
+        "data": [
+          {
+            "measurement": 15,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 13,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 15,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 15,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 18,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 17,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 14,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 15,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 14,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "TEMP": {
+        "Name": "Temp",
+        "Min": 96.6,
+        "Max": 100.4,
+        "Units": "F",
+        "data": [
+          {
+            "measurement": 97.6,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 99.9,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 98.3,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 97.2,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 97.4,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 99.5,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 98.3,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 97.9,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 99.1,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "SYS BP": {
+        "Name": "Sys BP",
+        "Min": 90,
+        "Max": 120,
+        "Units": "mmHg",
+        "data": [
+          {
+            "measurement": 106,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 105,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 89,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 108,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 116,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 104,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 105,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 109,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 101,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "DIA BP": {
+        "Name": "Dia BP",
+        "Min": 60,
+        "Max": 80,
+        "Units": "mmHg",
+        "data": [
+          {
+            "measurement": 62,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 67,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 75,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 71,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 72,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 74,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 65,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 68,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 61,
+            "date": "12/16/2019"
+          }
+        ]
+      },
+      "PULSEOX": {
+        "Name": "PulseOx",
+        "Min": 96,
+        "Max": 100,
+        "Units": "%",
+        "data": [
+          {
+            "measurement": 98,
+            "date": "1/24/2019"
+          },
+          {
+            "measurement": 97,
+            "date": "2/23/2019"
+          },
+          {
+            "measurement": 96,
+            "date": "6/22/2019"
+          },
+          {
+            "measurement": 97,
+            "date": "7/21/2019"
+          },
+          {
+            "measurement": 96,
+            "date": "8/20/2019"
+          },
+          {
+            "measurement": 98,
+            "date": "9/19/2019"
+          },
+          {
+            "measurement": 99,
+            "date": "10/18/2019"
+          },
+          {
+            "measurement": 98,
+            "date": "11/17/2019"
+          },
+          {
+            "measurement": 98,
+            "date": "12/16/2019"
+          }
+        ]
+      }
+    }
+  }
+
+
