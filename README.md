@@ -54,7 +54,7 @@ npm start
 The application should be now be running on http://localhost:3000/#
 
 To view the application in a demo view frame navigate to
-file:///C:/Users/your/file/path/problemDashboard/views/demo/frame.html<br>
+C:/Users/your/file/path/problemDashboard/views/demo/frame.html<br>
 
 ### Accessing the SQLite Database
 

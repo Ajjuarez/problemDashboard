@@ -69,15 +69,46 @@
                     <!-- Lists modules (procedure)-->
                     <div id="procedure" class="moduleContainer">
                         <div class="labeledBox">
-                            <!-- <div class="labelContainer">
-                                <div class="label">Label Here</div>
-                            </div> -->
+                            <!-- label & Tabs -->
+                            <div class="labelContainer">
+                                <div id="noteName" class="label">Procedures</div>
 
-                            <div class="listContainer">
-                                <p class="temp">Procedure List</p>
+                                <ul class="tabrow2">
+                                    <li><a href="javascript:rudrSwitchTab2('tb_5', 'content_5');" id="tb_5" class="tabmenu2 active2" title='Specialty Note'><span class="hidetab2" id="tab5"></span></a></li>
+                                    <li><a href="javascript:rudrSwitchTab2('tb_6', 'content_6');" id="tb_6" class="tabmenu2" title='Discharge Note'><span class="hidetab2" id="tab6"></span></a></li>
+                                    <li><a href="javascript:rudrSwitchTab2('tb_7', 'content_7');" id="tb_7" class="tabmenu2" title='Specialty Note'><span class="hidetab2" id="tab7"></span></a></li>
+                                    <li><a href="javascript:rudrSwitchTab2('tb_8', 'content_8');" id="tb_8" class="tabmenu2" title='Other'><span class="hidetab2" id="tab8">Other</span></a></li>
+                                </ul>
+                            </div>
+                            <!-- Note -->
+                            <div class="displayTextContainer">
+
+                                <div id="content_5" class="tabcontent2" style="display:block;">
+                                    <!-- <span id="notename1"></span> -->
+                                    <p><span id="insertContent5" class="content"></span>
+                                    <a href="#modal5" rel="modal:open" class="read-more">Read more &raquo;</a></p>
+                                </div> 
+
+                                <div id="content_6" class="tabcontent2" style="display:block;visibility:hidden;">
+                                    <!-- <span id="notename1"></span> -->
+                                    <p><span id="insertContent6" class="content"></span>
+                                    <a href="#modal6" rel="modal:open"class="read-more">Read more &raquo;</a></p>
+                                </div>
+                                <div id="content_7" class="tabcontent2" style="display:block;visibility:hidden;">
+                                    <!-- <span id="notename1"></span> -->
+                                    <p><span id="insertContent7" class="content"></span>
+                                    <a href="#modal7" rel="modal:open" class="read-more">Read more &raquo;</a></p>
+                                </div>
+                                <div id="content_8" class="tabcontent2" style="display:block;visibility:hidden;">
+                                    <!-- <span id="notename1"></span> -->
+                                    <!-- <p><span id="insertContent4" class="content"></span>
+                                    <a href="#/" class="read-more">Read more &raquo;</a></p> -->
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
+
 
                     <!-- Lists modules 2 (lab)-->
                     <div id="labs" class="moduleContainer">
@@ -87,7 +118,7 @@
                             </div> -->
 
                             <div class="listContainer">
-                                <div id="example-table"></div>
+                                <div class="tables" id="labs-table"></div>
                             </div>
                         </div>
                     </div>
@@ -113,7 +144,7 @@
                             </div> -->
 
                             <div class="listContainer">
-                                <p class="temp">Medication List</p>
+                                <div class="tables" id="meds-table"></div>
                             </div>
                         </div>
                     </div>

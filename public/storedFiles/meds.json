@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Simvastatin",
+    "dose": 10,
+    "dose unit": "mg",
+    "freq": "qd",
+    "route": "PO",
+    "last fill date": "2/15/2020",
+    "coverage": "100%",
+    "anticipated remaining fills": 2
+  },
+  {
+    "name": "Lisinopril",
+    "dose": 5,
+    "dose unit": "mg",
+    "freq": "qd",
+    "route": "PO",
+    "last fill date": "2/15/2020",
+    "coverage": "100%",
+    "anticipated remaining fills": 2
+  },
+  {
+    "name": "Levothyroxine",
+    "dose": 12.5,
+    "dose unit": "mcg",
+    "freq": "qd",
+    "route": "PO",
+    "last fill date": "11/21/2018",
+    "coverage": "0%",
+    "anticipated remaining fills": 0
+  },
+  {
+    "name": "Azithromycin",
+    "dose": 250,
+    "dose unit": "mg",
+    "freq": "qd",
+    "route": "PO",
+    "last fill date": "12/4/2019",
+    "coverage": "--",
+    "anticipated remaining fills": 0
+  },
+  {
+    "name": "Metformin",
+    "dose": 500,
+    "dose unit": "mg",
+    "freq": "bid",
+    "route": "PO",
+    "last fill date": "2/15/2020",
+    "coverage": "83%",
+    "anticipated remaining fills": 9
+  },
+  {
+    "name": "Lipitor",
+    "dose": 20,
+    "dose unit": "mg",
+    "freq": "qd",
+    "route": "PO",
+    "last fill date": "12/29/2019",
+    "coverage": "67%",
+    "anticipated remaining fills": 2
+  },
+  {
+    "name": "Amlodipine",
+    "dose": 10,
+    "dose unit": "mg",
+    "freq": "qd",
+    "route": "PO",
+    "last fill date": "7/12/2017",
+    "coverage": "0%",
+    "anticipated remaining fills": 0
+  },
+  {
+    "name": "Amoxicillin",
+    "dose": 500,
+    "dose unit": "mg",
+    "freq": "q8h",
+    "route": "PO",
+    "last fill date": "12/17/2019",
+    "coverage": "--",
+    "anticipated remaining fills": 0
+  }
+]

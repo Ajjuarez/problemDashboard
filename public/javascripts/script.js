@@ -118,8 +118,9 @@ noteFunction(0,'insertContent1', 'tab1', 'content_1','insert1', 'note1', 'author
 noteFunction(1,'insertContent2', 'tab2', 'content_2','insert2', 'note2', 'author2','date2');
 noteFunction(2,'insertContent3','tab3', 'content_3','insert3', 'note3', 'author3','date3');
 // noteFunction(3,'insertContent4','tb_4', 'content_4');
-
-
+noteFunction(4,'insertContent5','tab5', 'content_5','insert5', 'note5', 'author5','date5');
+noteFunction(5,'insertContent6','tab6', 'content_6','insert6', 'note6', 'author6','date6');
+// noteFunction(6,'insertContent7','tab7', 'content_7','insert7', 'note7', 'author7','date7');
 
 
 
@@ -144,7 +145,24 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 	document.getElementById(rudr_tab_id).className = 'tabmenu active';
 }
 
-
+// // Tabs for notes- from https://rudrastyh.com/javascript/tabs.html
+function rudrSwitchTab2(rudr_tab_id2, rudr_tab_content2) {
+	// first of all we get all tab content blocks (I think the best way to get them by class names)
+	var x = document.getElementsByClassName("tabcontent2");
+	var i;
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = 'none'; // hide all tab content
+	}
+	document.getElementById(rudr_tab_content2).style.display = 'block'; // display the content of the tab we need
+	document.getElementById(rudr_tab_content2).style.visibility = 'visible';
+	// now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
+	var x = document.getElementsByClassName("tabmenu2");
+	var i;
+	for (i = 0; i < x.length; i++) {
+		x[i].className = 'tabmenu2'; 
+	}
+	document.getElementById(rudr_tab_id2).className = 'tabmenu2 active2';
+}
 // copy from free text note
 function copyFunction() {
 	var copyText = document.getElementById("editableText");
@@ -528,7 +546,7 @@ labFunction("calcium", "name6", "chart6");
 
 
 // Read in JSON for physician notes 
-var url="storedFiles/test.json"
+var url="storedFiles/labs.json"
 var request = new XMLHttpRequest();  
 request.open("GET", url, false);   
 request.send(null);  
@@ -538,12 +556,12 @@ var jsonObject = request.responseText;
 var tableData = JSON.parse(jsonObject);
 
 
-var table = new Tabulator("#example-table", {
+var table = new Tabulator("#labs-table", {
 	height:200, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
 	data:tableData, //assign data to table
 	layout:"fitColumns", //fit columns to width of table (optional)
 	columns:[ //Define Table Columns
-		{title:"Name", field:"Name"},
+		{title:"Lab", field:"Name"},
 		{title:"Value", field:"measurement"},
 		// {title:"Min", field:"Min"},
 		// {title:"Max",field:"Max"},
@@ -557,3 +575,32 @@ var table = new Tabulator("#example-table", {
 
 
 
+// Read in JSON for physician notes 
+var url="storedFiles/meds.json"
+var request = new XMLHttpRequest();  
+request.open("GET", url, false);   
+request.send(null);  
+
+//create new array to store notes
+var jsonObject = request.responseText;
+var tableData = JSON.parse(jsonObject);
+
+
+var table = new Tabulator("#meds-table", {
+	height:200, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+	data:tableData, //assign data to table
+	// layout:"fitColumns", //fit columns to width of table (optional)
+	columns:[ //Define Table Columns
+		{title:"Med", field:"name"},
+		{title:"Dose", field:"dose"},
+		{title:"Unit", field:"dose unit"},
+		{title:"Freq",field:"freq"},
+		{title:"Route", field:"route"},
+		{title:"Last Fill", field:"last fill date"},
+		{title:"Coverage", field:"coverage"},
+		{title:"Remaining Fills", field:"anticipated remaining fills"}
+	],
+	rowClick:function(e, row){ //trigger an alert message when the row is clicked
+		// alert("Row " + row.getData().id + " Clicked!!!!");
+	},
+});

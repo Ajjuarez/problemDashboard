@@ -16,6 +16,7 @@ html {
   box-sizing: inherit;
 }
 
+/* scollbar options  */
 /* hide scroll bar  */
 html {
   overflow: scroll;
@@ -29,7 +30,6 @@ html {
 ::-webkit-scrollbar-thumb {
   /* background: #FF0000; */
 }
-
 
 
 /* browser upgrade prompt */
@@ -152,6 +152,8 @@ surrounding software. An example of implimentation can be seen in the index.html
 
 .interface {
   width: 100%;
+  max-width: 3000px;
+  margin:auto;
   /* height:100vh; */
 } 
 
@@ -169,6 +171,7 @@ surrounding software. An example of implimentation can be seen in the index.html
   overflow: hidden;
   position: fixed;
   width:100%;
+  /* max-width: 3000px; */
   z-index: 5;
   top: 0;
   left: 0;
@@ -538,7 +541,7 @@ screen width is narrow*/
 }
 
 /* Tabs */
-.tabrow {
+.tabrow,.tabrow2 {
   list-style: none;
   margin: 0;
   width:100%;
@@ -551,7 +554,7 @@ screen width is narrow*/
   /* text-overflow: ellipsis; */
   
 }
-.tabrow li {
+.tabrow li, .tabrow2 li {
   border-bottom: none;
   border:1px solid #E8E8E8;
   background-color: white;
@@ -561,10 +564,10 @@ screen width is narrow*/
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.tabrow a{
+.tabrow a, .tabrow2 a{
   color:rgb(158, 158, 158);
 }
-.tabrow a.active{
+.tabrow a.active, .tabrow2 a.active{
   color: #4c8bf5;
   margin:2px;
   /* font-weight: bold; */
@@ -572,15 +575,15 @@ screen width is narrow*/
   text-decoration: none;
   padding:
 }
-.tabrow a:hover{
+.tabrow a:hover, .tabrow2 a:hover{
   text-decoration: none;
 }
 
-.tabmenu::after{
+.tabmenu::after, .tabmenu2::after{
 content:'...';
 }
 
-.hidetab{
+.hidetab, .hidetab2{
   display:none;
 }
 /* ===========
@@ -592,7 +595,7 @@ content:'...';
   /* background-color: lightgoldenrodyellow; */
 
 }
-#example-table{
+.tables{
 /* background-color: lightcoral; */
 height:100%;
 width:100%;
@@ -719,6 +722,7 @@ width:100%;
   height:100%;
   color:rgb(224, 224, 224);
   text-align: center;
+  padding-top:10%;
 }
 
 /* ==============
@@ -806,7 +810,7 @@ width:100%;
     margin:0 auto;
     grid-template-columns: 50% 50%;
     grid-template-rows: 15% 20% 20% 20% 20%;
-    grid-gap:2px;
+    grid-gap:4px;
     /* background-color: thistle; */
     }
 
@@ -885,10 +889,10 @@ width:100%;
     width: 40%;
   }
 
-  .tabmenu::after{
+  .tabmenu::after, .tabmenu2::after{
     display:none;
     }
-    .hidetab{
+    .hidetab, .hidetab2{
       display: inherit;
     }
   
@@ -923,7 +927,7 @@ width:100%;
   .optionBar button {
     min-width: 60px;
   }
-  #example-table{
+  .tables{
     height:100%;
 
   }
