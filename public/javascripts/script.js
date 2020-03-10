@@ -13,7 +13,7 @@
 //code goes here need to figure this out
 
 // Searchbar
-//autofill searchbar
+//autofill searchbar, this is a dependancy we need to get rid of. This is for example purposes. 
 	new Def.Autocompleter.Search('icd10', 'https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&df=code,name',
 	{tableFormat: true, valueCols: [0,1], colHeaders: ['Code', 'Name']});
 	//console.log(Autocompleter[valueCols]);
@@ -62,8 +62,18 @@ var docNote = JSON.parse(jsonObject);
 
 // console.log(docNote);
 
-function noteFunction(noteIndexNumber, contentLocation, specialtyLocation, contentContainer,modalLoc, noteTitleLoc, noteAuthLoc,noteDateLoc){
+function noteFunction(noteIndexNumber, locationNumber){
 	
+	// pointers to where the data will go in the webpage. These are all listed numerically in order so no need for guess work 
+	var contentLocation = 'insertContent' + locationNumber
+	var specialtyLocation='tab'+ locationNumber
+	var contentContainer='content_'+locationNumber
+	var modalLoc='insert'+locationNumber
+	var noteTitleLoc ='note'+locationNumber
+	var noteAuthLoc='author' +locationNumber
+	var noteDateLoc='date'+locationNumber
+
+
 	//note name
 	var noteType= docNote[noteIndexNumber].type;
 	// insert into html
@@ -86,14 +96,17 @@ function noteFunction(noteIndexNumber, contentLocation, specialtyLocation, conte
 
 	//content of note
 	var noteContent=docNote[noteIndexNumber].content;
-
+	//format notes
 	var noteContentUpdate=noteContent.replace(/\n/g,"<br>");
+
 	// Insert into HTML
 	document.getElementById(contentLocation).innerHTML= noteContentUpdate;
 	document.getElementById(modalLoc).innerHTML=noteContentUpdate;
 	// console.log(noteContentUpdate);
 
-	//Truncate text in text display with jquery dotdotdot 
+	//Truncate text in text display with jquery dotdotdot: if you want to continue to troubleshoot a more responsive
+	//fix for content truncating, this might work with more debugging. I have left the dependancies commented out in
+	//the footer.ejs if you want to try this again. You need to remove all instances of -webkit-line-clamp from styles.css first.
 
 	// document.addEventListener( "DOMContentLoaded", () => {
 	// 	var text = document.getElementById(contentContainer);
@@ -113,15 +126,15 @@ function noteFunction(noteIndexNumber, contentLocation, specialtyLocation, conte
 	
 }
 
-//FIX THESE SO ONLY TWO ARGUMENTS ARE BEING PASSED
-noteFunction(0,'insertContent1', 'tab1', 'content_1','insert1', 'note1', 'author1','date1');
-noteFunction(1,'insertContent2', 'tab2', 'content_2','insert2', 'note2', 'author2','date2');
-noteFunction(2,'insertContent3','tab3', 'content_3','insert3', 'note3', 'author3','date3');
-// noteFunction(3,'insertContent4','tb_4', 'content_4');
-noteFunction(4,'insertContent5','tab5', 'content_5','insert5', 'note5', 'author5','date5');
-noteFunction(5,'insertContent6','tab6', 'content_6','insert6', 'note6', 'author6','date6');
-// noteFunction(6,'insertContent7','tab7', 'content_7','insert7', 'note7', 'author7','date7');
-
+//note function fills all the note spaces and modals. Arguments passed are the index number of the note in its file, and the location number 
+//for where it will reside in the html
+noteFunction(0,'1');
+noteFunction(1,'2');
+noteFunction(2,'3');
+// noteFunction(3,'4'); //-'other' tab
+noteFunction(4,'5');
+noteFunction(5,'6');
+// noteFunction(6,'7'); //-'other' tab
 
 
 
@@ -145,7 +158,7 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 	document.getElementById(rudr_tab_id).className = 'tabmenu active';
 }
 
-// // Tabs for notes- from https://rudrastyh.com/javascript/tabs.html
+// // Tabs for procedures- from https://rudrastyh.com/javascript/tabs.html
 function rudrSwitchTab2(rudr_tab_id2, rudr_tab_content2) {
 	// first of all we get all tab content blocks (I think the best way to get them by class names)
 	var x = document.getElementsByClassName("tabcontent2");
@@ -163,7 +176,8 @@ function rudrSwitchTab2(rudr_tab_id2, rudr_tab_content2) {
 	}
 	document.getElementById(rudr_tab_id2).className = 'tabmenu2 active2';
 }
-// copy from free text note
+
+// copy function to grap text from free text note
 function copyFunction() {
 	var copyText = document.getElementById("editableText");
 	copyText.select();
@@ -176,6 +190,7 @@ function copyFunction() {
   	tooltip.innerHTML = "Copied!";
   }
 
+  //tooltip for copy button
   function outFunc() {
 	var tooltip = document.getElementById("myTooltip");
 	tooltip.innerHTML = "Copy to clipboard";
@@ -300,7 +315,8 @@ var timechart = new Chart(y, {
 });
 
 
-// Read in CSV files 
+// Read in CSV files - unfortunately the data in the graphs is being pulled from two CSV files. I didnt have time to create and use a JSON file
+//file with the data
 var url="storedFiles/randLabGenGaus.csv"
 var request = new XMLHttpRequest();  
 request.open("GET", url, false);   
@@ -312,7 +328,7 @@ for (var i = 0; i < jsonObject.length; i++) {
   labs.push(jsonObject[i].split(','));
 }
 
-
+//file with the dates
 var url="storedFiles/randLabDates.csv"
 var request = new XMLHttpRequest();  
 request.open("GET", url, false);   
@@ -325,7 +341,7 @@ for (var i = 0; i < jsonObject.length; i++) {
 }
 
 
-// FUNCTION SHOULD START HERE AND IS PASSED A VALUE FOR THE ROW NUMBER 
+// graph FUNCTION SHOULD START HERE AND IS PASSED A VALUE FOR THE ROW NUMBER 
 //(The dates are on the same row and this value should not be changed)
 function labFunction(name, graphLabel, graphLocation){
 
@@ -443,7 +459,7 @@ function labFunction(name, graphLabel, graphLocation){
 					// autoSkip:false,
 					fontSize: 8,
 					beginAtZero: false,
-					
+					////this is where the yscale is created for the graphs, I did not have time to make this work as in the specs
 					// suggestedMin:rangeMin - 1,
 					// suggestedMax:rangeMax + 1,
 				// 	callback: function(value) {
@@ -589,7 +605,7 @@ var tableData = JSON.parse(jsonObject);
 var table = new Tabulator("#meds-table", {
 	height:200, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
 	data:tableData, //assign data to table
-	// layout:"fitColumns", //fit columns to width of table (optional)
+	layout:"fitColumns", //fit columns to width of table (optional)
 	columns:[ //Define Table Columns
 		{title:"Med", field:"name"},
 		{title:"Dose", field:"dose"},
@@ -604,3 +620,16 @@ var table = new Tabulator("#meds-table", {
 		// alert("Row " + row.getData().id + " Clicked!!!!");
 	},
 });
+
+
+// line on graph - am still trouble shooting
+$(wrap).on('mousemove', function(e) {
+	var xPos = e.pageX;
+	var yPos = e.pageY;
+	// console.log(xPos, yPos);
+	$('.line-out').css({
+	  'top': yPos-400,
+	  'left': xPos-10,
+	  
+	});
+  });

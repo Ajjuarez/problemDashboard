@@ -100,27 +100,6 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-/* IMAGES*/
-/* img {
-  width: 100%;
-  display: block;
-} */
-
-/* Links */
-/* a,
-a:hover,
-a:active,
-a:visited {
-  color: gray;
-} */
-
-/* clearfix - in case you decide to float elements */
-/* .group::after {
-  content: "";
-  display: table;
-  clear: both;
-} */
-
 
 
 /* ====================================================
@@ -131,24 +110,6 @@ the application with the following features.
 Width and height can be adjusted to suit the needs of the
 surrounding software. An example of implimentation can be seen in the index.html file
 ======================================================= */
-/* .whitespace .container {
-  width: 60%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-} */
-
-/* .whitespace .interface {
-  border: 1px solid #ccc;
-  border-top-left-radius: 5px;
-  margin: 10px;
-  min-width: 350px;
-  width: 100%;
-  background-color: white;
-  position: relative;
-} */
-
 
 .interface {
   width: 100%;
@@ -361,7 +322,8 @@ screen width is narrow*/
   overflow:hidden;
   /* background-color: lavenderblush; */
   }
- 
+
+  /* toggles for when hide graph is clicked */
   .toggleLayout{
     grid-template-rows: 15% 28% 28% 28% 28% !important;
     grid-template-columns: 50% 50% !important;
@@ -567,7 +529,7 @@ screen width is narrow*/
 .tabrow a, .tabrow2 a{
   color:rgb(158, 158, 158);
 }
-.tabrow a.active, .tabrow2 a.active{
+.tabrow a.active, .tabrow2 a.active2{
   color: #4c8bf5;
   margin:2px;
   /* font-weight: bold; */
@@ -628,6 +590,17 @@ width:100%;
   display:flex;
   flex-direction: column;
 } 
+#wrap{
+  top:0;
+  left:0;
+  position:relative !important;
+  /* background-color:pink; */
+  /* z-index:200; */
+  overflow:hidden;
+  /* background-color: aquamarine; */
+  
+}
+
 .graphLabelBox{
   width:12%;
 }
@@ -682,7 +655,23 @@ width:100%;
   max-height:60px;
   /* position:absolute; */
 }
-
+.line-out {
+  /*   border-radius: 50%; */
+    height: 1000px;
+  /*   width: 1px; */
+    border-right:dashed 1px red;
+    opacity:0.5;
+    position: absolute;
+  /*   padding: 5px; */
+    animation: grow .8s infinite;
+    /* z-index:100000000; */
+    background-color: chartreuse;
+  }
+  
+  canvas{
+    /* z-index: 1; */
+  }
+  
 
 /* Modal Container  */
 /* .modal{
@@ -701,7 +690,7 @@ width:100%;
    the screen size
    remove after devel
    ====================== */
-.SIZE {
+/* .SIZE {
   width: 20px;
   height: 20px;
   position: fixed;
@@ -714,7 +703,7 @@ width:100%;
 .SIZE:after {
   content: "XS";
   color: #000;
-}
+} */
 
 /* display of container names, remove after devel */
 .temp{
@@ -722,7 +711,11 @@ width:100%;
   height:100%;
   color:rgb(224, 224, 224);
   text-align: center;
-  padding-top:10%;
+  /* padding-top:10%; */
+  /* background-color: aquamarine; */
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ==============
@@ -843,39 +836,31 @@ width:100%;
     #graphs{
       grid-column: 2;
       grid-row: 2/5;
-      /* background-color: coral; */
-      /* display:flex;
-      flex-direction:column; */
     }
 
-    /* graph indiv labels  */
-    /* .labelContainerGraphs {
-      width:15%;
-      /* background-color:yellow; */
-    
-
-    /* graph scale  */
-    /* .scale {
-      width:85%;
-      /* background-color: yellow; */
-      /* .tabmenu{
-        display:none;
-      }
-       */
  
+       /* graph line  */
+
+
+
+
+
+
+
+
 /* ======================
    Colored box displaying 
    the screen size
    remove after devel
    ====================== */
-  .SIZE {
+  /* .SIZE {
     width: 25px;
     height: 20px;
     background-color: blue;
   }
   .SIZE:after {
     content: "SM";
-  }
+  } */
 
 }
 @media (min-width: 520px) {
@@ -908,14 +893,14 @@ width:100%;
    the screen size
    remove after devel
    ====================== */
-  .SIZE {
+  /* .SIZE {
     width: 34px;
     height: 20px;
     background-color: green;
   }
   .SIZE:after {
     content: "MED";
-  }
+  } */
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -936,14 +921,14 @@ width:100%;
    the screen size
    remove after devel
    ====================== */
-  .SIZE {
+  /* .SIZE {
     width: 20px;
     height: 20px;
     background-color: yellow;
    }
   .SIZE:after {
     content: "LG";
-  }
+  } */
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -955,7 +940,7 @@ width:100%;
    the screen size
    remove after devel
    ====================== */
-  .SIZE {
+  /* .SIZE {
     width: 20px;
     height: 20px;
     background-color: pink;
@@ -963,7 +948,7 @@ width:100%;
 
   .SIZE:after {
     content: "XL";
-  }
+  } */
 }
 
 
