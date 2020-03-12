@@ -3,7 +3,8 @@
 
 
                 <div id="layout" class="layout">
-                    <!-- Text module  -->
+
+                    <!-- Free Text module  -->
                     <div id="text" class="moduleContainer text">
                         <div class="labeledBox text">
                             <!-- labels and tabs go here if find you need them, they are already
@@ -11,8 +12,6 @@
                             <!-- <div class="labelContainer">
                                 <div class="label">Label Here</div>
                             </div> -->
-
-                            <!-- Note -->
                             <div class="editableTextContainer">
                                 <!-- text area for free note  -->
                                 <textarea id="editableText" class="editableText">Patient with long-standing hyperlipidemia and DM2, now with CKD stage III and MI in 2018. Currently on beta-blockers, diuretics</textarea>
@@ -23,13 +22,14 @@
                         </div>
                     </div>   
 
-                    <!-- Note module-->
+                    <!--clinician Note module-->
                     <div id ="note" class="moduleContainer">
                         <div class="labeledBox">
                             <!-- label & Tabs -->
                             <div class="labelContainer">
+                                <!-- label  -->
                                 <div id="noteName" class="label">Clinican Notes</div>
-
+                                <!-- tabs -->
                                 <ul class="tabrow">
                                     <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active" title='Specialty Note'><span class="hidetab" id="tab1"></span></a></li>
                                     <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu" title='Discharge Note'><span class="hidetab" id="tab2"></span></a></li>
@@ -39,7 +39,6 @@
                             </div>
                             <!-- Note -->
                             <div class="displayTextContainer">
-
                                 <div id="content_1" class="tabcontent" style="display:block;">
                                     <!-- <span id="notename1"></span> -->
                                     <p><span id="insertContent1" class="content"></span>
@@ -56,6 +55,7 @@
                                     <p><span id="insertContent3" class="content"></span>
                                     <a href="#modal3" rel="modal:open" class="read-more">Read more &raquo;</a></p>
                                 </div>
+                                <!-- 'other' tab  -->
                                 <div id="content_4" class="tabcontent" style="display:block;visibility:hidden;">
                                     <!-- <span id="notename1"></span> -->
                                     <!-- <p><span id="insertContent4" class="content"></span>
@@ -66,13 +66,14 @@
                         </div>
                     </div>
 
-                    <!-- Lists modules (procedure)-->
+                    <!-- procedures module-->
                     <div id="procedure" class="moduleContainer">
                         <div class="labeledBox">
                             <!-- label & Tabs -->
                             <div class="labelContainer">
+                                <!-- label -->
                                 <div id="noteName" class="label">Procedures</div>
-
+                                <!-- tabs -->
                                 <ul class="tabrow2">
                                     <li><a href="javascript:rudrSwitchTab2('tb_5', 'content_5');" id="tb_5" class="tabmenu2 active2" title='Specialty Note'><span class="hidetab2" id="tab5"></span></a></li>
                                     <li><a href="javascript:rudrSwitchTab2('tb_6', 'content_6');" id="tb_6" class="tabmenu2" title='Discharge Note'><span class="hidetab2" id="tab6"></span></a></li>
@@ -99,50 +100,47 @@
                                     <p><span id="insertContent7" class="content"></span>
                                     <a href="#modal7" rel="modal:open" class="read-more">Read more &raquo;</a></p>
                                 </div>
+                                <!-- 'other' tab  -->
                                 <div id="content_8" class="tabcontent2" style="display:block;visibility:hidden;">
                                     <!-- <span id="notename1"></span> -->
                                     <!-- <p><span id="insertContent4" class="content"></span>
                                     <a href="#/" class="read-more">Read more &raquo;</a></p> -->
-                                </div>
-                                
+                                </div>  
                             </div>
                         </div>
                     </div>
 
 
-                    <!-- Lists modules 2 (lab)-->
+                    <!-- Lab modules-->
                     <div id="labs" class="moduleContainer">
                         <div class="labeledBox">
                             <!-- <div class="labelContainer">
                                 <div class="label">Label Here</div>
                             </div> -->
-
                             <div class="listContainer">
                                 <div class="tables" id="labs-table"></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Lists modules 4 (social)-->
+                    <!-- Social module-->
                     <div id="social" class="moduleContainer">
                         <div class="labeledBox">
                             <!-- <div class="labelContainer">
                                 <div class="label">Label Here</div>
                             </div> -->
-
                             <div class="listContainer">
                                 <p class="temp">Social Determinants of Health</p>
                             </div>
                         </div>
                     </div>
               
-                    <!-- Lists modules 3 (meds)-->
+                    <!-- Medications Module-->
                     <div id="meds" class="moduleContainer">
                         <div class="labeledBox">
                             <!-- <div class="labelContainer">
                                 <div class="label">Label Here</div>
                             </div> -->
-
                             <div class="listContainer">
                                 <div class="tables" id="meds-table"></div>
                             </div>
@@ -153,7 +151,7 @@
                     <div id="graphs" class="graphModule">
                         <!-- Begin panel of 6 graphs  -->
                         <div class="panelOfGraphs">
-                            <!-- Graph 1 -->
+                            <!-- Labels for graphs -->
                             <div class="graphLabelBox">
                                 <div class="labelContainerGraphs">
                                     <div class="labelGraphs top">top</div>
@@ -178,7 +176,7 @@
                                 </div>
                             </div>
                         
-                            <!-- Graph 2 -->
+                            <!-- graphs -->
                             <div id="wrap" class="graphBox">
                                 <div class="graphContainer">
                                     <canvas id="time" class="chart"></canvas>
@@ -201,8 +199,11 @@
                                 <div class="graphContainer">
                                     <canvas id="chart6" class="chart"></canvas>
                                 </div>
-                                <div class="line-out"></div>
-                                <!-- time scale for graphs  -->
+
+                                <!-- uncomment the line below to show the drop line on graphs. I was able to make it work here https://codepen.io/lexitronics/pen/zYGpodJ but implimenting it to the problem dashboard
+                                    did not go as well, needs more debugging. -->
+                                <!-- <div class="line-out"></div> -->
+                               
                             </div>
                         </div>
                     </div>
